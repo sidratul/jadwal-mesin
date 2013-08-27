@@ -1,0 +1,19 @@
+header{
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 20px;
+}
+
+.-row{
+	background-color: #fffccc;
+	width: 1300px;
+	margin: 0 auto;
+}
+
+article{
+	background-color: rgba(100,50,30,.4);
+}
+
+aside{
+	background-color: rgba(10,60,130,.2);
+}
