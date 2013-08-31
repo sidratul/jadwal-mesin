@@ -1,14 +1,14 @@
 <%-- 
     Document   : layout
-    Created on : Aug 31, 2013, 4:55:25 PM
+    Created on : Aug 31, 2013, 7:00:45 PM
     Author     : sidratul
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib  prefix="decorator"  uri="http://www.opensymphony.com/sitemesh/decorator"%>
-<!DOCTYPE html lang="id">
-<html>
-<head>
+<%@taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<!DOCTYPE html>
+<html lang="id">
+    <head>
 	<title>Jadwal Mesin</title>
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit.css">
@@ -33,7 +33,7 @@
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.notify.js"></script>	
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/aplikasi.js"></script>
 </head>
-<body>
+<body>    
 	<header>
 		<h1>fakultas teknik jurusan mesin</h1>
 	</header>	
