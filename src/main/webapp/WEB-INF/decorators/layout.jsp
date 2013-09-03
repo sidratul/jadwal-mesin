@@ -32,12 +32,18 @@
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.button.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.notify.js"></script>	
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/aplikasi.js"></script>
+        <decorator:head></decorator:head>
 </head>
 <body>    
 	<header>
 		<h1>fakultas teknik jurusan mesin</h1>
 	</header>	
         <decorator:body ></decorator:body>
-	<footer>sdd</footer>
+        <footer>
+            <div class="tengah">
+                <div>Copyright &COPY; 2013</div>
+                <div>Teknik Informatika Universitas Pancasil</div>
+            </div>
+        </footer>
 </body>
 </html>
