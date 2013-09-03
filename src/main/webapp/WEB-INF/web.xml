@@ -12,8 +12,8 @@
     </servlet>
     
     <servlet-mapping>
-        <servlet-name>admin</servlet-name>
-        <url-pattern>admin/*</url-pattern>
+        <servlet-name>jadwal</servlet-name>
+        <url-pattern>jadwal/*</url-pattern>
     </servlet-mapping>
 
     <filter>
