@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : Sep 3, 2013, 9:32:29 AM
+    Author     : sidratul
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>

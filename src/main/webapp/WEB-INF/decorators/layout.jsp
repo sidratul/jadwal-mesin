@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <!DOCTYPE html>
 <html lang="id">
     <head>
@@ -37,7 +37,7 @@
 	<header>
 		<h1>fakultas teknik jurusan mesin</h1>
 	</header>	
-        <decorator:body></decorator:body>
-	<footer></footer>
+        <decorator:body ></decorator:body>
+	<footer>sdd</footer>
 </body>
 </html>
