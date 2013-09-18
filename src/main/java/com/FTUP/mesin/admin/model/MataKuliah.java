@@ -8,6 +8,6 @@ package com.FTUP.mesin.admin.model;
  *
  * @author sidratul
  */
-public class Matakuliah {
+public class MataKuliah {
     
 }
