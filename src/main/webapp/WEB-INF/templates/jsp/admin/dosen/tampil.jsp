@@ -31,18 +31,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <c:forEach items="${listDosen}" var="ld" varStatus="i">
+                        <c:forEach items="${listDosen}" var="ld" varStatus="i">
+                            <tr>
                                 <td>${i.count}</td>
-                                <td>${ld.NIDN}</td>
-                                <td>${ld.nama_Dosen}</td>
+                                <td>${ld.nidn}</td>
+                                <td>${ld.namaDosen}</td>
                                 <td>${ld.alamat}</td>
-                                <td>${ld.no_Telpon}</td>
+                                <td>${ld.noTelpon}</td>
                                 <td>${ld.email}</td>
-                                <td><a href="input?id=${ld.ID}">edit</a></td>
-                                <td><a href="hapus?id=${ld.ID}">hapus</a></td>
-                            </c:forEach>
-                        </tr>
+                                <td><a href="input?id=${ld.id}">edit</a></td>
+                                <td><a href="hapus?id=${ld.id}">hapus</a></td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </c:otherwise>

@@ -1,59 +1,59 @@
 package com.FTUP.mesin.admin.model;
 
 public class Dosen {
-    private Integer ID;
-    private String NIDN;
-    private String Nama_Dosen;
-    private String Alamat;
-    private String No_Telpon;
-    private String Email;
+    private Integer id;
+    private String nidn;
+    private String namaDosen;
+    private String alamat;
+    private String noTelpon;
+    private String email;
 
-    public Integer getID() {
-        return ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNIDN() {
-        return NIDN;
+    public String getNidn() {
+        return nidn;
     }
 
-    public void setNIDN(String NIDN) {
-        this.NIDN = NIDN;
+    public void setNidn(String nidn) {
+        this.nidn = nidn;
     }
 
-    public String getNama_Dosen() {
-        return Nama_Dosen;
+    public String getNamaDosen() {
+        return namaDosen;
     }
 
-    public void setNama_Dosen(String Nama_Dosen) {
-        this.Nama_Dosen = Nama_Dosen;
+    public void setNamaDosen(String namaDosen) {
+        this.namaDosen = namaDosen;
     }
 
     public String getAlamat() {
-        return Alamat;
+        return alamat;
     }
 
     public void setAlamat(String Alamat) {
-        this.Alamat = Alamat;
+        this.alamat = Alamat;
     }
 
-    public String getNo_Telpon() {
-        return No_Telpon;
+    public String getNoTelpon() {
+        return noTelpon;
     }
 
-    public void setNo_Telpon(String No_Telpon) {
-        this.No_Telpon = No_Telpon;
+    public void setNoTelpon(String noTelpon) {
+        this.noTelpon = noTelpon;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String Email) {
-        this.Email = Email;
+        this.email = Email;
     }
     
 }

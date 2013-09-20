@@ -6,4 +6,10 @@ import java.util.List;
 public interface DosenDao {
     public List<Dosen> getAllDosen();
     
+    public void saveDosen(Dosen dosen );
+    
+    public Dosen getDosenById(Integer id);
+    
+    public void deleteDosen(Integer id);
+    
 }
