@@ -16,6 +16,14 @@ public class DosenController {
     @RequestMapping("/tampil")
     public void tampilDosen(ModelMap modelMap){
         List<Dosen> dosens = dosenDao.getAllDosen();
+        for (Dosen dosen : dosens) {
+            System.out.println(dosen.getID());
+            System.out.println(dosen.getNIDN());
+            System.out.println(dosen.getNama_Dosen());
+            System.out.println(dosen.getAlamat());
+            System.out.println(dosen.getNo_Telpon());
+            System.out.println(dosen.getEmail());
+        }
         
         modelMap.addAttribute("listDosen",dosens);
     }

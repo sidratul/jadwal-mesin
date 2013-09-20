@@ -33,14 +33,14 @@
                     <tbody>
                         <tr>
                             <c:forEach items="${listDosen}" var="ld" varStatus="i">
-                                <th>${i.count}</th>
-                                <th>${ld.NIDN}</th>
-                                <th>${ld.Nama}</th>
-                                <th>${ld.Alamat}</th>
-                                <th>${ld.No_Telpon}</th>
-                                <th>${ld.Email}</th>
-                                <th><a href="input?id=${ld.ID}">edit</a></th>
-                                <th><a href="hapus?id=${ld.ID}">edit</a></th>
+                                <td>${i.count}</td>
+                                <td>${ld.NIDN}</td>
+                                <td>${ld.nama_Dosen}</td>
+                                <td>${ld.alamat}</td>
+                                <td>${ld.no_Telpon}</td>
+                                <td>${ld.email}</td>
+                                <td><a href="input?id=${ld.ID}">edit</a></td>
+                                <td><a href="hapus?id=${ld.ID}">hapus</a></td>
                             </c:forEach>
                         </tr>
                     </tbody>
