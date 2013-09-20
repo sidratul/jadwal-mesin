@@ -40,7 +40,7 @@ public class DosenDaoImp implements DosenDao{
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
     
-    public List<Dosen> getAllDosen() {
+    public List<Dosen> getAllDosen(){
         List<Dosen> dosens = jdbcTemplate.query(SQL_GETALL_DOSEN, new DosenParameterizedRowMapper());
         return dosens;
     }
