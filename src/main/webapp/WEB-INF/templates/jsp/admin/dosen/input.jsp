@@ -14,6 +14,7 @@
     </head>
     <body>
         <sf:form method="POST" action="input" modelAttribute="dosen">
+            <sf:hidden path="id"/>
             <sf:input path="nidn" placeholder="NIDN"/><br>
             <sf:input path="namaDosen" placeholder="Nama Dosen"/><br>
             <sf:input path="alamat" placeholder="Alamat"/><br>

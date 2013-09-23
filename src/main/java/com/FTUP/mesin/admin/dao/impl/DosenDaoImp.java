@@ -19,6 +19,8 @@ public class DosenDaoImp implements DosenDao{
     private static final String SQL_GETALL_DOSEN ="SELECT * FROM DOSEN";
     private static final String SQL_DOSEN_BYID ="SELECT * FROM DOSEN WHERE ID=?";
     private static final String SQL_DELETE_DOSEN_BYID ="DELETE FROM DOSEN WHERE ID=?";
+    private static final String SQL_UPDATE_DOSEN ="UPDATE `DOSEN` SET "
+            + "`NIDN` = ?,`Nama_Dosen` = ?,`Alamat` = ?,`No_Telpon` = ?,`Email` =? WHERE `ID` = ?";
     private static final String SQL_INSERT_DOSEN ="INSERT INTO `DOSEN`"
             + "(`NIDN`,`Nama_Dosen`,`Alamat`,`No_Telpon`,`Email`)VALUES(?,?,?,?,?)";
     private JdbcTemplate jdbcTemplate;    
@@ -51,7 +53,9 @@ public class DosenDaoImp implements DosenDao{
     
     public void saveDosen(Dosen dosen) {
         if(dosen.getId()!= null){
-            
+            jdbcTemplate.update(SQL_UPDATE_DOSEN,new Object[]{
+                dosen.getNidn(),dosen.getNamaDosen(),dosen.getAlamat(),dosen.getNoTelpon(),dosen.getEmail(),dosen.getId()
+            });
         }else{
             jdbcTemplate.update(SQL_INSERT_DOSEN, new Object[]{
                 dosen.getNidn(),dosen.getNamaDosen(),dosen.getAlamat(),dosen.getNoTelpon(),dosen.getEmail()

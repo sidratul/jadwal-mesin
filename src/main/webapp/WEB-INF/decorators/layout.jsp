@@ -36,7 +36,40 @@
 </head>
 <body>    
 	<header>
-		<h1>fakultas teknik jurusan mesin</h1>
+            <h1>fakultas teknik jurusan mesin</h1>
+            <ul class="-menu -tabs _active_ _bottom_">
+                <li>
+                    <a>jadwal</a>                    
+                </li>
+                <li>
+                    <a>matakuliah <i class="-caret"></i></a>
+                    <div class="-dropdown _bottom_">
+                        <div class="-arrow"></div>
+                        <ul class="-menu ">
+                            <li><a>tampil</a></li>
+                            <li><a>input</a></li>
+                        </ul>
+                    </div> 
+                </li>
+                <li>
+                    <a>dosen <i class="-caret"></i></a>
+                    <div class="-dropdown">
+                        <ul class="-menu ">
+                            <li><a>tampil</a></li>
+                            <li><a>input</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>dosen <i class="-caret"></i></a>
+                    <div class="-dropdown">
+                        <ul class="-menu ">
+                            <li><a>tampil</a></li>
+                            <li><a>input</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
 	</header>	
         <decorator:body ></decorator:body>
         <footer>

@@ -4,10 +4,12 @@ import com.FTUP.mesin.admin.model.MataKuliah;
 import java.util.List;
 
 public interface MataKuliahDao {
-    public void saveMatKul(MataKuliah mk);
-    
     public List<MataKuliah> getAllMatkul();
     
-    public MataKuliah getMatkulById();
+    public void saveMAtkul(MataKuliah mataKuliah);
+    
+    public MataKuliah getMatkulById(Integer id);
+    
+    public void deleteMatkul(Integer id);
     
 }
