@@ -15,12 +15,12 @@ import org.springframework.stereotype.Repository;
 public class MatakuliahDaoImp implements MataKuliahDao{
     
     private static final String SQL_GETALL_MATKUL = "SELECT * FROM MATAKULIAH";
-    private static final String SQL_MATKUL_BYID = "SELECT * FROM MATAKULIAH BY ID=?";
+    private static final String SQL_MATKUL_BYID = "SELECT * FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_DELETE_MATKUL = "DELETE FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_INSERT_MATKUL = "INSERT INTO `MATAKULIAH`"
             + "(`Kode_Matkul`,`Nama_Matkul`,`SKS`,`Semester`)VALUES(?,?,?,?)";
     private static final String SQL_UPDATE_MATKUL = "UPDATE `MATAKULIAH` SET "
-            + "`Kode_Matkul` = ? ,`Nama_Matkul` = ?,`SKS` = ? `Semester` = ? WHERE `ID` = ?";
+            + "`Kode_Matkul` = ? ,`Nama_Matkul` = ?,`SKS` = ?, `Semester` = ? WHERE `ID` = ?";
     
     private JdbcTemplate jdbcTemplate;
     
@@ -51,7 +51,7 @@ public class MatakuliahDaoImp implements MataKuliahDao{
     }
     
     public void saveMAtkul(MataKuliah mataKuliah) {
-        if(mataKuliah !=null){
+        if(mataKuliah.getId() !=null){
             jdbcTemplate.update(SQL_UPDATE_MATKUL, new Object[]{
                 mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getId()
             });

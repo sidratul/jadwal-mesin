@@ -75,7 +75,7 @@
         <footer>
             <div class="tengah">
                 <div>Copyright &COPY; 2013</div>
-                <div>Teknik Informatika Universitas Pancasila</div>
+                <div>Teknik Informatika Universitas asdfasd</div>
             </div>
         </footer>
 </body>
