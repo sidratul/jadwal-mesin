@@ -20,7 +20,7 @@
             <sf:input path="alamat" placeholder="Alamat"/><br>
             <sf:input path="noTelpon" placeholder="No Telpon"/><br>
             <sf:input path="email" placeholder="Email"/><br>
-            <button type="submit">simpan</button>
+            <input type="submit" value="tambah"/>
         </sf:form>
     </body>
 </html>
