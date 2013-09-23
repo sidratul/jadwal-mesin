@@ -21,3 +21,15 @@ aside{
 .tengah{
     text-align: center;
 }
+
+body {
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 20px;
+}

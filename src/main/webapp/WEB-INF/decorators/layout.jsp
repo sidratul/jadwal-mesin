@@ -37,41 +37,42 @@
 <body>    
 	<header>
             <h1>fakultas teknik jurusan mesin</h1>
-            <ul class="-menu -tabs _active_ _bottom_">
+            <ul class="-menu -tabs _active_ _TOP_">
                 <li>
                     <a>jadwal</a>                    
                 </li>
                 <li>
-                    <a>matakuliah <i class="-caret"></i></a>
-                    <div class="-dropdown _bottom_">
-                        <div class="-arrow"></div>
+                    <a>matakuliah<i class="-caret"></i></a>
+                    <div class="-dropdown">
+                        <ul class="-menu ">
+                            <li><a href="<%= request.getContextPath()%>/admin/matakuliah/tampil">tampil</a></li>
+                            <li><a href="<%= request.getContextPath()%>/admin/matakuliah/input">input</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>dosen <i class="-caret"></i></a>
+                    <div class="-dropdown">
+                        <ul class="-menu ">
+                            <li><a href="<%= request.getContextPath()%>/admin/dosen/tampil">tampil</a></li>
+                            <li><a href="<%= request.getContextPath()%>/admin/dosen/input">input</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a>pengumuman<i class="-caret"></i></a>
+                    <div class="-dropdown _bottom_">                        
                         <ul class="-menu ">
                             <li><a>tampil</a></li>
                             <li><a>input</a></li>
                         </ul>
                     </div> 
                 </li>
-                <li>
-                    <a>dosen <i class="-caret"></i></a>
-                    <div class="-dropdown">
-                        <ul class="-menu ">
-                            <li><a>tampil</a></li>
-                            <li><a>input</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li>
-                    <a>dosen <i class="-caret"></i></a>
-                    <div class="-dropdown">
-                        <ul class="-menu ">
-                            <li><a>tampil</a></li>
-                            <li><a>input</a></li>
-                        </ul>
-                    </div>
-                </li>
             </ul>
-	</header>	
-        <decorator:body ></decorator:body>
+	</header>
+        <div class="container">
+            <decorator:body ></decorator:body>
+        </div>
         <footer>
             <div class="tengah">
                 <div>Copyright &COPY; 2013</div>

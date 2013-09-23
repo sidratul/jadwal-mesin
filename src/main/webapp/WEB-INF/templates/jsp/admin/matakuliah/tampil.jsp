@@ -18,7 +18,7 @@
                 <h3>Data Matakuliah Kosong</h3>
             </c:when>
             <c:otherwise>
-                <table>
+                <table class="-table _striped_ _hovered_">
                     <thead>
                         <tr>
                             <th>#</th>
