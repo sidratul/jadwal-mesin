@@ -28,6 +28,7 @@
                             <th>SKS</th>
                             <th>Semester</th>
                             <th>ruang</th>
+                            <th>hari</th>
                             <th>keterangan</th>
                             <th colspan="2">&nbsp;</th>
                         </tr>
@@ -42,8 +43,9 @@
                                 <td>${lj.mataKuliah.sks}</td>
                                 <td>${lj.mataKuliah.semester}</td>
                                 <td>${lj.ruang}</td>
+                                <td>${lj.hari}</td>
                                 <td>${lj.keterangan}</td>
-                                <td><a href="edit?id=${lj.id}">edit</a></td>
+                                <td><a href="edit-jadwal?id=${lj.id}">edit</a></td>
                                 <td><a href="hapus?id=${lj.id}">tutup</a></td>
                             </tr>
                         </c:forEach>

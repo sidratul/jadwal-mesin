@@ -1,7 +1,9 @@
 package com.FTUP.mesin.admin.controller;
 
+import com.FTUP.mesin.admin.dao.DosenDao;
 import com.FTUP.mesin.admin.dao.JadwalDao;
 import com.FTUP.mesin.admin.dao.MataKuliahDao;
+import com.FTUP.mesin.admin.model.Dosen;
 import com.FTUP.mesin.admin.model.Jadwal;
 import com.FTUP.mesin.admin.model.MataKuliah;
 import java.util.List;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class JadwalController {
     
     @Autowired JadwalDao jadwalDao;
+    @Autowired DosenDao dosenDao;
     @Autowired MataKuliahDao mataKuliahDao;
     
     @RequestMapping("/tampil")
@@ -47,7 +50,9 @@ public class JadwalController {
     public void formEditJadwal(@RequestParam("id") Integer id,
     ModelMap modelMap){
         Jadwal jadwal = jadwalDao.getJadwalById(id);
+        List<Dosen> dosens = dosenDao.getAllDosen();
         modelMap.addAttribute("jadwal", jadwal);
+        modelMap.addAttribute("listDosen", dosens);
     }
     
     @RequestMapping(value = "/edit-jadwal" , method = RequestMethod.POST)
