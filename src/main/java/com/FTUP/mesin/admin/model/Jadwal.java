@@ -4,10 +4,12 @@ import java.util.Date;
 
 public class Jadwal {
     private Integer id;
+    private MataKuliah mataKuliah;
+    private Dosen dosen;
     private Date waktu;
     private Integer hari;
-    private Dosen dosen;
-    private MataKuliah mataKuliah;
+    private String ruang;
+    private String keterangan;
 
     public Integer getId() {
         return id;
@@ -33,6 +35,14 @@ public class Jadwal {
         this.hari = hari;
     }
 
+    public String getRuang() {
+        return ruang;
+    }
+
+    public void setRuang(String ruang) {
+        this.ruang = ruang;
+    }
+    
     public Dosen getDosen() {
         return dosen;
     }
@@ -48,4 +58,13 @@ public class Jadwal {
     public void setMataKuliah(MataKuliah mataKuliah) {
         this.mataKuliah = mataKuliah;
     }
+
+    public String getKeterangan() {
+        return keterangan;
+    }
+
+    public void setKeterangan(String keterangan) {
+        this.keterangan = keterangan;
+    }
+    
 }

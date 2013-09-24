@@ -39,7 +39,9 @@
                                 <td>${lm.sks}</td>
                                 <td>${lm.semester}</td>
                                 <td>${lm.kategori}</td>
-                                <td><a href="input?id=${lm.id}">tambahkan</a></td>
+                                <td>
+                                    <a href="proses-tambah?idMatkul=${lm.id}">tambahkan</a>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>

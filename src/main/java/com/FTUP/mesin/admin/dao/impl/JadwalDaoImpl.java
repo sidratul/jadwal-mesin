@@ -24,15 +24,16 @@ public class JadwalDaoImpl implements JadwalDao{
     
     private static final String SQL_GETALL_JADWAL="SELECT * FROM JADWAL ";
     private static final String SQL_DELETE_JADWAL="DELETE FROM JADWAL WHERE ID=?";
+    private static final String SQL_DELETE_SEMUA_JADWAL="DELETE FROM JADWAL";
     private static final String SQL_JADWAL_BYID="SELECT * FROM JADWAL WHERE ID=?";
     private static final String SQL_UPDATE_JADWAL="UPDATE `JADWAL` SET "
-            + "`ID_Matakuliah` = ?, `ID_Dosen` = ?, `Jam` = ?,`Hari` = ? WHERE `ID` = ?;";
+            + "`ID_Matakuliah` = ?, `ID_Dosen` = ?, `Jam` = ?,`Hari` = ?, `Ruang`=?,`Keterangan`=? WHERE `ID` = ?;";
     private static final String SQL_INSERT_JADWAL="INSERT INTO `JADWAL` "
-            + "(`ID_Matakuliah`,`ID_Dosen`,`Jam`,`Hari`)VALUES (?,?,?,?);";
+            + "(`ID_Matakuliah`,`ID_Dosen`,`Jam`,`Hari`,`Ruang`,`Keterangan`)VALUES (?,?,?,?,?,?);";
     
     
     private JdbcTemplate jdbcTemplate;
-        
+
     private class JadwalParameterizedRowMapper implements ParameterizedRowMapper<Jadwal>{   
     
         public Jadwal mapRow(ResultSet rs, int i) throws SQLException {
@@ -42,7 +43,8 @@ public class JadwalDaoImpl implements JadwalDao{
             jadwal.setDosen(dosenDao.getDosenById(rs.getInt("ID_Dosen")));
             jadwal.setWaktu(rs.getDate("Jam"));
             jadwal.setHari(rs.getInt("Hari"));
-            //jadwal.setWaktu(rs.getString("status"));
+            jadwal.setRuang(rs.getString("Ruang"));
+            jadwal.setKeterangan(rs.getString("Keterangan"));
             
             return jadwal;
         }
@@ -62,11 +64,16 @@ public class JadwalDaoImpl implements JadwalDao{
     public void saveJadwal(Jadwal jadwal) {
         if(jadwal.getId()!=null){
             jdbcTemplate.update(SQL_UPDATE_JADWAL, new Object[]{
-                jadwal.getMataKuliah().getId(),jadwal.getDosen().getId(),jadwal.getWaktu(),jadwal.getHari(),jadwal.getId()
+                jadwal.getMataKuliah().getId(),jadwal.getDosen().getId(),jadwal.getWaktu(),jadwal.getHari(),jadwal.getRuang(),jadwal.getKeterangan(),jadwal.getId()
             });
         }else{
             jdbcTemplate.update(SQL_UPDATE_JADWAL, new Object[]{
-                jadwal.getMataKuliah().getId(),jadwal.getDosen().getId(),jadwal.getWaktu(),jadwal.getHari()
+                jadwal.getMataKuliah().getId(),
+                jadwal.getDosen().getId(),
+                jadwal.getWaktu(),
+                jadwal.getHari(),
+                jadwal.getRuang(),
+                jadwal.getKeterangan()
             });
         }
     }
@@ -83,5 +90,8 @@ public class JadwalDaoImpl implements JadwalDao{
     public void deleteJadwal(Integer id) {
         jdbcTemplate.update(SQL_JADWAL_BYID, id);
     }
-    
+        
+    public void deleteSemuaJadwal() {
+        jdbcTemplate.update(SQL_DELETE_SEMUA_JADWAL);
+    }
 }

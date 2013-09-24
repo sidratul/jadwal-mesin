@@ -1,8 +1,6 @@
 package com.FTUP.mesin.admin.controller;
 
-import com.FTUP.mesin.admin.dao.DosenDao;
 import com.FTUP.mesin.admin.dao.MataKuliahDao;
-import com.FTUP.mesin.admin.model.Dosen;
 import com.FTUP.mesin.admin.model.MataKuliah;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

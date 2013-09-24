@@ -54,8 +54,8 @@ public class MatakuliahDaoImp implements MataKuliahDao{
         return mataKuliahs;
     }
     
-    public List<MataKuliah> getMatkulBySemester(Integer semester) {
-        List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_MATKUL_BYSEMESTER, new MatakuliahParameterizedRowMapper(),semester);
+    public List<MataKuliah> getMatkulBySemesterBukanJadwal(Integer semester) {
+        List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_MATKUL_BYSEMESTER_BUKANJADWAL, new MatakuliahParameterizedRowMapper(),semester);
         return mataKuliahs;
     }
     

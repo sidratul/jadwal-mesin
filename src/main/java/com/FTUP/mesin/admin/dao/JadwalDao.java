@@ -12,4 +12,6 @@ public interface JadwalDao {
     
     public void deleteJadwal(Integer id);
     
+    public void deleteSemuaJadwal();
+    
 }
