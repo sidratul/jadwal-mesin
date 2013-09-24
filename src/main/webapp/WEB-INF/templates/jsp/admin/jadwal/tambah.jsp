@@ -1,6 +1,6 @@
 <%-- 
-    Document   : tampil
-    Created on : Sep 23, 2013, 9:42:15 AM
+    Document   : tambah
+    Created on : Sep 24, 2013, 12:17:07 PM
     Author     : sidratul
 --%>
 
@@ -10,12 +10,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Tampil Matakuliah</title>
+        <title>JSP Page</title>
     </head>
     <body>
         <c:choose>
             <c:when test="${empty listMatkul}">
-                <h3>Data Matakuliah Kosong</h3>
+                <h3>Data matakuliah Kosong</h3>
             </c:when>
             <c:otherwise>
                 <table class="-table _striped_ _hovered_">
@@ -27,7 +27,7 @@
                             <th>SKS</th>
                             <th>Semester</th>
                             <th>Kategori</th>
-                            <th colspan="2">&nbsp;</th>
+                            <th>jadwal</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,12 +39,21 @@
                                 <td>${lm.sks}</td>
                                 <td>${lm.semester}</td>
                                 <td>${lm.kategori}</td>
-                                <td><a href="input?id=${lm.id}">edit</a></td>
-                                <td><a href="hapus?id=${lm.id}">hapus</a></td>
+                                <td><a href="input?id=${lm.id}">tambahkan</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
+                <div class="-group">
+                    <a class="-btn" href="tambah?semester=1">Semester 1</a>
+                    <a class="-btn" href="tambah?semester=2">Semester 2</a>
+                    <a class="-btn" href="tambah?semester=3">Semester 3</a>
+                    <a class="-btn" href="tambah?semester=4">Semester 4</a>
+                    <a class="-btn" href="tambah?semester=5">Semester 5</a>
+                    <a class="-btn" href="tambah?semester=6">Semester 6</a>
+                    <a class="-btn" href="tambah?semester=7">Semester 7</a>
+                    <a class="-btn" href="tambah?semester=8">Semester 8</a>
+                </div>
             </c:otherwise>
         </c:choose>
     </body>

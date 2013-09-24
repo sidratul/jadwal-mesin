@@ -6,6 +6,7 @@ public class MataKuliah {
     private String namaMatkul;
     private Integer sks;
     private Integer semester;
+    private String kategori;
 
     public Integer getId() {
         return id;
@@ -45,6 +46,14 @@ public class MataKuliah {
 
     public void setSemester(Integer semester) {
         this.semester = semester;
+    }
+
+    public String getKategori() {
+        return kategori;
+    }
+
+    public void setKategori(String kategori) {
+        this.kategori = kategori;
     }
     
 }

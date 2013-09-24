@@ -11,4 +11,5 @@ public interface JadwalDao {
     public Jadwal getJadwalById(Integer id);
     
     public void deleteJadwal(Integer id);
+    
 }

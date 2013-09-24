@@ -19,6 +19,10 @@
             <sf:input path="namaMatkul" placeholder="Nama Matakuliah"/><br>
             <sf:input path="sks" placeholder="SKS"/><br>
             <sf:input path="semester" placeholder="Smester"/><br>
+            <sf:select path="kategori" placeholder="Kategori">
+                <sf:option value="wajib">wajib</sf:option>
+                <sf:option value="pilihan">pilihan</sf:option>
+            </sf:select> <br>
             <input type="submit" value="tambah" />
         </sf:form>
     </body>

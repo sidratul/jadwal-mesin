@@ -6,6 +6,8 @@ import java.util.List;
 public interface MataKuliahDao {
     public List<MataKuliah> getAllMatkul();
     
+    public List<MataKuliah> getMatkulBySemester(Integer semester);
+    
     public void saveMAtkul(MataKuliah mataKuliah);
     
     public MataKuliah getMatkulById(Integer id);

@@ -6,15 +6,21 @@ import com.FTUP.mesin.admin.dao.MataKuliahDao;
 import com.FTUP.mesin.admin.model.Jadwal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
 @Repository("jadwalDao")
 public class JadwalDaoImpl implements JadwalDao{
+    
+    @Autowired private MataKuliahDao mataKuliahDao;
+    @Autowired private DosenDao dosenDao;
+    
     
     private static final String SQL_GETALL_JADWAL="SELECT * FROM JADWAL ";
     private static final String SQL_DELETE_JADWAL="DELETE FROM JADWAL WHERE ID=?";
@@ -26,24 +32,21 @@ public class JadwalDaoImpl implements JadwalDao{
     
     
     private JdbcTemplate jdbcTemplate;
+        
+    private class JadwalParameterizedRowMapper implements ParameterizedRowMapper<Jadwal>{   
     
-    private static final class JadwalParameterizedRowMapper implements ParameterizedRowMapper<Jadwal>{
-        @Autowired
-        private MataKuliahDao mataKuliahDao;
-        
-        @Autowired
-        private DosenDao dosenDao;
-        
         public Jadwal mapRow(ResultSet rs, int i) throws SQLException {
             Jadwal jadwal = new Jadwal();
             jadwal.setId(rs.getInt("ID"));
-            jadwal.setHari(rs.getInt("Hari"));
-            jadwal.setWaktu(rs.getDate("Jam"));
             jadwal.setMataKuliah(mataKuliahDao.getMatkulById(rs.getInt("ID_Matakuliah")));
             jadwal.setDosen(dosenDao.getDosenById(rs.getInt("ID_Dosen")));
+            jadwal.setWaktu(rs.getDate("Jam"));
+            jadwal.setHari(rs.getInt("Hari"));
+            //jadwal.setWaktu(rs.getString("status"));
             
             return jadwal;
         }
+        
     }
     
     @Autowired

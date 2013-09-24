@@ -15,12 +15,15 @@ import org.springframework.stereotype.Repository;
 public class MatakuliahDaoImp implements MataKuliahDao{
     
     private static final String SQL_GETALL_MATKUL = "SELECT * FROM MATAKULIAH";
+    private static final String SQL_MATKUL_BYSEMESTER_BUKANJADWAL = "SELECT m.ID, m.Kode_Matkul,m.Nama_Matkul ,m.SKS, m.Semester,m.Kategori "
+            + "FROM MATAKULIAH m RIGHT JOIN JADWAL j ON m.ID !=j.ID_Matakuliah WHERE Semester=?";
+    private static final String SQL_MATKUL_BYSEMESTER = "SELECT * FROM MATAKULIAH WHERE SEMESTER=?";
     private static final String SQL_MATKUL_BYID = "SELECT * FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_DELETE_MATKUL = "DELETE FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_INSERT_MATKUL = "INSERT INTO `MATAKULIAH`"
-            + "(`Kode_Matkul`,`Nama_Matkul`,`SKS`,`Semester`)VALUES(?,?,?,?)";
+            + "(`Kode_Matkul`,`Nama_Matkul`,`SKS`,`Semester`,`Kategori`)VALUES(?,?,?,?)";
     private static final String SQL_UPDATE_MATKUL = "UPDATE `MATAKULIAH` SET "
-            + "`Kode_Matkul` = ? ,`Nama_Matkul` = ?,`SKS` = ?, `Semester` = ? WHERE `ID` = ?";
+            + "`Kode_Matkul` = ? ,`Nama_Matkul` = ?,`SKS` = ?, `Semester` = ?, `Kategori`=? WHERE `ID` = ?";
     
     private JdbcTemplate jdbcTemplate;
     
@@ -34,6 +37,7 @@ public class MatakuliahDaoImp implements MataKuliahDao{
             mataKuliah.setNamaMatkul(rs.getString("Nama_Matkul"));
             mataKuliah.setSks(rs.getInt("SKS"));
             mataKuliah.setSemester(rs.getInt("Semester"));
+            mataKuliah.setKategori(rs.getString("Kategori"));
             
             return mataKuliah;
         }
@@ -50,14 +54,19 @@ public class MatakuliahDaoImp implements MataKuliahDao{
         return mataKuliahs;
     }
     
+    public List<MataKuliah> getMatkulBySemester(Integer semester) {
+        List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_MATKUL_BYSEMESTER, new MatakuliahParameterizedRowMapper(),semester);
+        return mataKuliahs;
+    }
+    
     public void saveMAtkul(MataKuliah mataKuliah) {
         if(mataKuliah.getId() !=null){
             jdbcTemplate.update(SQL_UPDATE_MATKUL, new Object[]{
-                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getId()
+                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategori(),mataKuliah.getId()
             });
         }else{
             jdbcTemplate.update(SQL_INSERT_MATKUL, new Object[]{
-                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester()
+                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategori()
             });
         }
     }

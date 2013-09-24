@@ -39,7 +39,13 @@
             <h1>fakultas teknik jurusan mesin</h1>
             <ul class="-menu -tabs _active_ _TOP_">
                 <li>
-                    <a>jadwal</a>                    
+                    <a>jadwal<i class="-caret"></i></a>
+                    <div class="-dropdown">
+                        <ul class="-menu ">
+                            <li><a href="<%= request.getContextPath()%>/admin/jadwal/tampil">tampil</a></li>
+                            <li><a href="<%= request.getContextPath()%>/admin/jadwal/tambah">tambah jadwal</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a>matakuliah<i class="-caret"></i></a>
