@@ -33,13 +33,7 @@ public class DosenController {
     }
     
     @RequestMapping(value = "/input",method = RequestMethod.POST)
-    public String prosesInutDosen(@ModelAttribute Dosen dosen,ModelMap modelMap){
-        
-//        System.out.println(dosen.getNidn());
-//        System.out.println(dosen.getNamaDosen());
-//        System.out.println(dosen.getAlamat());
-//        System.out.println(dosen.getNoTelpon());
-//        System.out.println(dosen.getEmail());
+    public String prosesInutDosen(@ModelAttribute Dosen dosen,ModelMap modelMap){        
         dosenDao.saveDosen(dosen);
         return "redirect:tampil";
     }

@@ -39,11 +39,7 @@ public class JadwalController {
     
     @RequestMapping("/proses-tambah")
     public String prosesTambahMatkulToJadwal(@RequestParam("idMatkul") Integer idMatkul){
-        MataKuliah mataKuliah = new MataKuliah();
-        mataKuliah.setId(idMatkul);
-        Jadwal jadwal = new Jadwal();
-        jadwal.setMataKuliah(mataKuliah);
-        jadwalDao.saveJadwal(jadwal);
+        jadwalDao.saveJadwalHanyaMatakuliah(idMatkul);
         return "redirect:tambah";
     }
     
@@ -58,19 +54,19 @@ public class JadwalController {
     public String prosesEditJadwal(@ModelAttribute Jadwal jadwal,
     ModelMap modelMap){
         jadwalDao.saveJadwal(jadwal);
-        return "redirect:tampil";
+        return "redirect:/tampil";
     }
     
     @RequestMapping("/hapus")
-    public String tutupJadwalMatkul(@ModelAttribute("id") Integer id,
+    public String tutupJadwalMatkul(@RequestParam("id") Integer id,
     ModelMap modelMap){
         jadwalDao.deleteJadwal(id);
-        return "redirect:tampil";
+        return "redirect:/tampil";
     }
     
     @RequestMapping("/hapus-semua")
     public String hapusJadwal(ModelMap modelMap){
         jadwalDao.deleteSemuaJadwal();
-        return "redirect:tampil";
+        return "redirect:/tampil";
     }
 }

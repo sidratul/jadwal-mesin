@@ -40,7 +40,7 @@ public class MatakuliahController {
     }
     
     @RequestMapping("/hapus")
-    public String hapusMatkul(@ModelAttribute("id") Integer id,
+    public String hapusMatkul(@RequestParam("id") Integer id,
     ModelMap modelMap){
         mataKuliahDao.deleteMatkul(id);
         return "redirect:tampil";

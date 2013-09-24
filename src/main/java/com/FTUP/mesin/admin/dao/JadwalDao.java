@@ -8,6 +8,8 @@ public interface JadwalDao {
     
     public void saveJadwal(Jadwal jadwal);
     
+    public void saveJadwalHanyaMatakuliah(Integer idMatkul);
+    
     public Jadwal getJadwalById(Integer id);
     
     public void deleteJadwal(Integer id);

@@ -6,13 +6,11 @@ import com.FTUP.mesin.admin.dao.MataKuliahDao;
 import com.FTUP.mesin.admin.model.Jadwal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
 @Repository("jadwalDao")
@@ -30,6 +28,8 @@ public class JadwalDaoImpl implements JadwalDao{
             + "`ID_Matakuliah` = ?, `ID_Dosen` = ?, `Jam` = ?,`Hari` = ?, `Ruang`=?,`Keterangan`=? WHERE `ID` = ?;";
     private static final String SQL_INSERT_JADWAL="INSERT INTO `JADWAL` "
             + "(`ID_Matakuliah`,`ID_Dosen`,`Jam`,`Hari`,`Ruang`,`Keterangan`)VALUES (?,?,?,?,?,?);";
+    private static final String SQL_INSERT_JADWAL_HANYAMATAKULIAH="INSERT INTO `JADWAL` "
+            + "(`ID_Matakuliah`)VALUES (?);";
     
     
     private JdbcTemplate jdbcTemplate;
@@ -68,14 +68,13 @@ public class JadwalDaoImpl implements JadwalDao{
             });
         }else{
             jdbcTemplate.update(SQL_UPDATE_JADWAL, new Object[]{
-                jadwal.getMataKuliah().getId(),
-                jadwal.getDosen().getId(),
-                jadwal.getWaktu(),
-                jadwal.getHari(),
-                jadwal.getRuang(),
-                jadwal.getKeterangan()
+                jadwal.getMataKuliah().getId(),jadwal.getDosen().getId(),jadwal.getWaktu(),jadwal.getHari(),jadwal.getRuang(),jadwal.getKeterangan()
             });
         }
+    }
+    
+    public void saveJadwalHanyaMatakuliah(Integer idMatkul){
+        jdbcTemplate.update(SQL_INSERT_JADWAL_HANYAMATAKULIAH, idMatkul);
     }
 
     public Jadwal getJadwalById(Integer id) {
@@ -88,7 +87,7 @@ public class JadwalDaoImpl implements JadwalDao{
     }
 
     public void deleteJadwal(Integer id) {
-        jdbcTemplate.update(SQL_JADWAL_BYID, id);
+        jdbcTemplate.update(SQL_DELETE_JADWAL, id);
     }
         
     public void deleteSemuaJadwal() {

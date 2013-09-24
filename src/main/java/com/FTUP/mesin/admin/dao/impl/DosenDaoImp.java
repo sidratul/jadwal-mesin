@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Controller;
@@ -67,8 +68,12 @@ public class DosenDaoImp implements DosenDao{
         if(id==null){
             return null;
         }else{
-            Dosen dosen = jdbcTemplate.queryForObject(SQL_DOSEN_BYID, new DosenParameterizedRowMapper(),id);
-            return dosen;
+            try{
+                Dosen dosen = jdbcTemplate.queryForObject(SQL_DOSEN_BYID, new DosenParameterizedRowMapper(),id);
+                return dosen;
+            }catch(EmptyResultDataAccessException erdae){
+                return null;
+            }
         }
     }
 
