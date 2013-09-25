@@ -6,7 +6,8 @@ public class Jadwal {
     private Integer id;
     private MataKuliah mataKuliah;
     private Dosen dosen;
-    private Date waktu;
+    private Date jamMulai;
+    private Date jamSelesai;
     private Integer hari;
     private String ruang;
     private String keterangan;
@@ -19,14 +20,22 @@ public class Jadwal {
         this.id = id;
     }
 
-    public Date getWaktu() {
-        return waktu;
+    public Date getJamMulai() {
+        return jamMulai;
     }
 
-    public void setWaktu(Date waktu) {
-        this.waktu = waktu;
+    public void setJamMulai(Date jamMulai) {
+        this.jamMulai = jamMulai;
     }
 
+    public Date getJamSelesai() {
+        return jamSelesai;
+    }
+
+    public void setJamSelesai(Date jamSelesai) {
+        this.jamSelesai = jamSelesai;
+    }
+    
     public Integer getHari() {
         return hari;
     }

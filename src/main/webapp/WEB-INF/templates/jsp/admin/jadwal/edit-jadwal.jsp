@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,7 +25,8 @@
                     <sf:option value="${ld.id}">${ld.namaDosen}</sf:option>
                 </c:forEach>
             </sf:select><br>
-            jam : <sf:input type="time" path="waktu" step="30"/><br>
+            <fmt:formatDate pattern="HH:mm:ss" value="${jadwal.jamMulai}" var="valueJam"></fmt:formatDate>
+            jam : <input type="time" name="jamMulaiString" step="00" value="${valueJam}" required="required"/><br>
             ruang : <sf:input path="ruang" placeholder="Ruang"/><br>
             hari : 
             <sf:select path="hari">
@@ -45,6 +47,7 @@
                 <sf:option value="4">tugas</sf:option>
                 <sf:option value="5">sakit</sf:option>
             </sf:select><br>
+            <input type="submit" value="simpan"/>
         </sf:form>
     </body>
 </html>

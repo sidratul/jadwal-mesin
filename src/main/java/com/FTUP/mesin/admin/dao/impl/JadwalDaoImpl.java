@@ -6,6 +6,8 @@ import com.FTUP.mesin.admin.dao.MataKuliahDao;
 import com.FTUP.mesin.admin.model.Jadwal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,15 +38,27 @@ public class JadwalDaoImpl implements JadwalDao{
 
     private class JadwalParameterizedRowMapper implements ParameterizedRowMapper<Jadwal>{   
     
-        public Jadwal mapRow(ResultSet rs, int i) throws SQLException {
+        public Jadwal mapRow(ResultSet rs, int i) throws SQLException{
+            final long MENIT = 60l*1000l;
             Jadwal jadwal = new Jadwal();
             jadwal.setId(rs.getInt("ID"));
             jadwal.setMataKuliah(mataKuliahDao.getMatkulById(rs.getInt("ID_Matakuliah")));
             jadwal.setDosen(dosenDao.getDosenById(rs.getInt("ID_Dosen")));
-            jadwal.setWaktu(rs.getDate("Jam"));
+            jadwal.setJamMulai(rs.getTime("Jam"));
             jadwal.setHari(rs.getInt("Hari"));
             jadwal.setRuang(rs.getString("Ruang"));
             jadwal.setKeterangan(rs.getString("Keterangan"));
+            
+            Date waktuSelesai;
+            
+            try{                
+                jadwal.setJamSelesai(new Date(
+                        jadwal.getJamMulai().getTime()+((MENIT * 45) * jadwal.getMataKuliah().getSks())
+                    ));
+            }catch(NullPointerException npe){
+                jadwal.setJamSelesai(null);
+            }
+            
             
             return jadwal;
         }
@@ -64,11 +78,18 @@ public class JadwalDaoImpl implements JadwalDao{
     public void saveJadwal(Jadwal jadwal) {
         if(jadwal.getId()!=null){
             jdbcTemplate.update(SQL_UPDATE_JADWAL, new Object[]{
-                jadwal.getMataKuliah().getId(),jadwal.getDosen().getId(),jadwal.getWaktu(),jadwal.getHari(),jadwal.getRuang(),jadwal.getKeterangan(),jadwal.getId()
+                jadwal.getMataKuliah().getId(),jadwal.getDosen().getId(),jadwal.getJamMulai(),jadwal.getHari(),jadwal.getRuang(),jadwal.getKeterangan(),jadwal.getId()
             });
         }else{
+            SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+            String jam = dateFormat.format(jadwal.getJamMulai());
             jdbcTemplate.update(SQL_UPDATE_JADWAL, new Object[]{
-                jadwal.getMataKuliah().getId(),jadwal.getDosen().getId(),jadwal.getWaktu(),jadwal.getHari(),jadwal.getRuang(),jadwal.getKeterangan()
+                jadwal.getMataKuliah().getId(),
+                jadwal.getDosen().getId(),
+                jam,
+                jadwal.getHari(),
+                jadwal.getRuang(),
+                jadwal.getKeterangan()
             });
         }
     }

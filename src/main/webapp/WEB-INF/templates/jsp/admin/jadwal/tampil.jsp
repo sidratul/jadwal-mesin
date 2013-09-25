@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,14 +38,36 @@
                         <c:forEach items="${listJadwal}" var="lj" varStatus="i">
                             <tr>
                                 <td>${i.count}</td>
-                                <td>${lj.waktu}</td>
+                                <td>
+                                    <fmt:formatDate pattern="HH:mm" value="${lj.jamMulai}"></fmt:formatDate> -
+                                    <fmt:formatDate pattern="HH:mm" value="${lj.jamSelesai}"></fmt:formatDate>
+                                </td>
                                 <td>${lj.mataKuliah.namaMatkul}</td>
                                 <td>${lj.dosen.namaDosen}</td>
                                 <td>${lj.mataKuliah.sks}</td>
                                 <td>${lj.mataKuliah.semester}</td>
                                 <td>${lj.ruang}</td>
-                                <td>${lj.hari}</td>
-                                <td>${lj.keterangan}</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${lj.hari == 0}">Minggu</c:when>
+                                        <c:when test="${lj.hari == 1}">Senin</c:when>
+                                        <c:when test="${lj.hari == 2}">Selasa</c:when>
+                                        <c:when test="${lj.hari == 3}">Rabu</c:when>
+                                        <c:when test="${lj.hari == 4}">Kamis</c:when>
+                                        <c:when test="${lj.hari == 5}">Jumat</c:when>
+                                        <c:when test="${lj.hari == 6}">Sabtu</c:when>
+                                    </c:choose> 
+                                </td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${lj.keterangan == 1}">hadir</c:when>
+                                        <c:when test="${lj.keterangan == 2}">izin</c:when>
+                                        <c:when test="${lj.keterangan == 3}">absen</c:when>
+                                        <c:when test="${lj.keterangan == 4}">tugas</c:when>
+                                        <c:when test="${lj.keterangan == 5}">sakit</c:when>
+                                        <c:otherwise>-</c:otherwise>
+                                    </c:choose>
+                                </td>
                                 <td><a href="edit-jadwal?id=${lj.id}">edit</a></td>
                                 <td><a href="hapus?id=${lj.id}">tutup</a></td>
                             </tr>

@@ -6,6 +6,9 @@ import com.FTUP.mesin.admin.dao.MataKuliahDao;
 import com.FTUP.mesin.admin.model.Dosen;
 import com.FTUP.mesin.admin.model.Jadwal;
 import com.FTUP.mesin.admin.model.MataKuliah;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,22 +59,31 @@ public class JadwalController {
     }
     
     @RequestMapping(value = "/edit-jadwal" , method = RequestMethod.POST)
-    public String prosesEditJadwal(@ModelAttribute Jadwal jadwal,
-    ModelMap modelMap){
+    public String prosesEditJadwal(@ModelAttribute Jadwal jadwal, 
+    @RequestParam("jamMulaiString") String jam,
+    ModelMap modelMap) throws ParseException{
+        Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
+        jadwal.setJamMulai(jamMulai);
+//        System.out.println(waktu.getTime());
+//        System.out.println(jadwal.getDosen().getId());
+//        System.out.println(jadwal.getMataKuliah().getId());
+//        System.out.println(jadwal.getHari());
+//        System.out.println(jadwal.getRuang());
+//        System.out.println(jadwal.getKeterangan());
         jadwalDao.saveJadwal(jadwal);
-        return "redirect:/tampil";
+        return "redirect:tampil";
     }
     
     @RequestMapping("/hapus")
     public String tutupJadwalMatkul(@RequestParam("id") Integer id,
     ModelMap modelMap){
         jadwalDao.deleteJadwal(id);
-        return "redirect:/tampil";
+        return "redirect:tampil";
     }
     
     @RequestMapping("/hapus-semua")
     public String hapusJadwal(ModelMap modelMap){
         jadwalDao.deleteSemuaJadwal();
-        return "redirect:/tampil";
+        return "redirect:tampil";
     }
 }
