@@ -14,8 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 @Repository("jadwalDao")
+@Service
 public class JadwalDaoImpl implements JadwalDao{
     
     @Autowired private MataKuliahDao mataKuliahDao;

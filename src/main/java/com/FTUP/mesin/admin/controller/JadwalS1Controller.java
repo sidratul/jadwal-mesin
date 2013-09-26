@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/jadwal")
-public class JadwalController {
+public class JadwalS1Controller {
     
     @Autowired JadwalDao jadwalDao;
     @Autowired DosenDao dosenDao;
