@@ -23,7 +23,7 @@ public class PengumumanController {
     }
     
     @RequestMapping(value = "/input" , method = RequestMethod.GET)
-    public void tampilFormPengumuman(@RequestParam(value = "id",required = true ) Integer id,
+    public void tampilFormPengumuman(@RequestParam(value = "id",required = false) Integer id,
     ModelMap modelMap){
         Pengumuman pengumuman = pengumumanDao.getPengumumanById(id);
         if(pengumuman == null){
@@ -33,7 +33,7 @@ public class PengumumanController {
         modelMap.addAttribute("pengumuman", pengumuman);
     }
     
-    @RequestMapping(value = "/input" , method = RequestMethod.GET)
+    @RequestMapping(value = "/input" , method = RequestMethod.POST)
     public String prosesFormPengumuman(@ModelAttribute Pengumuman pengumuman,
     ModelMap modelMap){
         pengumumanDao.savePengumuman(pengumuman);

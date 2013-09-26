@@ -33,9 +33,9 @@
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.notify.js"></script>	
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/aplikasi.js"></script>
         <decorator:head></decorator:head>
-</head>
-<body>    
-	<header>
+    </head>
+    <body>    
+        <header>
             <h1>fakultas teknik jurusan mesin</h1>
             <ul class="-menu -tabs _active_ _TOP_ front">
                 <li>
@@ -66,16 +66,16 @@
                     </div>
                 </li>
                 <li>
-                    <a>pengumuman<i class="-caret"></i></a>
+                    <a>pengumuman <i class="-caret"></i></a>
                     <div class="-dropdown _bottom_">                        
                         <ul class="-menu ">
-                            <li><a>tampil</a></li>
-                            <li><a>input</a></li>
+                            <li><a href="<%= request.getContextPath()%>/admin/pengumuman/tampil">tampil</a></li>
+                            <li><a href="<%= request.getContextPath()%>/admin/pengumuman/input">input</a></li>
                         </ul>
                     </div> 
                 </li>
             </ul>
-	</header>
+        </header>
         <div class="container">
             <decorator:body ></decorator:body>
         </div>
@@ -85,5 +85,5 @@
                 <div>Teknik Informatika Universitas Pancasila</div>
             </div>
         </footer>
-</body>
+    </body>
 </html>

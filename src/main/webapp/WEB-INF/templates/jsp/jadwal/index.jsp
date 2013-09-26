@@ -8,19 +8,40 @@
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 	<title>Jadwal Mesin</title>
+        <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit.css">
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit-components.css">
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit-animation.css">
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/style-index.css">
+
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/html5shiv.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/jquery.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/easing.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/imagesLoaded.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/modernizr.js"></script>
+
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.affix.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.scrollspy.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.popup.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.tabs.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.modal.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.carousel.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.button.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.notify.js"></script>	
 </head>
 <body>
-<section class="-row">
-    <article class="-col8">
+<section class=" _responsive_ -row-fluid">
+    <article class="-col9">
         <c:choose>
             <c:when test="${empty listJadwal}">
                 <h3>Data Jadwal Kosong</h3>
             </c:when>
             <c:otherwise>
-                <table class="-table _striped_ _hovered_">
+                <table class="-table _striped_">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -75,11 +96,17 @@
             </c:otherwise>
         </c:choose>
     </article>
-    <aside class="-col4">
-        <h2>tanggal</h2>
-        &Lt; prev - next &Gt;
+    <aside class="-col3">
+        <c:set var="sekarang" value="<%=new java.util.Date()%>" />
+        <b>Tanggal <fmt:formatDate pattern="EEEEEE,dd MMM yyyy" value="${sekarang}"/></b>
         <hr>
-        <h2>agenda</h2>
+        <h5>Agenda</h5>
+        <ol>
+            <c:forEach items="${listPengumuman}" var="lp" varStatus="i">
+                <li>${lp.textPengumuman}</li>
+            </c:forEach>
+        </ol>
+            
     </aside>
 </section>
 </body>

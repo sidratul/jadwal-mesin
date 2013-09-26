@@ -27,7 +27,7 @@ public class PengumumanDaoImpl implements PengumumanDao{
         public Pengumuman mapRow(ResultSet rs, int i) throws SQLException {
             Pengumuman pengumuman = new Pengumuman();
             pengumuman.setId(rs.getInt("ID"));
-            pengumuman.setTextPengumuman(rs.getString("Text_Pengumunan"));
+            pengumuman.setTextPengumuman(rs.getString("Text_Pengumuman"));
             return pengumuman;
         }
     }
@@ -51,8 +51,12 @@ public class PengumumanDaoImpl implements PengumumanDao{
     }
 
     public Pengumuman getPengumumanById(Integer id) {
-        Pengumuman pengumuman = jdbcTemplate.queryForObject(SQL_PENGUMUMAN_BYID, new PengumumanParameterizedRowMapper(),id);
-        return pengumuman;
+        if(id==null){
+            return null;
+        }else{
+            Pengumuman pengumuman = jdbcTemplate.queryForObject(SQL_PENGUMUMAN_BYID, new PengumumanParameterizedRowMapper(),id);
+            return pengumuman;
+        }
     }
 
     public void deletePengumuman(Integer id) {
