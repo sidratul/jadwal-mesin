@@ -18,6 +18,17 @@
                 <h3>Data matakuliah Kosong</h3>
             </c:when>
             <c:otherwise>
+                <h3>SEMESTER ${listMatkul[0].semester}</h3>
+                <ul class="-menu -tabs _active_ _TOP_ ">
+                    <li><a href="tambah?semester=1">Semester 1</a></li>
+                    <li><a href="tambah?semester=2">Semester 2</a></li>
+                    <li><a href="tambah?semester=3">Semester 3</a></li>
+                    <li><a href="tambah?semester=4">Semester 4</a></li>
+                    <li><a href="tambah?semester=5">Semester 5</a></li>
+                    <li><a href="tambah?semester=6">Semester 6</a></li>
+                    <li><a href="tambah?semester=7">Semester 7</a></li>
+                    <li><a href="tambah?semester=8">Semester 8</a></li>
+                </ul>
                 <table class="-table _striped_ _hovered_">
                     <thead>
                         <tr>
@@ -46,16 +57,6 @@
                         </c:forEach>
                     </tbody>
                 </table>
-                <div class="-group">
-                    <a class="-btn" href="tambah?semester=1">Semester 1</a>
-                    <a class="-btn" href="tambah?semester=2">Semester 2</a>
-                    <a class="-btn" href="tambah?semester=3">Semester 3</a>
-                    <a class="-btn" href="tambah?semester=4">Semester 4</a>
-                    <a class="-btn" href="tambah?semester=5">Semester 5</a>
-                    <a class="-btn" href="tambah?semester=6">Semester 6</a>
-                    <a class="-btn" href="tambah?semester=7">Semester 7</a>
-                    <a class="-btn" href="tambah?semester=8">Semester 8</a>
-                </div>
             </c:otherwise>
         </c:choose>
     </body>

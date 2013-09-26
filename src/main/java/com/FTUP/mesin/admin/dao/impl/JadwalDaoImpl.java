@@ -25,6 +25,7 @@ public class JadwalDaoImpl implements JadwalDao{
     
     
     private static final String SQL_GETALL_JADWAL="SELECT * FROM JADWAL ";
+    private static final String SQL_JADWAL_BYHARI="SELECT * FROM JADWAL WHERE Hari=?";
     private static final String SQL_DELETE_JADWAL="DELETE FROM JADWAL WHERE ID=?";
     private static final String SQL_DELETE_SEMUA_JADWAL="DELETE FROM JADWAL";
     private static final String SQL_JADWAL_BYID="SELECT * FROM JADWAL WHERE ID=?";
@@ -74,6 +75,11 @@ public class JadwalDaoImpl implements JadwalDao{
     
     public List<Jadwal> getAllJadwal() {
         List<Jadwal> jadwals = jdbcTemplate.query(SQL_GETALL_JADWAL, new JadwalParameterizedRowMapper());
+        return jadwals;
+    }
+    
+    public List<Jadwal> getJadwalByHari(Integer hari) {
+        List<Jadwal> jadwals = jdbcTemplate.query(SQL_JADWAL_BYHARI,new JadwalParameterizedRowMapper(),hari);
         return jadwals;
     }
 

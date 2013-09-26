@@ -49,13 +49,13 @@
                                 <td>${lj.ruang}</td>
                                 <td>
                                     <c:choose>
-                                        <c:when test="${lj.hari == 0}">Minggu</c:when>
-                                        <c:when test="${lj.hari == 1}">Senin</c:when>
-                                        <c:when test="${lj.hari == 2}">Selasa</c:when>
-                                        <c:when test="${lj.hari == 3}">Rabu</c:when>
-                                        <c:when test="${lj.hari == 4}">Kamis</c:when>
-                                        <c:when test="${lj.hari == 5}">Jumat</c:when>
-                                        <c:when test="${lj.hari == 6}">Sabtu</c:when>
+                                        <c:when test="${lj.hari == 1}">Minggu</c:when>
+                                        <c:when test="${lj.hari == 2}">Senin</c:when>
+                                        <c:when test="${lj.hari == 3}">Selasa</c:when>
+                                        <c:when test="${lj.hari == 4}">Rabu</c:when>
+                                        <c:when test="${lj.hari == 5}">Kamis</c:when>
+                                        <c:when test="${lj.hari == 6}">Jumat</c:when>
+                                        <c:when test="${lj.hari == 7}">Sabtu</c:when>
                                     </c:choose> 
                                 </td>
                                 <td>

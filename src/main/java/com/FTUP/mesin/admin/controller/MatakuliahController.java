@@ -16,9 +16,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MatakuliahController {    
     @Autowired private MataKuliahDao mataKuliahDao;
 
+//    @RequestMapping("/tampil")
+//    public void tampilMatkul(ModelMap modelMap){
+//        List<MataKuliah> mataKuliahs = mataKuliahDao.getAllMatkul();
+//        modelMap.addAttribute("listMatkul", mataKuliahs);
+//    }
+    
     @RequestMapping("/tampil")
-    public void tampilMatkul(ModelMap modelMap){
-        List<MataKuliah> mataKuliahs = mataKuliahDao.getAllMatkul();
+    public void tampilMatkulBySemester(@RequestParam(value = "semester",required = false) Integer semester,
+    ModelMap modelMap){
+        if(semester==null){
+            semester = 1;
+        }
+        
+        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemesterBukanJadwal(semester);
         modelMap.addAttribute("listMatkul", mataKuliahs);
     }
     

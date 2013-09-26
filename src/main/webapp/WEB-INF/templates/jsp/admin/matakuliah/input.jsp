@@ -13,17 +13,48 @@
         <title>Input Matakuliah</title>
     </head>
     <body>
-        <sf:form action="input" method="POST" modelAttribute="matakuliah">
-            <sf:hidden path="id"/><br>
-            <sf:input path="kodeMatkul" placeholder="Kode Matakuliah" /><br>
-            <sf:input path="namaMatkul" placeholder="Nama Matakuliah"/><br>
-            <sf:input path="sks" placeholder="SKS"/><br>
-            <sf:input path="semester" placeholder="Smester"/><br>
-            <sf:select path="kategori" placeholder="Kategori">
-                <sf:option value="wajib">wajib</sf:option>
-                <sf:option value="pilihan">pilihan</sf:option>
-            </sf:select> <br>
-            <input type="submit" value="tambah" />
+        <sf:form action="input" method="POST" modelAttribute="matakuliah" class="-form _horizontal_">
+            <sf:hidden path="id"/>
+            <div class="-form-row">
+                <label>Kode Matakuliah</label>
+                <span class="-form-field -col3">
+                    <sf:input path="kodeMatkul" placeholder="Kode Matakuliah" required="required"/>
+                </span>
+            </div>
+            <div class="-form-row">
+                <label>Nama Matakuliah</label>
+                <span class="-form-field -col3">
+                    <sf:input path="namaMatkul" placeholder="Nama Matakuliah" required="required"/>
+                </span>
+            </div>
+            <div class="-form-row">
+                <label>SKS</label>
+                <span class="-form-field -col3">
+                    <sf:input path="sks" placeholder="SKS" required="required"/><br>
+                </span>
+            </div>
+            <div class="-form-row">
+                <label>Semester</label>
+                <span class="-form-field -col3" required="required">
+                    <sf:input path="semester" placeholder="Semester"/><br>
+                </span>
+            </div>
+            <div class="-form-row">
+                <label>Kategori</label>
+                <span class="-form-field -col3">
+                    <sf:select path="kategori" placeholder="Kategori" required="required">
+                        <sf:option value="wajib">wajib</sf:option>
+                        <sf:option value="pilihan">pilihan</sf:option>
+                    </sf:select>
+                    <i class="-caret"></i>
+                </span>
+            </div>
+            <div class="-form-row">                
+                 <div class="-form-group">
+                    <input type="submit" value="tambah" class="-btn"/>
+                    <input type="reset" value="batal" class="-btn -error-"/>
+                </div>
+            </div>
         </sf:form>
     </body>
 </html>

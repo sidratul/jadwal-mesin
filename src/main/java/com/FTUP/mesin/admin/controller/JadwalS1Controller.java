@@ -64,12 +64,6 @@ public class JadwalS1Controller {
     ModelMap modelMap) throws ParseException{
         Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
         jadwal.setJamMulai(jamMulai);
-//        System.out.println(waktu.getTime());
-//        System.out.println(jadwal.getDosen().getId());
-//        System.out.println(jadwal.getMataKuliah().getId());
-//        System.out.println(jadwal.getHari());
-//        System.out.println(jadwal.getRuang());
-//        System.out.println(jadwal.getKeterangan());
         jadwalDao.saveJadwal(jadwal);
         return "redirect:tampil";
     }

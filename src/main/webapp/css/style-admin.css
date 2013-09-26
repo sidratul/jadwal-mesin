@@ -33,3 +33,8 @@ body {
     max-width: 1000px;
     padding: 20px;
 }
+
+.front{
+    position: relative;
+    z-index:10;
+}

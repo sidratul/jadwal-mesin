@@ -6,6 +6,8 @@ import java.util.List;
 public interface JadwalDao {
     public List<Jadwal> getAllJadwal();
     
+    public List<Jadwal> getJadwalByHari(Integer hari);
+    
     public void saveJadwal(Jadwal jadwal);
     
     public void saveJadwalHanyaMatakuliah(Integer idMatkul);

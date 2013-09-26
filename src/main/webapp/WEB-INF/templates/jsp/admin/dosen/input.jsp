@@ -13,14 +13,50 @@
         <title>Input Dosen</title>
     </head>
     <body>
-        <sf:form method="POST" action="input" modelAttribute="dosen">
+        <sf:form method="POST" action="input" modelAttribute="dosen" class="-form _horizontal_">
             <sf:hidden path="id"/>
-            <sf:input path="nidn" placeholder="NIDN"/><br>
-            <sf:input path="namaDosen" placeholder="Nama Dosen"/><br>
-            <sf:input path="alamat" placeholder="Alamat"/><br>
-            <sf:input path="noTelpon" placeholder="No Telpon"/><br>
-            <sf:input path="email" placeholder="Email"/><br>
-            <input type="submit" value="tambah"/>
+            <div class="-form-row">
+               <label>NIDN</label>
+               <span class="-form-field -col3">
+                   <sf:input path="nidn" placeholder="NIDN" required="required" />
+               </span>
+            </div>
+            <div class="-form-row">
+                <label>Nama Dosen</label>
+                <span class="-form-field -col3">
+                    <sf:input path="namaDosen" placeholder="Nama Dosen" required="required"/><br>
+                </span>
+            </div>
+                <div class="-form-row">
+                <label>Nama Dosen</label>
+                <span class="-form-field -col3">
+                    <sf:input path="namaDosen" placeholder="Nama Dosen" required="required"/><br>
+                </span>
+            </div>
+            <div class="-form-row">
+                <label>Alamat</label>
+                <span class="-form-field -col3">
+                    <sf:input path="alamat" placeholder="Alamat"/><br>
+                </span>
+            </div>
+                <div class="-form-row">
+                <label>No Telpon</label>
+                <span class="-form-field -col3">
+                    <sf:input path="noTelpon" placeholder="No Telpon"/><br>
+                </span>
+            </div>
+            <div class="-form-row">
+                <label>Email</label>
+                <span class="-form-field -col3">
+                    <sf:input path="email" placeholder="Email"/><br>
+                </span>
+            </div>
+            <div class="-form-row">                
+                 <div class="-form-group">
+                    <input type="submit" value="tambah" class="-btn"/>
+                    <input type="reset" value="batal" class="-btn -error-"/>
+                </div>
+            </div>
         </sf:form>
     </body>
 </html>

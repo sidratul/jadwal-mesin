@@ -14,7 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit.css">
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit-components.css">
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit-animation.css">
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/style-admin.css">
 
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/html5shiv.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/jquery.js"></script>
@@ -37,7 +37,7 @@
 <body>    
 	<header>
             <h1>fakultas teknik jurusan mesin</h1>
-            <ul class="-menu -tabs _active_ _TOP_">
+            <ul class="-menu -tabs _active_ _TOP_ front">
                 <li>
                     <a>jadwal<i class="-caret"></i></a>
                     <div class="-dropdown">
@@ -82,7 +82,7 @@
         <footer>
             <div class="tengah">
                 <div>Copyright &COPY; 2013</div>
-                <div>Teknik Informatika Universitas asdfasd</div>
+                <div>Teknik Informatika Universitas Pancasila</div>
             </div>
         </footer>
 </body>
