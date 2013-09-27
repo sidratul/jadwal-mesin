@@ -29,7 +29,7 @@ public class MatakuliahController {
             semester = 1;
         }
         
-        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemesterBukanJadwal(semester);
+        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemester(semester);
         modelMap.addAttribute("listMatkul", mataKuliahs);
     }
     

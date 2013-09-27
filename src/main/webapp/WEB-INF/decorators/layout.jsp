@@ -42,8 +42,24 @@
                     <a>jadwal<i class="-caret"></i></a>
                     <div class="-dropdown">
                         <ul class="-menu ">
-                            <li><a href="<%= request.getContextPath()%>/admin/jadwal/tampil">tampil</a></li>
-                            <li><a href="<%= request.getContextPath()%>/admin/jadwal/tambah">tambah jadwal</a></li>
+                            <li class="-menu-sub">
+                                <a>S1</a>
+                                <div class="-dropdown">
+                                    <ul class="-menu">
+                                        <li><a href="<%= request.getContextPath()%>/admin/jadwal/tampil-s1">Tampil</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/admin/jadwal/tambah-s1">Tambah</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="-menu-sub">
+                                <a>D3</a>
+                                <div class="-dropdown">
+                                    <ul class="-menu">
+                                        <li><a href="<%= request.getContextPath()%>/admin/jadwal/tampil-d3">Tampil</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/admin/jadwal/tambah-d3">Tambah</a></li>
+                                    </ul>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </li>

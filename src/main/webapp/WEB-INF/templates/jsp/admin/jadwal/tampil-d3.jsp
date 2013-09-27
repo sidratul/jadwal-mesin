@@ -19,6 +19,7 @@
                 <h3>Data Jadwal Kosong</h3>
             </c:when>
             <c:otherwise>
+                <h3>JADWAL S1</h3>
                 <table class="-table _striped_ _hovered_">
                     <thead>
                         <tr>
@@ -68,8 +69,8 @@
                                         <c:otherwise>-</c:otherwise>
                                     </c:choose>
                                 </td>
-                                <td><a href="edit-jadwal?id=${lj.id}">edit</a></td>
-                                <td><a href="hapus?id=${lj.id}">tutup</a></td>
+                                <td><a href="edit-jadwal-d3?id=${lj.id}">edit</a></td>
+                                <td><a href="hapus-d3?id=${lj.id}">tutup</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

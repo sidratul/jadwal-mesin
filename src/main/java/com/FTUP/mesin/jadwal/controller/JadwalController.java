@@ -24,11 +24,13 @@ public class JadwalController {
     public void index(ModelMap modelMap){
         Calendar calendar = Calendar.getInstance();
         Integer hari = calendar.get(Calendar.DAY_OF_WEEK);
-        List<Jadwal> jadwals = jadwalDao.getJadwalByHari(hari);
+        List<Jadwal> jadwalsS1 = jadwalDao.getJadwalByHari("JADWALS1",hari);
+        List<Jadwal> jadwalsD3 = jadwalDao.getJadwalByHari("JADWALD3",hari);
         
         List<Pengumuman> pengumumans = pengumumanDao.getAllPengumuman();
         
-        modelMap.addAttribute("listJadwal",jadwals);
+        modelMap.addAttribute("listJadwalS1",jadwalsS1);
+        modelMap.addAttribute("listJadwalD3",jadwalsD3);
         modelMap.addAttribute("listPengumuman",pengumumans);
     }
 }

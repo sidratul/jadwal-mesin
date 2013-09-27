@@ -15,8 +15,6 @@ import org.springframework.stereotype.Repository;
 public class MatakuliahDaoImp implements MataKuliahDao{
     
     private static final String SQL_GETALL_MATKUL = "SELECT * FROM MATAKULIAH";
-    private static final String SQL_MATKUL_BYSEMESTER_BUKANJADWAL = "SELECT m.* FROM MATAKULIAH m LEFT JOIN JADWAL j "
-            + "ON m.ID = j.ID_Matakuliah WHERE j.ID_Matakuliah is NULL AND SEMESTER=?";
     private static final String SQL_MATKUL_BYSEMESTER = "SELECT * FROM MATAKULIAH WHERE SEMESTER=?";
     private static final String SQL_MATKUL_BYID = "SELECT * FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_DELETE_MATKUL = "DELETE FROM MATAKULIAH WHERE ID=?";
@@ -59,7 +57,9 @@ public class MatakuliahDaoImp implements MataKuliahDao{
         return mataKuliahs;
     }
     
-    public List<MataKuliah> getMatkulBySemesterBukanJadwal(Integer semester) {
+    public List<MataKuliah> getMatkulBySemesterBukanJadwal(String namaTable ,Integer semester) {
+        String SQL_MATKUL_BYSEMESTER_BUKANJADWAL = "SELECT m.* FROM MATAKULIAH m LEFT JOIN "+namaTable+" j "
+            + "ON m.ID = j.ID_Matakuliah WHERE j.ID_Matakuliah is NULL AND SEMESTER=?";
         List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_MATKUL_BYSEMESTER_BUKANJADWAL, new MatakuliahParameterizedRowMapper(),semester);
         return mataKuliahs;
     }

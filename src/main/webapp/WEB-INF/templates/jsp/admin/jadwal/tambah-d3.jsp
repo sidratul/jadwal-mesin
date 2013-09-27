@@ -51,7 +51,7 @@
                                 <td>${lm.semester}</td>
                                 <td>${lm.kategori}</td>
                                 <td>
-                                    <a href="proses-tambah?idMatkul=${lm.id}">tambahkan</a>
+                                    <a href="proses-tambah-d3?idMatkul=${lm.id}">tambahkan</a>
                                 </td>
                             </tr>
                         </c:forEach>

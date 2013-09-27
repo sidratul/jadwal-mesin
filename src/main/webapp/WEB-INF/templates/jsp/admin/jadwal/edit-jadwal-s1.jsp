@@ -15,7 +15,7 @@
         <title>Edit Jadwal Matakuliah</title>
     </head>
     <body>
-        <sf:form method="POST" action="edit-jadwal" modelAttribute="jadwal" class="-form _horizontal_">
+        <sf:form method="POST"  modelAttribute="jadwal" class="-form _horizontal_">
             <sf:hidden path="id" />
             <sf:hidden path="mataKuliah.id"/>
             Matakuliah : ${jadwal.mataKuliah.namaMatkul}<br>

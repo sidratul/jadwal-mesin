@@ -23,20 +23,6 @@ public class JadwalDaoImpl implements JadwalDao{
     @Autowired private MataKuliahDao mataKuliahDao;
     @Autowired private DosenDao dosenDao;
     
-    
-    private static final String SQL_GETALL_JADWAL="SELECT * FROM JADWAL ";
-    private static final String SQL_JADWAL_BYHARI="SELECT * FROM JADWAL WHERE Hari=?";
-    private static final String SQL_DELETE_JADWAL="DELETE FROM JADWAL WHERE ID=?";
-    private static final String SQL_DELETE_SEMUA_JADWAL="DELETE FROM JADWAL";
-    private static final String SQL_JADWAL_BYID="SELECT * FROM JADWAL WHERE ID=?";
-    private static final String SQL_UPDATE_JADWAL="UPDATE `JADWAL` SET "
-            + "`ID_Matakuliah` = ?, `ID_Dosen` = ?, `Jam` = ?,`Hari` = ?, `Ruang`=?,`Keterangan`=? WHERE `ID` = ?;";
-    private static final String SQL_INSERT_JADWAL="INSERT INTO `JADWAL` "
-            + "(`ID_Matakuliah`,`ID_Dosen`,`Jam`,`Hari`,`Ruang`,`Keterangan`)VALUES (?,?,?,?,?,?);";
-    private static final String SQL_INSERT_JADWAL_HANYAMATAKULIAH="INSERT INTO `JADWAL` "
-            + "(`ID_Matakuliah`)VALUES (?);";
-    
-    
     private JdbcTemplate jdbcTemplate;
 
     private class JadwalParameterizedRowMapper implements ParameterizedRowMapper<Jadwal>{   
@@ -73,25 +59,29 @@ public class JadwalDaoImpl implements JadwalDao{
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
     
-    public List<Jadwal> getAllJadwal() {
+    public List<Jadwal> getAllJadwal(String namaTable) {
+        String SQL_GETALL_JADWAL="SELECT * FROM "+namaTable ;
         List<Jadwal> jadwals = jdbcTemplate.query(SQL_GETALL_JADWAL, new JadwalParameterizedRowMapper());
         return jadwals;
     }
     
-    public List<Jadwal> getJadwalByHari(Integer hari) {
+    public List<Jadwal> getJadwalByHari(String namaTable,Integer hari) {
+        String SQL_JADWAL_BYHARI="SELECT * FROM "+namaTable+" WHERE Hari=?";
         List<Jadwal> jadwals = jdbcTemplate.query(SQL_JADWAL_BYHARI,new JadwalParameterizedRowMapper(),hari);
         return jadwals;
     }
 
-    public void saveJadwal(Jadwal jadwal) {
+    public void saveJadwal(String namaTable,Jadwal jadwal) {
         if(jadwal.getId()!=null){
+            String SQL_UPDATE_JADWAL="UPDATE "+namaTable+" SET `ID_Matakuliah` = ?, `ID_Dosen` = ?, `Jam` = ?,`Hari` = ?, `Ruang`=?,`Keterangan`=? WHERE `ID` = ?";
             jdbcTemplate.update(SQL_UPDATE_JADWAL, new Object[]{
                 jadwal.getMataKuliah().getId(),jadwal.getDosen().getId(),jadwal.getJamMulai(),jadwal.getHari(),jadwal.getRuang(),jadwal.getKeterangan(),jadwal.getId()
             });
         }else{
+            String SQL_INSERT_JADWAL="INSERT INTO "+namaTable+" (`ID_Matakuliah`,`ID_Dosen`,`Jam`,`Hari`,`Ruang`,`Keterangan`)VALUES (?,?,?,?,?,?);";
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
             String jam = dateFormat.format(jadwal.getJamMulai());
-            jdbcTemplate.update(SQL_UPDATE_JADWAL, new Object[]{
+            jdbcTemplate.update(SQL_INSERT_JADWAL,new Object[]{
                 jadwal.getMataKuliah().getId(),
                 jadwal.getDosen().getId(),
                 jam,
@@ -102,11 +92,13 @@ public class JadwalDaoImpl implements JadwalDao{
         }
     }
     
-    public void saveJadwalHanyaMatakuliah(Integer idMatkul){
+    public void saveJadwalHanyaMatakuliah(String namaTable,Integer idMatkul){
+        String SQL_INSERT_JADWAL_HANYAMATAKULIAH="INSERT INTO "+namaTable+" (`ID_Matakuliah`)VALUES (?);";
         jdbcTemplate.update(SQL_INSERT_JADWAL_HANYAMATAKULIAH, idMatkul);
     }
 
-    public Jadwal getJadwalById(Integer id) {
+    public Jadwal getJadwalById(String namaTable,Integer id) {
+        String SQL_JADWAL_BYID="SELECT * FROM "+namaTable+" WHERE ID=?";
         if(id==null){
             return null;
         }else{
@@ -115,11 +107,13 @@ public class JadwalDaoImpl implements JadwalDao{
         }
     }
 
-    public void deleteJadwal(Integer id) {
+    public void deleteJadwal(String namaTable, Integer id){
+        String SQL_DELETE_JADWAL="DELETE FROM "+namaTable+" WHERE ID=?";
         jdbcTemplate.update(SQL_DELETE_JADWAL, id);
     }
         
-    public void deleteSemuaJadwal() {
+    public void deleteSemuaJadwal(String namaTable){
+        String SQL_DELETE_SEMUA_JADWAL="DELETE FROM "+namaTable;
         jdbcTemplate.update(SQL_DELETE_SEMUA_JADWAL);
     }
 }
