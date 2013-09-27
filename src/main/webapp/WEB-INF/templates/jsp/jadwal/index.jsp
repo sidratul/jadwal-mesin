@@ -51,7 +51,6 @@
                             <th>SKS</th>
                             <th>Semester</th>
                             <th>ruang</th>
-                            <th>hari</th>
                             <th>keterangan</th>
                         </tr>
                     </thead>
@@ -67,18 +66,7 @@
                                 <td>${lj.dosen.namaDosen}</td>
                                 <td>${lj.mataKuliah.sks}</td>
                                 <td>${lj.mataKuliah.semester}</td>
-                                <td>${lj.ruang}</td>
-                                <td>
-                                    <c:choose>
-                                        <c:when test="${lj.hari == 1}">Minggu</c:when>
-                                        <c:when test="${lj.hari == 2}">Senin</c:when>
-                                        <c:when test="${lj.hari == 3}">Selasa</c:when>
-                                        <c:when test="${lj.hari == 4}">Rabu</c:when>
-                                        <c:when test="${lj.hari == 5}">Kamis</c:when>
-                                        <c:when test="${lj.hari == 6}">Jumat</c:when>
-                                        <c:when test="${lj.hari == 7}">Sabtu</c:when>
-                                    </c:choose> 
-                                </td>
+                                <td>${lj.ruang}</td>                                
                                 <td>
                                     <c:choose>
                                         <c:when test="${lj.keterangan == 1}">hadir</c:when>
@@ -98,7 +86,7 @@
     </article>
     <aside class="-col3">
         <c:set var="sekarang" value="<%=new java.util.Date()%>" />
-        <b>Tanggal <fmt:formatDate pattern="EEEEEE,dd MMM yyyy" value="${sekarang}"/></b>
+        <b><fmt:formatDate pattern="EEEEEE,dd MMM yyyy" value="${sekarang}"/></b>
         <hr>
         <h5>Agenda</h5>
         <ol>

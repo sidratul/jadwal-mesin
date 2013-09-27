@@ -38,6 +38,7 @@
         <header>
             <h1>fakultas teknik jurusan mesin</h1>
             <ul class="-menu -tabs _active_ _TOP_ front">
+                <li><a href="<%= request.getContextPath()%>/">HOME</a></li>
                 <li>
                     <a>jadwal<i class="-caret"></i></a>
                     <div class="-dropdown">

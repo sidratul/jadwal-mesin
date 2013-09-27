@@ -32,12 +32,6 @@ public class JadwalAdminController {
         modelMap.addAttribute("listJadwal",jadwals);
     }
     
-    @RequestMapping("/tampil-d3")
-    public void tampilJadwalD3(ModelMap modelMap){
-        List<Jadwal> jadwals = jadwalDao.getAllJadwal("JADWALD3");
-        modelMap.addAttribute("listJadwal",jadwals);
-    }
-    
     @RequestMapping("/tambah-s1")
     public void inputMatakulihToJadwalS1(@RequestParam(value = "semester",required = false) Integer semester,
     ModelMap modelMap){
@@ -47,6 +41,54 @@ public class JadwalAdminController {
         
         List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemesterBukanJadwal("JADWALS1",semester);
         modelMap.addAttribute("listMatkul", mataKuliahs);
+    }
+
+    @RequestMapping("/proses-tambah-s1")
+    public String prosesTambahMatkulToJadwalS1(@RequestParam("idMatkul") Integer idMatkul){
+        jadwalDao.saveJadwalHanyaMatakuliah("JADWALS1",idMatkul);
+        return "redirect:tambah-s1";
+    }
+    
+    @RequestMapping(value = "/edit-jadwal-s1" , method = RequestMethod.GET)
+    public void formEditJadwalS1(@RequestParam("id") Integer id,
+    ModelMap modelMap){
+        Jadwal jadwal = jadwalDao.getJadwalById("JADWALS1",id);
+        List<Dosen> dosens = dosenDao.getAllDosen();
+        
+        modelMap.addAttribute("jadwal", jadwal);
+        modelMap.addAttribute("listDosen", dosens);
+    }
+    
+    @RequestMapping(value = "/edit-jadwal-s1" , method = RequestMethod.POST)
+    public String prosesEditJadwalS1(@ModelAttribute Jadwal jadwal, 
+    @RequestParam("jamMulaiString") String jam,
+    ModelMap modelMap) throws ParseException{
+        Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
+        jadwal.setJamMulai(jamMulai);
+        
+        jadwalDao.saveJadwal("JADWALS1",jadwal);
+        return "redirect:tampil-s1";
+    }
+    
+    @RequestMapping("/hapus-s1")
+    public String tutupJadwalMatkulS1(@RequestParam("id") Integer id,
+    ModelMap modelMap){
+        jadwalDao.deleteJadwal("JADWALS1",id);
+        return "redirect:tampil-s1";
+    }
+
+    @RequestMapping("/hapus-semua-s1")
+    public String hapusJadwalS1(ModelMap modelMap){
+        jadwalDao.deleteSemuaJadwal("JADWALD1");
+        return "redirect:tampil-s1";
+    }
+    
+    //D3
+    
+    @RequestMapping("/tampil-d3")
+    public void tampilJadwalD3(ModelMap modelMap){
+        List<Jadwal> jadwals = jadwalDao.getAllJadwal("JADWALD3");
+        modelMap.addAttribute("listJadwal",jadwals);
     }
     
     @RequestMapping("/tambah-d3")
@@ -60,48 +102,20 @@ public class JadwalAdminController {
         modelMap.addAttribute("listMatkul", mataKuliahs);
     }
     
-    @RequestMapping("/proses-tambah-s1")
-    public String prosesTambahMatkulToJadwalS1(@RequestParam("idMatkul") Integer idMatkul){
-        jadwalDao.saveJadwalHanyaMatakuliah("JADWALS1",idMatkul);
-        return "redirect:tambah-s1";
-    }
-    
     @RequestMapping("/proses-tambah-d3")
     public String prosesTambahMatkulToJadwalD3(@RequestParam("idMatkul") Integer idMatkul){
         jadwalDao.saveJadwalHanyaMatakuliah("JADWALD3",idMatkul);
         return "redirect:tambah-d3";
     }
     
-    @RequestMapping(value = "/edit-jadwal-s1" , method = RequestMethod.GET)
-    public void formEditJadwalS1(@RequestParam("id") Integer id,
-    ModelMap modelMap){
-        Jadwal jadwal = jadwalDao.getJadwalById("JADWALS1",id);
-        List<Dosen> dosens = dosenDao.getAllDosen();
-        
-        modelMap.addAttribute("jadwalS1", jadwal);
-        modelMap.addAttribute("listDosen", dosens);
-    }
-    
     @RequestMapping(value = "/edit-jadwal-d3" , method = RequestMethod.GET)
     public void formEditJadwalD3(@RequestParam("id") Integer id,
     ModelMap modelMap){
-        Jadwal jadwal = jadwalDao.getJadwalById("JADWALS1",id);
+        Jadwal jadwal = jadwalDao.getJadwalById("JADWALD3",id);
         List<Dosen> dosens = dosenDao.getAllDosen();
         
-        modelMap.addAttribute("jadwalS1", jadwal);
+        modelMap.addAttribute("jadwal", jadwal);
         modelMap.addAttribute("listDosen", dosens);
-    }
-    
-    
-    @RequestMapping(value = "/edit-jadwal-s1" , method = RequestMethod.POST)
-    public String prosesEditJadwalS1(@ModelAttribute Jadwal jadwal, 
-    @RequestParam("jamMulaiString") String jam,
-    ModelMap modelMap) throws ParseException{
-        Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
-        jadwal.setJamMulai(jamMulai);
-        
-        jadwalDao.saveJadwal("JADWALD3",jadwal);
-        return "redirect:tampil-d3";
     }
     
     @RequestMapping(value = "/edit-jadwal-d3" , method = RequestMethod.POST)
@@ -115,24 +129,11 @@ public class JadwalAdminController {
         return "redirect:tampil-d3";
     }
     
-    @RequestMapping("/hapus-s1")
-    public String tutupJadwalMatkulS1(@RequestParam("id") Integer id,
-    ModelMap modelMap){
-        jadwalDao.deleteJadwal("JADWALS1",id);
-        return "redirect:tampil-s1";
-    }
-    
     @RequestMapping("/hapus-d3")
     public String tutupJadwalMatkulD3(@RequestParam("id") Integer id,
     ModelMap modelMap){
         jadwalDao.deleteJadwal("JADWALD3",id);
         return "redirect:tampil-d3";
-    }
-    
-    @RequestMapping("/hapus-semua-s1")
-    public String hapusJadwalS1(ModelMap modelMap){
-        jadwalDao.deleteSemuaJadwal("JADWALD1");
-        return "redirect:tampil-s1";
     }
     
     @RequestMapping("/hapus-semua-d3")
