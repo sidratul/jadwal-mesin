@@ -91,6 +91,7 @@
                         </ul>
                     </div> 
                 </li>
+                <li><a href="<c:url value="/j_spring_security_logout" />">Keluar</a></li>
             </ul>
         </header>
         <div class="container">
