@@ -94,7 +94,6 @@
                 <li>${lp.textPengumuman}</li>
             </c:forEach>
         </ol>
-            
     </aside>
 </section>
 </body>
