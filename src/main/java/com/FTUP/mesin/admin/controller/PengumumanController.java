@@ -37,13 +37,26 @@ public class PengumumanController {
     public String prosesFormPengumuman(@ModelAttribute Pengumuman pengumuman,
     ModelMap modelMap){
         pengumumanDao.savePengumuman(pengumuman);
+        if(pengumuman.getId() != null){
+            modelMap.addAttribute("updatePengumuman", true);
+        }else{
+            modelMap.addAttribute("inputPengumuman", true);
+        }
         return "redirect:tampil";
     }
     
     @RequestMapping("/hapus")
-    public String tampilPengumuman(@RequestParam("id") Integer id,
+    public String hapusPengumuman(@RequestParam("id") Integer id,
     ModelMap modelMap){
-        pengumumanDao.deletePengumuman(id);
+        pengumumanDao.deletePengumumanById(id);
+        modelMap.addAttribute("hapusPengumuman", true);
+        return "redirect:tampil";
+    }
+    
+    @RequestMapping("/hapus-semua")
+    public String hapusSemuaPengumuman(ModelMap modelMap){
+        pengumumanDao.deleteSemuaPengumuman();
+        modelMap.addAttribute("hapusSemuaPengumuman", true);
         return "redirect:tampil";
     }
 }

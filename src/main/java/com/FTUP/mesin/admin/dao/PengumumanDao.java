@@ -10,5 +10,7 @@ public interface PengumumanDao {
     
     public Pengumuman getPengumumanById(Integer id);
     
-    public void deletePengumuman(Integer id);
+    public void deletePengumumanById(Integer id);
+    
+    public void deleteSemuaPengumuman();
 }

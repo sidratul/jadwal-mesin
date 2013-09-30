@@ -19,7 +19,7 @@
             <div class="-form-row">
                 <label>Kode Matakuliah</label>
                 <span class="-form-field -col3">
-                    <sf:textarea path="textPengumuman"></sf:textarea>
+                    <sf:textarea path="textPengumuman" required="required"></sf:textarea>
                 </span>
             </div>
             <div class="-form-row">                

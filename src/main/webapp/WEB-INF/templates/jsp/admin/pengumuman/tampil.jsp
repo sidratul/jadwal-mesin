@@ -13,6 +13,30 @@
         <title>tampil pengumuman</title>
     </head>
     <body>
+        <c:if test="${param.inputPengumuman==true}">
+            <script>
+                notifSukses("pengumuman baru telah ditambahkan");
+            </script>
+	</c:if>
+        
+        <c:if test="${param.updatePengumuman==true}">
+            <script>
+                notifSukses("pengumuman telah diupdate");
+            </script>
+	</c:if>
+            
+        <c:if test="${param.hapusPengumuman==true}">
+            <script>
+                notifSukses("pengumuman berhasil dihapus");
+            </script>
+	</c:if>
+            
+        <c:if test="${param.hapusSemuaPengumuman==true}">
+            <script>
+                notifSukses("Semua pengumuman telah terhapus");
+            </script>
+	</c:if>
+        
         <c:choose>
             <c:when test="${empty listPengumuman}">
                 <h3>Data Pengumuman Kosong</h3>
@@ -38,6 +62,7 @@
                         </c:forEach>
                     </tbody>
                 </table>
+                <a href="hapus-semua">Hapus Semua</a>
             </c:otherwise>
         </c:choose>
     </body>
