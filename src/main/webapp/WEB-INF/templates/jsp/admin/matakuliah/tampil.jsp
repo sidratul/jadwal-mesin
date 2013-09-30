@@ -13,6 +13,9 @@
         <title>Tampil Matakuliah</title>
     </head>
     <body>
+        <c:if test="${not empty pesanTampil}">
+            <script>notifSukses(${pesanTampil},${jenisPesan});</script>
+	</c:if>
         <c:choose>
             <c:when test="${empty listMatkul}">
                 <h3>Data Matakuliah Kosong</h3>
