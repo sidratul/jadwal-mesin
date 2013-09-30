@@ -2,6 +2,7 @@ package com.FTUP.mesin.admin.dao;
 
 import com.FTUP.mesin.admin.model.Dosen;
 import java.util.List;
+import org.springframework.dao.DataIntegrityViolationException;
 
 public interface DosenDao {
     public List<Dosen> getAllDosen();
@@ -10,6 +11,6 @@ public interface DosenDao {
     
     public Dosen getDosenById(Integer id);
     
-    public void deleteDosen(Integer id);
+    public void deleteDosen(Integer id) throws DataIntegrityViolationException;
     
 }

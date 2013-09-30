@@ -13,6 +13,29 @@
         <title>Tampil Dosen</title>
     </head>
     <body>
+        <c:if test="${not empty updateDosen}">
+            <script>
+                notifSukses("Dosen telah diupdate");
+            </script>
+	</c:if>
+            
+        <c:if test="${not empty tambahDosen}">
+            <script>
+                notifSukses("pengumuman telah diupdate");
+            </script>
+	</c:if>
+            
+        <c:if test="${hapusDosen==true}">
+            <script>
+                notifSukses("data dosen telah dihapus");
+            </script>
+        </c:if>
+        <c:if test="${hapusDosen==false}">
+            <script>
+                notifGagal("dosen aktif tidak boleh dihapus !");
+            </script>
+        </c:if>
+            
         <c:choose>
             <c:when test="${empty listDosen}">
                 <h3>Data Dosen Kosong</h3>

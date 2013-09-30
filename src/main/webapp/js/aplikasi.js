@@ -6,3 +6,12 @@ function notifSukses(pesan){
     });
 } 
 
+function notifGagal(pesan){    
+    $.notify(pesan, {
+        header: 'Gagal',
+        theme: 'error',
+        type: 4000
+    });
+} 
+
+

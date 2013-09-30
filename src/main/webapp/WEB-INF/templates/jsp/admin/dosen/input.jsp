@@ -27,12 +27,6 @@
                     <sf:input path="namaDosen" placeholder="Nama Dosen" required="required"/><br>
                 </span>
             </div>
-                <div class="-form-row">
-                <label>Nama Dosen</label>
-                <span class="-form-field -col3">
-                    <sf:input path="namaDosen" placeholder="Nama Dosen" required="required"/><br>
-                </span>
-            </div>
             <div class="-form-row">
                 <label>Alamat</label>
                 <span class="-form-field -col3">
@@ -53,7 +47,7 @@
             </div>
             <div class="-form-row">                
                  <div class="-form-group">
-                    <input type="submit" value="tambah" class="-btn"/>
+                    <input type="submit" value="simpan" class="-btn"/>
                     <input type="reset" value="batal" class="-btn -error-"/>
                 </div>
             </div>
