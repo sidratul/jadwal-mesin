@@ -14,7 +14,9 @@
     </head>
     <body>
         <c:if test="${not empty pesanTampil}">
-            <script>notifSukses(${pesanTampil},${jenisPesan});</script>
+            <script>
+                notifSukses("${pesanTampil}","${jenisPesan}");
+            </script>
 	</c:if>
         <c:choose>
             <c:when test="${empty listMatkul}">

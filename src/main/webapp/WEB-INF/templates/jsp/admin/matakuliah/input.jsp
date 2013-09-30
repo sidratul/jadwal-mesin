@@ -30,13 +30,13 @@
             <div class="-form-row">
                 <label>SKS</label>
                 <span class="-form-field -col3">
-                    <sf:input path="sks" placeholder="SKS" required="required"/><br>
+                    <sf:input type="number" max="5" min="1" path="sks" placeholder="SKS" required="required"/><br>
                 </span>
             </div>
             <div class="-form-row">
                 <label>Semester</label>
                 <span class="-form-field -col3" required="required">
-                    <sf:input path="semester" placeholder="Semester"/><br>
+                    <sf:input type="number" max="8" min="1" path="semester" placeholder="Semester"/><br>
                 </span>
             </div>
             <div class="-form-row">

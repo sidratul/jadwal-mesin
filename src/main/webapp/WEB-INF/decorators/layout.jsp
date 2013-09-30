@@ -94,7 +94,7 @@
                     </div> 
                 </li>
                 <li>
-                    <a><%= request.getUserPrincipal().getName() %> <i class="-caret"></i></a>
+                    
                     <div class="-dropdown _bottom_">                        
                         <ul class="-menu ">
                             <li><a href="<%= request.getContextPath()%>/admin/profil/tampil">Profil</a></li>

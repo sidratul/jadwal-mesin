@@ -21,7 +21,7 @@
             
         <c:if test="${not empty tambahDosen}">
             <script>
-                notifSukses("pengumuman telah diupdate");
+                notifSukses("dosen telah diupdate");
             </script>
 	</c:if>
             

@@ -1,7 +1,8 @@
-function notifPesan(pesan, jenisPesan){    
+function notifSukses(pesan, jenisPesan){    
     $.notify(pesan, {
-        header: 'Sukses',
+        header: jenisPesan,
         theme: jenisPesan,
         type: 4000
     });
 } 
+

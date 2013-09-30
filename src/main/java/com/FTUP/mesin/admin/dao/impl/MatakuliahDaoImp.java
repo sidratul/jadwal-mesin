@@ -19,7 +19,7 @@ public class MatakuliahDaoImp implements MataKuliahDao{
     private static final String SQL_MATKUL_BYID = "SELECT * FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_DELETE_MATKUL = "DELETE FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_INSERT_MATKUL = "INSERT INTO `MATAKULIAH`"
-            + "(`Kode_Matkul`,`Nama_Matkul`,`SKS`,`Semester`,`Kategori`)VALUES(?,?,?,?)";
+            + "(`Kode_Matkul`,`Nama_Matkul`,`SKS`,`Semester`,`Kategori`)VALUES(?,?,?,?,?)";
     private static final String SQL_UPDATE_MATKUL = "UPDATE `MATAKULIAH` SET "
             + "`Kode_Matkul` = ? ,`Nama_Matkul` = ?,`SKS` = ?, `Semester` = ?, `Kategori`=? WHERE `ID` = ?";
     

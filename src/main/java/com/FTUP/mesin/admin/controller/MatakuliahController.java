@@ -2,11 +2,11 @@ package com.FTUP.mesin.admin.controller;
 
 import com.FTUP.mesin.admin.dao.MataKuliahDao;
 import com.FTUP.mesin.admin.model.MataKuliah;
-import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -50,22 +50,28 @@ public class MatakuliahController {
     @RequestMapping(value = "/input",method = RequestMethod.POST)
     public String prosesInputMatkul(@ModelAttribute MataKuliah mataKuliah,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
-        Map<String,String> map = new HashMap<String, String>();
-        map.put("jenisPesan", "success");
-        if(mataKuliah.getId()!= null){
-            map.put("pesanTampil", "matakuliah telah diupdate");
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        if(mataKuliah.getId() != null){
+            redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah telah diupdate");
         }else{
-            map.put("pesanTampil", "matakuliah baru telah ditambahkan");
+            redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah baru telah ditambahkan");
         }
         mataKuliahDao.saveMAtkul(mataKuliah);
-        redirectAttributes.addAllAttributes(map);
         return "redirect:tampil";
     }
     
     @RequestMapping("/hapus")
     public String hapusMatkul(@RequestParam("id") Integer id,
-    ModelMap modelMap){
-        mataKuliahDao.deleteMatkul(id);
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
+        try{
+            mataKuliahDao.deleteMatkul(id);
+            redirectAttributes.addFlashAttribute("jenisPesan","success");
+            redirectAttributes.addFlashAttribute("pesanTampil","data matakuliah telah dihapus");
+        }catch(DataIntegrityViolationException dive){
+            redirectAttributes.addFlashAttribute("jenisPesan","error");
+            redirectAttributes.addFlashAttribute("pesanTampil","matakuliah terjadwal, tidak boleh dihapus !");
+        }
+        
         return "redirect:tampil";
     }
 }
