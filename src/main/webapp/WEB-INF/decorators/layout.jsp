@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="id">
     <head>
@@ -91,7 +92,7 @@
                         </ul>
                     </div> 
                 </li>
-                <li><a href="<c:url value="/j_spring_security_logout" />">Keluar</a></li>
+                <li><a href="<c:url value="/j_spring_security_logout"/>">Keluar</a></li>
             </ul>
         </header>
         <div class="container">
