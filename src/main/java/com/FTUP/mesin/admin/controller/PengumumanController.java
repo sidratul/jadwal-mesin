@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/pengumuman")
@@ -35,28 +36,28 @@ public class PengumumanController {
     
     @RequestMapping(value = "/input" , method = RequestMethod.POST)
     public String prosesFormPengumuman(@ModelAttribute Pengumuman pengumuman,
-    ModelMap modelMap){
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
         pengumumanDao.savePengumuman(pengumuman);
         if(pengumuman.getId() != null){
-            modelMap.addAttribute("updatePengumuman", true);
+            redirectAttributes.addFlashAttribute("updatePengumuman", true);
         }else{
-            modelMap.addAttribute("inputPengumuman", true);
+            redirectAttributes.addFlashAttribute("inputPengumuman", true);
         }
         return "redirect:tampil";
     }
     
     @RequestMapping("/hapus")
     public String hapusPengumuman(@RequestParam("id") Integer id,
-    ModelMap modelMap){
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
         pengumumanDao.deletePengumumanById(id);
-        modelMap.addAttribute("hapusPengumuman", true);
+        redirectAttributes.addFlashAttribute("hapusPengumuman", true);
         return "redirect:tampil";
     }
     
     @RequestMapping("/hapus-semua")
-    public String hapusSemuaPengumuman(ModelMap modelMap){
+    public String hapusSemuaPengumuman(ModelMap modelMap, RedirectAttributes redirectAttributes){
         pengumumanDao.deleteSemuaPengumuman();
-        modelMap.addAttribute("hapusSemuaPengumuman", true);
+        redirectAttributes.addFlashAttribute("hapusSemuaPengumuman", true);
         return "redirect:tampil";
     }
 }

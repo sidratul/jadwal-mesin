@@ -13,25 +13,25 @@
         <title>tampil pengumuman</title>
     </head>
     <body>
-        <c:if test="${param.inputPengumuman==true}">
+        <c:if test="${not empty inputPengumuman}">
             <script>
                 notifSukses("pengumuman baru telah ditambahkan");
             </script>
 	</c:if>
         
-        <c:if test="${param.updatePengumuman==true}">
+        <c:if test="${not empty updatePengumuman}">
             <script>
                 notifSukses("pengumuman telah diupdate");
             </script>
 	</c:if>
             
-        <c:if test="${param.hapusPengumuman==true}">
+        <c:if test="${not empty hapusPengumuman}">
             <script>
                 notifSukses("pengumuman berhasil dihapus");
             </script>
 	</c:if>
             
-        <c:if test="${param.hapusSemuaPengumuman==true}">
+        <c:if test="${not empty hapusSemuaPengumuman}">
             <script>
                 notifSukses("Semua pengumuman telah terhapus");
             </script>
