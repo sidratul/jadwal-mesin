@@ -14,11 +14,11 @@
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit-components.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit-animation.css">
-        <link href="<%= request.getContextPath() %>/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link href="<%= request.getContextPath() %>/css/flat-ui.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/flat-ui.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/style.css">
         <script>
-            var int=self.setInterval(function(){clock()},1000);
+            var int=self.setInterval(function(){clock();},1000);
             function clock(){
                 var d=new Date();
                 var t=d.toLocaleTimeString();
