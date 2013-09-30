@@ -42,7 +42,7 @@ public class JadwalDaoImpl implements JadwalDao{
             
             try{                
                 jadwal.setJamSelesai(new Date(
-                        jadwal.getJamMulai().getTime()+((MENIT * 45) * jadwal.getMataKuliah().getSks())
+                        jadwal.getJamMulai().getTime()+((MENIT * 50) * jadwal.getMataKuliah().getSks())
                     ));
             }catch(NullPointerException npe){
                 jadwal.setJamSelesai(null);

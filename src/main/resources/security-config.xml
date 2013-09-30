@@ -10,7 +10,8 @@
       
     <http auto-config='true'>
         <intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
-        <form-login login-page="/jadwal/login/" default-target-url="/admin/jadwal/tampil-s1" 
+        <form-login login-page="/jadwal/login/" default-target-url="/admin/"
+            always-use-default-target="true"
             authentication-failure-url="/jadwal/login/failed" />
         <logout logout-success-url="/jadwal/login/logout" />
         <remember-me />

@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="decorator" uri="http://www.opensymphony.com/sitemesh/decorator" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="id">
     <head>
@@ -92,7 +93,15 @@
                         </ul>
                     </div> 
                 </li>
-                <li><a href="<c:url value="/j_spring_security_logout"/>">Keluar</a></li>
+                <li>
+                    <a><%= request.getUserPrincipal().getName() %> <i class="-caret"></i></a>
+                    <div class="-dropdown _bottom_">                        
+                        <ul class="-menu ">
+                            <li><a href="<%= request.getContextPath()%>/admin/profil/tampil">Profil</a></li>
+                            <li><a href="<c:url value="/j_spring_security_logout"/>">Keluar</a></li>
+                        </ul>
+                    </div> 
+                </li>
             </ul>
         </header>
         <div class="container">

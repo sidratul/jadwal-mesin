@@ -1,0 +1,26 @@
+body{
+	margin:0px auto;
+	background:#eaedf2;
+}
+
+.up{
+	width:50px;
+}
+.logo{
+	color:#2C3E50;
+}
+.logo a{
+	text-decoration:none;
+	color:#2C3E50;
+}
+.s1{
+	background:#16A085;
+	color:white;
+	padding:20px;
+}
+.d3{
+	background:#2980B9;
+	color:white;
+	padding:20px;
+}
+
