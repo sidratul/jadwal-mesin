@@ -38,10 +38,11 @@ public class PengumumanController {
     public String prosesFormPengumuman(@ModelAttribute Pengumuman pengumuman,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
         pengumumanDao.savePengumuman(pengumuman);
+        redirectAttributes.addFlashAttribute("jenisPesan","success");
         if(pengumuman.getId() != null){
-            redirectAttributes.addFlashAttribute("updatePengumuman", true);
+            redirectAttributes.addFlashAttribute("pesanTampil","pengumuman telah diupdate");
         }else{
-            redirectAttributes.addFlashAttribute("inputPengumuman", true);
+            redirectAttributes.addFlashAttribute("pesanTampil","pengumuman baru telah ditambahkan");
         }
         return "redirect:tampil";
     }
@@ -50,7 +51,8 @@ public class PengumumanController {
     public String hapusPengumuman(@RequestParam("id") Integer id,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
         pengumumanDao.deletePengumumanById(id);
-        redirectAttributes.addFlashAttribute("hapusPengumuman", true);
+        redirectAttributes.addFlashAttribute("pesanTampil","pengumuman telah dihapus");
+        redirectAttributes.addFlashAttribute("jenisPesan","success");
         return "redirect:tampil";
     }
     

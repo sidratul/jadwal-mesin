@@ -15,7 +15,7 @@
     <body>
         <c:if test="${not empty pesanTampil}">
             <script>
-                notifSukses("${pesanTampil}","${jenisPesan}");
+                notifPesan("${pesanTampil}","${jenisPesan}");
             </script>
 	</c:if>
         <c:choose>

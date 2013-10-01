@@ -13,27 +13,9 @@
         <title>tampil pengumuman</title>
     </head>
     <body>
-        <c:if test="${not empty inputPengumuman}">
+        <c:if test="${not empty pesanTampil}">
             <script>
-                notifSukses("pengumuman baru telah ditambahkan");
-            </script>
-	</c:if>
-        
-        <c:if test="${not empty updatePengumuman}">
-            <script>
-                notifSukses("pengumuman telah diupdate");
-            </script>
-	</c:if>
-            
-        <c:if test="${not empty hapusPengumuman}">
-            <script>
-                notifSukses("pengumuman berhasil dihapus");
-            </script>
-	</c:if>
-            
-        <c:if test="${not empty hapusSemuaPengumuman}">
-            <script>
-                notifSukses("Semua pengumuman telah terhapus");
+                notifPesan("${pesanTampil}","${jenisPesan}");
             </script>
 	</c:if>
         

@@ -38,7 +38,7 @@
     </head>
     <body>    
         <header>
-            <h1>fakultas teknik jurusan mesin</h1>
+            <h1>Jurusan Teknik Mesin FTUP</h1>
             <ul class="-menu -tabs _active_ _TOP_ front">
                 <li><a href="<%= request.getContextPath()%>/">HOME</a></li>
                 <li>

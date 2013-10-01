@@ -38,10 +38,11 @@ public class DosenController {
     public String prosesInutDosen(@ModelAttribute Dosen dosen,
     ModelMap modelMap, RedirectAttributes redirectAttributes){        
         dosenDao.saveDosen(dosen);
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
         if(dosen.getId() !=null){
-            redirectAttributes.addFlashAttribute("UpdateDosen", true);
+            redirectAttributes.addFlashAttribute("pesanTampil", "dosen telah diupdate");
         }else{
-            redirectAttributes.addFlashAttribute("tambahDosen", true);
+            redirectAttributes.addFlashAttribute("pesanTampil", "dosen baru telah di tambahkan");
         }
         return "redirect:tampil";
     }
@@ -51,9 +52,11 @@ public class DosenController {
     ModelMap modelMap,RedirectAttributes redirectAttributes){
         try {
             dosenDao.deleteDosen(id);
-            redirectAttributes.addFlashAttribute("hapusDosen", true);
+            redirectAttributes.addFlashAttribute("pesanTampil", "dosen telah dihapus");
+            redirectAttributes.addFlashAttribute("jenisPesan", "dosen telah dihapus");
         } catch (DataIntegrityViolationException ex) {
-            redirectAttributes.addFlashAttribute("hapusDosen", false);
+            redirectAttributes.addFlashAttribute("pesanTampil", "dosen aktif tidak boleh dihapus !");
+            redirectAttributes.addFlashAttribute("jenisPesan", "error");
         }
         return "redirect:tampil";
     }

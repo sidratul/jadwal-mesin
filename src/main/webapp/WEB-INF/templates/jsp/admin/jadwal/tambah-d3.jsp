@@ -13,6 +13,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <c:if test="${not empty pesanTambah}">
+            <script>
+                notifPesan("${pesanTambah}","${jenisPesan}");
+            </script>
+	</c:if>
+        <h3>Tambah Jadwal D3</h3>
         <c:choose>
             <c:when test="${empty listMatkul}">
                 <h3>Data matakuliah Kosong</h3>

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/jadwal")
@@ -44,8 +45,11 @@ public class JadwalAdminController {
     }
 
     @RequestMapping("/proses-tambah-s1")
-    public String prosesTambahMatkulToJadwalS1(@RequestParam("idMatkul") Integer idMatkul){
+    public String prosesTambahMatkulToJadwalS1(@RequestParam("idMatkul") Integer idMatkul,
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
         jadwalDao.saveJadwalHanyaMatakuliah("JADWALS1",idMatkul);
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        redirectAttributes.addFlashAttribute("pesanTambah", "matakuliah telah ditambahkan ke jadwal s1");
         return "redirect:tambah-s1";
     }
     
@@ -62,9 +66,15 @@ public class JadwalAdminController {
     @RequestMapping(value = "/edit-jadwal-s1" , method = RequestMethod.POST)
     public String prosesEditJadwalS1(@ModelAttribute Jadwal jadwal, 
     @RequestParam("jamMulaiString") String jam,
-    ModelMap modelMap) throws ParseException{
+    ModelMap modelMap, RedirectAttributes redirectAttributes) throws ParseException{
         Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
         jadwal.setJamMulai(jamMulai);
+        
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        if(jadwal.getId()!= null){
+            redirectAttributes.addFlashAttribute("pesanTampil", "jadwal telah di update");
+        }
+        
         
         jadwalDao.saveJadwal("JADWALS1",jadwal);
         return "redirect:tampil-s1";
@@ -72,14 +82,18 @@ public class JadwalAdminController {
     
     @RequestMapping("/hapus-s1")
     public String tutupJadwalMatkulS1(@RequestParam("id") Integer id,
-    ModelMap modelMap){
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
         jadwalDao.deleteJadwal("JADWALS1",id);
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah telah di tutup");
         return "redirect:tampil-s1";
     }
 
     @RequestMapping("/hapus-semua-s1")
-    public String hapusJadwalS1(ModelMap modelMap){
+    public String hapusJadwalS1(ModelMap modelMap, RedirectAttributes redirectAttributes){
         jadwalDao.deleteSemuaJadwal("JADWALD1");
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        redirectAttributes.addFlashAttribute("pesanTampil", "jadwal S1 telah dikosongkan");
         return "redirect:tampil-s1";
     }
     
@@ -103,8 +117,11 @@ public class JadwalAdminController {
     }
     
     @RequestMapping("/proses-tambah-d3")
-    public String prosesTambahMatkulToJadwalD3(@RequestParam("idMatkul") Integer idMatkul){
+    public String prosesTambahMatkulToJadwalD3(@RequestParam("idMatkul") Integer idMatkul,
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
         jadwalDao.saveJadwalHanyaMatakuliah("JADWALD3",idMatkul);
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        redirectAttributes.addFlashAttribute("pesanTambah", "matakuliah telah ditambahkan ke jadwal d3");
         return "redirect:tambah-d3";
     }
     
@@ -121,9 +138,14 @@ public class JadwalAdminController {
     @RequestMapping(value = "/edit-jadwal-d3" , method = RequestMethod.POST)
     public String prosesEditJadwalD3(@ModelAttribute Jadwal jadwal, 
     @RequestParam("jamMulaiString") String jam,
-    ModelMap modelMap) throws ParseException{
+    ModelMap modelMap, RedirectAttributes redirectAttributes) throws ParseException{
         Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
         jadwal.setJamMulai(jamMulai);
+        
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        if(jadwal.getId()!= null){
+            redirectAttributes.addFlashAttribute("pesanTampil", "jadwal telah di update");
+        }
         
         jadwalDao.saveJadwal("JADWALD3",jadwal);
         return "redirect:tampil-d3";
@@ -131,14 +153,18 @@ public class JadwalAdminController {
     
     @RequestMapping("/hapus-d3")
     public String tutupJadwalMatkulD3(@RequestParam("id") Integer id,
-    ModelMap modelMap){
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
         jadwalDao.deleteJadwal("JADWALD3",id);
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah telah di tutup");
         return "redirect:tampil-d3";
     }
     
     @RequestMapping("/hapus-semua-d3")
-    public String hapusJadwalD3(ModelMap modelMap){
+    public String hapusJadwalD3(ModelMap modelMap, RedirectAttributes redirectAttributes){
         jadwalDao.deleteSemuaJadwal("JADWALD3");
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        redirectAttributes.addFlashAttribute("pesanTampil", "jadwal D3 telah dikosongkan");
         return "redirect:tampil-d3";
     }
 }

@@ -14,12 +14,17 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <c:if test="${not empty pesanTampil}">
+            <script>
+                notifPesan("${pesanTampil}","${jenisPesan}");
+            </script>
+	</c:if>
         <c:choose>
             <c:when test="${empty listJadwal}">
                 <h3>Data Jadwal Kosong</h3>
             </c:when>
             <c:otherwise>
-                <h3>JADWAL S1</h3>
+                <h3>JADWAL D3</h3>
                 <table class="-table _striped_ _hovered_">
                     <thead>
                         <tr>
