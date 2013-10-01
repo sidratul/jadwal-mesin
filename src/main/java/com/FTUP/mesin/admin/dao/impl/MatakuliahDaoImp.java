@@ -19,9 +19,9 @@ public class MatakuliahDaoImp implements MataKuliahDao{
     private static final String SQL_MATKUL_BYID = "SELECT * FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_DELETE_MATKUL = "DELETE FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_INSERT_MATKUL = "INSERT INTO `MATAKULIAH`"
-            + "(`Kode_Matkul`,`Nama_Matkul`,`SKS`,`Semester`,`Kategori`)VALUES(?,?,?,?,?)";
+            + "(`Kode_Matkul`,`Nama_Matkul`,`SKS`,`Semester`,`Kategori_Matkul`)VALUES(?,?,?,?,?)";
     private static final String SQL_UPDATE_MATKUL = "UPDATE `MATAKULIAH` SET "
-            + "`Kode_Matkul` = ? ,`Nama_Matkul` = ?,`SKS` = ?, `Semester` = ?, `Kategori`=? WHERE `ID` = ?";
+            + "`Kode_Matkul` = ? ,`Nama_Matkul` = ?,`SKS` = ?, `Semester` = ?, `Kategori_Matkul`=? WHERE `ID` = ?";
     
     private JdbcTemplate jdbcTemplate;
     
@@ -35,7 +35,8 @@ public class MatakuliahDaoImp implements MataKuliahDao{
             mataKuliah.setNamaMatkul(rs.getString("Nama_Matkul"));
             mataKuliah.setSks(rs.getInt("SKS"));
             mataKuliah.setSemester(rs.getInt("Semester"));
-            mataKuliah.setKategori(rs.getString("Kategori"));
+            mataKuliah.setKategoriMatkul(rs.getString("Kategori_Matkul"));
+            mataKuliah.setKategoriMatkul(rs.getString("Kategori_Matkul"));
             
             return mataKuliah;
         }
@@ -67,11 +68,11 @@ public class MatakuliahDaoImp implements MataKuliahDao{
     public void saveMAtkul(MataKuliah mataKuliah) {
         if(mataKuliah.getId() !=null){
             jdbcTemplate.update(SQL_UPDATE_MATKUL, new Object[]{
-                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategori(),mataKuliah.getId()
+                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategoriMatkul(),mataKuliah.getId()
             });
         }else{
             jdbcTemplate.update(SQL_INSERT_MATKUL, new Object[]{
-                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategori()
+                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategoriMatkul()
             });
         }
     }

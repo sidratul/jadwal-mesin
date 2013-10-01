@@ -26,14 +26,14 @@
             <c:otherwise>
                 <h3>SEMESTER ${listMatkul[0].semester}</h3>
                 <ul class="-menu -tabs _active_ _TOP_ ">
-                    <li><a href="tambah-d3?semester=1">Semester 1</a></li>
-                    <li><a href="tambah-d3?semester=2">Semester 2</a></li>
-                    <li><a href="tambah-d3?semester=3">Semester 3</a></li>
-                    <li><a href="tambah-d3?semester=4">Semester 4</a></li>
-                    <li><a href="tambah-d3?semester=5">Semester 5</a></li>
-                    <li><a href="tambah-d3?semester=6">Semester 6</a></li>
-                    <li><a href="tambah-d3?semester=7">Semester 7</a></li>
-                    <li><a href="tambah-d3?semester=8">Semester 8</a></li>
+                    <li><a href="tambah-d3?semester=1" class="btn btn-success">Semester 1</a></li>
+                    <li><a href="tambah-d3?semester=2" class="btn btn-success">Semester 2</a></li>
+                    <li><a href="tambah-d3?semester=3" class="btn btn-success">Semester 3</a></li>
+                    <li><a href="tambah-d3?semester=4" class="btn btn-success">Semester 4</a></li>
+                    <li><a href="tambah-d3?semester=5" class="btn btn-success">Semester 5</a></li>
+                    <li><a href="tambah-d3?semester=6" class="btn btn-success">Semester 6</a></li>
+                    <li><a href="tambah-d3?semester=7" class="btn btn-success">Semester 7</a></li>
+                    <li><a href="tambah-d3?semester=8" class="btn btn-success">Semester 8</a></li>
                 </ul>
                 <table class="-table _striped_ _hovered_">
                     <thead>

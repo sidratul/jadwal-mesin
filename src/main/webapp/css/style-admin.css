@@ -27,14 +27,32 @@ body {
     padding-bottom: 60px;
 }
 
-
-.container {
-    margin: 0 auto;
-    max-width: 1000px;
-    padding: 20px;
-}
-
 .front{
     position: relative;
     z-index:10;
+}
+
+.-tabs li {
+    
+}
+
+.s1{
+	background:#21a459;
+	color:white;
+	padding:20px;
+}
+.d3{
+	background:#2980B9;
+	color:white;
+	padding:20px;
+}
+
+footer{
+    clear: both;
+    background: none;
+    margin-top: 20px;
+    text-align: center;
+}
+.white{
+    color: white
 }

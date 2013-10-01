@@ -204,7 +204,7 @@
 
                     <div class="span5" style="margin-bottom:30px">
                         <dl class="palette palette-emerald">
-                            <span>Copyright&copy; Teknik Informatika 2013</span>
+                            <span>Copyright&copy; sid corporation 2013</span>
                         </dl>
                     </div>
                 </div>			

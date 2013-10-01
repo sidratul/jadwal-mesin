@@ -1,5 +1,7 @@
 package com.FTUP.mesin.admin.model;
 
+import java.util.Date;
+
 public class Dosen {
     private Integer id;
     private String nidn;
@@ -7,8 +9,35 @@ public class Dosen {
     private String alamat;
     private String noTelpon;
     private String email;
+    private String tempatLahir;
+    private Date tglLahir;
 
-    public Integer getId() {
+    public String getTempatLahir() {
+        return tempatLahir;
+    }
+
+    public void setTempatLahir(String tempatLahir) {
+        this.tempatLahir = tempatLahir;
+    }
+
+    public Date getTglLahir() {
+        return tglLahir;
+    }
+
+    public void setTglLahir(Date tglLahir) {
+        this.tglLahir = tglLahir;
+    }
+
+    public String getJabatan() {
+        return jabatan;
+    }
+
+    public void setJabatan(String jabatan) {
+        this.jabatan = jabatan;
+    }
+    private String jabatan;
+
+    public Integer getId(){
         return id;
     }
 

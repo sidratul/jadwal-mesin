@@ -28,6 +28,7 @@ public class MatakuliahController {
     
     @RequestMapping("/tampil")
     public void tampilMatkulBySemester(@RequestParam(value = "semester",required = false) Integer semester,
+    @RequestParam(value = "tingkat") String kategoriTingkat,
     ModelMap modelMap){
         if(semester==null){
             semester = 1;

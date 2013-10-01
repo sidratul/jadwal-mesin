@@ -6,7 +6,8 @@ public class MataKuliah {
     private String namaMatkul;
     private Integer sks;
     private Integer semester;
-    private String kategori;
+    private String kategoriMatkul;
+    private String kategoriTingkat;
 
     public Integer getId() {
         return id;
@@ -48,12 +49,20 @@ public class MataKuliah {
         this.semester = semester;
     }
 
-    public String getKategori() {
-        return kategori;
+    public String getKategoriMatkul() {
+        return kategoriMatkul;
     }
 
-    public void setKategori(String kategori) {
-        this.kategori = kategori;
+    public void setKategoriMatkul(String kategoriMatkul) {
+        this.kategoriMatkul = kategoriMatkul;
+    }
+
+    public String getKategoriTingkat() {
+        return kategoriTingkat;
+    }
+
+    public void setKategoriTingkat(String kategoriTingkat) {
+        this.kategoriTingkat = kategoriTingkat;
     }
     
 }

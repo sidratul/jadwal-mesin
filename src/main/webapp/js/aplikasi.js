@@ -5,4 +5,3 @@ function notifPesan(pesan, jenisPesan){
         type: 4000
     });
 } 
-
