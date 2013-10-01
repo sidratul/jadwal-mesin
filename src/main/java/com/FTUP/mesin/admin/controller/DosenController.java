@@ -2,7 +2,12 @@ package com.FTUP.mesin.admin.controller;
 
 import com.FTUP.mesin.admin.dao.DosenDao;
 import com.FTUP.mesin.admin.model.Dosen;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
@@ -36,8 +41,18 @@ public class DosenController {
     
     @RequestMapping(value = "/input",method = RequestMethod.POST)
     public String prosesInutDosen(@ModelAttribute Dosen dosen,
+    @RequestParam("tglLahirString") String tglLahirString,
     ModelMap modelMap, RedirectAttributes redirectAttributes){        
+        Date tglLahir;
+        try {
+            tglLahir = new SimpleDateFormat("yyyy-mm-dd").parse(tglLahirString);
+        } catch (ParseException ex) {
+            tglLahir = null;
+        }
+        
+        dosen.setTglLahir(tglLahir);
         dosenDao.saveDosen(dosen);
+        
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         if(dosen.getId() !=null){
             redirectAttributes.addFlashAttribute("pesanTampil", "dosen telah diupdate");

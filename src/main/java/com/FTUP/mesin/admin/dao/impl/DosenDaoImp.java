@@ -59,11 +59,19 @@ public class DosenDaoImp implements DosenDao{
     public void saveDosen(Dosen dosen) {
         if(dosen.getId()!= null){
             jdbcTemplate.update(SQL_UPDATE_DOSEN,new Object[]{
-                dosen.getNidn(),dosen.getNamaDosen(),dosen.getAlamat(),dosen.getNoTelpon(),dosen.getEmail(),dosen.getTempatLahir(),new java.sql.Date(dosen.getTglLahir().getTime()),dosen.getJabatan(),dosen.getId()
+                dosen.getNidn(),
+                dosen.getNamaDosen(),
+                dosen.getAlamat(),
+                dosen.getNoTelpon(),
+                dosen.getEmail(),
+                dosen.getTempatLahir(),
+                dosen.getTglLahir(),
+                dosen.getJabatan(),
+                dosen.getId()
             });
         }else{
             jdbcTemplate.update(SQL_INSERT_DOSEN, new Object[]{
-                dosen.getNidn(),dosen.getNamaDosen(),dosen.getAlamat(),dosen.getNoTelpon(),dosen.getEmail(),dosen.getTempatLahir(),new java.sql.Date(dosen.getTglLahir().getTime()),dosen.getJabatan()
+                dosen.getNidn(),dosen.getNamaDosen(),dosen.getAlamat(),dosen.getNoTelpon(),dosen.getEmail(),dosen.getTempatLahir(),dosen.getTglLahir(),dosen.getJabatan()
             } );
         }
     }

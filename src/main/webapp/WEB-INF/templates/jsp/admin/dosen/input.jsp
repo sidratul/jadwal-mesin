@@ -4,8 +4,10 @@
     Author     : sidratul
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,7 +44,8 @@
             <div class="-form-row">
                 <label>Tanggal Lahir</label>
                 <span class="-form-field -col3">
-                    <sf:input path="tglLahir" typr="date" placeholder="Tanggal Lahir"/><br>
+                    <fmt:formatDate pattern="yyyy-MM-dd" value="${dosen.tglLahir}" var="tglLahirString"/>
+                    <input name="tglLahirString" type="date" placeholder="Tanggal Lahir" value="${tglLahirString}"/><br>
                 </span>
             </div>
             <div class="-form-row">
@@ -55,6 +58,7 @@
                         <sf:option value="L">L</sf:option>
                         <sf:option value="AA">AA</sf:option>
                     </sf:select>
+                    <i class="-caret"></i>
                 </span>
             </div>
             <div class="-form-row">

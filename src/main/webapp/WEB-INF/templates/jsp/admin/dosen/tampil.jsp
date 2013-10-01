@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,8 +32,10 @@
                             <th>NIDN</th>
                             <th>Nama</th>
                             <th>Alamat</th>
+                            <th>TTL</th>
                             <th>No Telpon</th>
                             <th>Email</th>
+                            <th>Jabatan</th>
                             <th colspan="2">&nbsp;</th>
                         </tr>
                     </thead>
@@ -43,8 +46,12 @@
                                 <td>${ld.nidn}</td>
                                 <td>${ld.namaDosen}</td>
                                 <td>${ld.alamat}</td>
+                                <td>
+                                    ${ld.tempatLahir} <fmt:formatDate pattern="dd MMM yyyy" value="${ld.tglLahir}"/>
+                                </td>
                                 <td>${ld.noTelpon}</td>
                                 <td>${ld.email}</td>
+                                <td>${ld.jabatan}</td>
                                 <td><a href="input?id=${ld.id}">edit</a></td>
                                 <td><a href="hapus?id=${ld.id}">hapus</a></td>
                             </tr>
