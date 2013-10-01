@@ -33,16 +33,40 @@
                     <sf:input path="alamat" placeholder="Alamat"/><br>
                 </span>
             </div>
-                <div class="-form-row">
+            <div class="-form-row">
+                <label>Tempat Lahir</label>
+                <span class="-form-field -col3">
+                    <sf:input path="tempatLahir" placeholder="Tempat Lahir"/><br>
+                </span>
+            </div>    
+            <div class="-form-row">
+                <label>Tanggal Lahir</label>
+                <span class="-form-field -col3">
+                    <sf:input path="tglLahir" typr="date" placeholder="Tanggal Lahir"/><br>
+                </span>
+            </div>
+            <div class="-form-row">
+                <label>Jabatan</label>
+                <span class="-form-field -col3">
+                    <sf:select path="jabatan">
+                        <sf:option value="">Pilih Jabatan</sf:option>
+                        <sf:option value="GB">GB</sf:option>
+                        <sf:option value="LK">LK</sf:option>
+                        <sf:option value="L">L</sf:option>
+                        <sf:option value="AA">AA</sf:option>
+                    </sf:select>
+                </span>
+            </div>
+            <div class="-form-row">
                 <label>No Telpon</label>
                 <span class="-form-field -col3">
-                    <sf:input path="noTelpon" placeholder="No Telpon"/><br>
+                    <sf:input path="noTelpon" type="tel" placeholder="No Telpon"/><br>
                 </span>
             </div>
             <div class="-form-row">
                 <label>Email</label>
                 <span class="-form-field -col3">
-                    <sf:input path="email" placeholder="Email"/><br>
+                    <sf:input path="email" type="email" placeholder="Email"/><br>
                 </span>
             </div>
             <div class="-form-row">                

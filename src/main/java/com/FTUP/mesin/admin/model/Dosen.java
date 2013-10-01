@@ -11,6 +11,7 @@ public class Dosen {
     private String email;
     private String tempatLahir;
     private Date tglLahir;
+    private String jabatan;
 
     public String getTempatLahir() {
         return tempatLahir;
@@ -35,7 +36,6 @@ public class Dosen {
     public void setJabatan(String jabatan) {
         this.jabatan = jabatan;
     }
-    private String jabatan;
 
     public Integer getId(){
         return id;

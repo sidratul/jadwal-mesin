@@ -21,9 +21,10 @@ public class DosenDaoImp implements DosenDao{
     private static final String SQL_DOSEN_BYID ="SELECT * FROM DOSEN WHERE ID=?";
     private static final String SQL_DELETE_DOSEN_BYID ="DELETE FROM DOSEN WHERE ID=?";
     private static final String SQL_UPDATE_DOSEN ="UPDATE `DOSEN` SET "
-            + "`NIDN` = ?,`Nama_Dosen` = ?,`Alamat` = ?,`No_Telpon` = ?,`Email` =? WHERE `ID` = ?";
+            + "`NIDN` = ?,`Nama_Dosen` = ?,`Alamat` = ?,`No_Telpon` = ?,`Email` =?,"
+            + "Tempat_Lahir=?, Tgl_Lahir=?, Jabatan=? WHERE `ID` = ?";
     private static final String SQL_INSERT_DOSEN ="INSERT INTO `DOSEN`"
-            + "(`NIDN`,`Nama_Dosen`,`Alamat`,`No_Telpon`,`Email`)VALUES(?,?,?,?,?)";
+            + "(`NIDN`,`Nama_Dosen`,`Alamat`,`No_Telpon`,`Email`,Tempat_Lahir, Tgl_Lahir, Jabatan)VALUES(?,?,?,?,?,?,?,?)";
     private JdbcTemplate jdbcTemplate;    
 
     private static final class DosenParameterizedRowMapper implements 
@@ -37,6 +38,9 @@ public class DosenDaoImp implements DosenDao{
             dosen.setAlamat(rs.getString("Alamat"));
             dosen.setNoTelpon(rs.getString("No_Telpon"));
             dosen.setEmail(rs.getString("Email"));
+            dosen.setTempatLahir(rs.getString("Tempat_Lahir"));
+            dosen.setTglLahir(rs.getDate("Tgl_Lahir"));
+            dosen.setJabatan(rs.getString("Jabatan"));
 
             return dosen;
         }
@@ -55,11 +59,11 @@ public class DosenDaoImp implements DosenDao{
     public void saveDosen(Dosen dosen) {
         if(dosen.getId()!= null){
             jdbcTemplate.update(SQL_UPDATE_DOSEN,new Object[]{
-                dosen.getNidn(),dosen.getNamaDosen(),dosen.getAlamat(),dosen.getNoTelpon(),dosen.getEmail(),dosen.getId()
+                dosen.getNidn(),dosen.getNamaDosen(),dosen.getAlamat(),dosen.getNoTelpon(),dosen.getEmail(),dosen.getTempatLahir(),new java.sql.Date(dosen.getTglLahir().getTime()),dosen.getJabatan(),dosen.getId()
             });
         }else{
             jdbcTemplate.update(SQL_INSERT_DOSEN, new Object[]{
-                dosen.getNidn(),dosen.getNamaDosen(),dosen.getAlamat(),dosen.getNoTelpon(),dosen.getEmail()
+                dosen.getNidn(),dosen.getNamaDosen(),dosen.getAlamat(),dosen.getNoTelpon(),dosen.getEmail(),dosen.getTempatLahir(),new java.sql.Date(dosen.getTglLahir().getTime()),dosen.getJabatan()
             } );
         }
     }
