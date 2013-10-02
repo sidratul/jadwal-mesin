@@ -28,7 +28,7 @@
             <div class="-form-row">
                 <label>Dosen</label>
                 <span class="-form-field -col3">
-                    <sf:select path="dosen.id" required="required">
+                    <sf:select path="dosen.id">
                         <sf:option value="">Pilih Dosen</sf:option>
                         <c:forEach items="${listDosen}" var="ld">
                             <sf:option value="${ld.id}">${ld.namaDosen}</sf:option>
@@ -41,7 +41,7 @@
                 <label>Jam</label>
                 <span class="-form-field -col3">
                     <fmt:formatDate pattern="HH:mm:ss" value="${jadwal.jamMulai}" var="valueJam"></fmt:formatDate>
-                    <input type="time" name="jamMulaiString" step="00" value="${valueJam}" required="required"/>
+                    <input type="time" name="jamMulaiString" step="00" value="${valueJam}"/>
                 </span>
             </div>
             <div class="-form-row">

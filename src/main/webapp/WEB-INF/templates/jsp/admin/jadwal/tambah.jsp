@@ -26,14 +26,11 @@
             <c:otherwise>
                 <h3>SEMESTER ${listMatkul[0].semester}</h3>
                 <ul class="-menu -tabs _active_ _TOP_ ">
-                    <li><a href="tambah-s1?semester=1" class="btn btn-success">Semester 1</a></li>
-                    <li><a href="tambah-s1?semester=2" class="btn btn-success">Semester 2</a></li>
-                    <li><a href="tambah-s1?semester=3" class="btn btn-success">Semester 3</a></li>
-                    <li><a href="tambah-s1?semester=4" class="btn btn-success">Semester 4</a></li>
-                    <li><a href="tambah-s1?semester=5" class="btn btn-success">Semester 5</a></li>
-                    <li><a href="tambah-s1?semester=6" class="btn btn-success">Semester 6</a></li>
-                    <li><a href="tambah-s1?semester=7" class="btn btn-success">Semester 7</a></li>
-                    <li><a href="tambah-s1?semester=8" class="btn btn-success">Semester 8</a></li>
+                    <c:forEach items="${listSemester}" var="ls" varStatus="i">
+                        <li>
+                            <a href="tambah?tingkat=${ls.kategoriTingkat}&semester=${ls.semester}" class="btn btn-success">Semester ${ls.semester}</a>
+                        </li>
+                    </c:forEach>
                 </ul>
                 <table class="-table _striped_ _hovered_">
                     <thead>

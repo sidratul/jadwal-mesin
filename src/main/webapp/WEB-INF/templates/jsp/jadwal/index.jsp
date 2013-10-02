@@ -204,7 +204,7 @@
 
                     <div class="span5" style="margin-bottom:30px">
                         <dl class="palette palette-emerald">
-                            <span>Copyright&copy;2013<br> SID Corporation</span>
+                            <span>Copyright&copy;2013 SID Corporation</span>
                         </dl>
                     </div>
                 </div>			

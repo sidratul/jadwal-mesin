@@ -24,8 +24,8 @@ public class JadwalController {
     public void index(ModelMap modelMap){
         Calendar calendar = Calendar.getInstance();
         Integer hari = calendar.get(Calendar.DAY_OF_WEEK);
-        List<Jadwal> jadwalsS1 = jadwalDao.getJadwalByHari("JADWALS1",hari);
-        List<Jadwal> jadwalsD3 = jadwalDao.getJadwalByHari("JADWALD3",hari);
+        List<Jadwal> jadwalsS1 = jadwalDao.getJadwalByHari("S1",hari);
+        List<Jadwal> jadwalsD3 = jadwalDao.getJadwalByHari("D3",hari);
         
         List<Pengumuman> pengumumans = pengumumanDao.getAllPengumuman();
         

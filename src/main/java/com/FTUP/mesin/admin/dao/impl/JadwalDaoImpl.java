@@ -19,7 +19,9 @@ import org.springframework.stereotype.Service;
 @Repository("jadwalDao")
 @Service
 public class JadwalDaoImpl implements JadwalDao{
-    
+    private static final String SQL_JADWAL_BYHARI="SELECT j.* FROM MATAKULIAH m RIGHT JOIN JADWAL j "
+            + "ON m.ID = j.ID_Matakuliah "
+            + "WHERE j.ID_Matakuliah is NOT NULL AND m.Kategori_Tingkat=? AND Hari=?";
     private static final String SQL_GETALL_JADWAL="SELECT j.* FROM MATAKULIAH m RIGHT JOIN JADWAL j "
             + "ON m.ID = j.ID_Matakuliah "
             + "WHERE j.ID_Matakuliah is NOT NULL AND m.Kategori_Tingkat=?" ;
@@ -77,16 +79,21 @@ public class JadwalDaoImpl implements JadwalDao{
         return jadwals;
     }
     
-    public List<Jadwal> getJadwalByHari(String namaTable,Integer hari) {
-        String SQL_JADWAL_BYHARI="SELECT * FROM "+namaTable+" WHERE Hari=?";
-        List<Jadwal> jadwals = jdbcTemplate.query(SQL_JADWAL_BYHARI,new JadwalParameterizedRowMapper(),hari);
+    public List<Jadwal> getJadwalByHari(String kategoriTingkat,Integer hari) {
+        List<Jadwal> jadwals = jdbcTemplate.query(SQL_JADWAL_BYHARI,new JadwalParameterizedRowMapper(),kategoriTingkat,hari);
         return jadwals;
     }
 
     public void saveJadwal(Jadwal jadwal) {
         if(jadwal.getId()!=null){
             jdbcTemplate.update(SQL_UPDATE_JADWAL, new Object[]{
-                jadwal.getMataKuliah().getId(),jadwal.getDosen().getId(),jadwal.getJamMulai(),jadwal.getHari(),jadwal.getRuang(),jadwal.getKeterangan(),jadwal.getId()
+                jadwal.getMataKuliah().getId(),
+                jadwal.getDosen().getId(),
+                jadwal.getJamMulai(),
+                jadwal.getHari(),
+                jadwal.getRuang(),
+                jadwal.getKeterangan(),
+                jadwal.getId()
             });
         }else{
             SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");

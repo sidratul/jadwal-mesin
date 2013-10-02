@@ -10,6 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -42,6 +44,10 @@ public class JadwalAdminController {
             semester = 1;
         }
         
+        
+        List<MataKuliah> mkGroupBySemester = mataKuliahDao.getMatkulGroupBySmester(kategoriTingkat);
+        modelMap.addAttribute("listSemester", mkGroupBySemester);
+        
         List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemesterBukanJadwal(semester, kategoriTingkat);
         modelMap.addAttribute("listMatkul", mataKuliahs);
     }
@@ -73,8 +79,13 @@ public class JadwalAdminController {
     public String prosesEditJadwal(@ModelAttribute Jadwal jadwal, 
     @RequestParam("jamMulaiString") String jam,
     @RequestParam("tingkat") String kategoriTingkat,
-    ModelMap modelMap, RedirectAttributes redirectAttributes) throws ParseException{
-        Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
+        Date jamMulai;
+        try {
+            jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
+        } catch (ParseException ex) {
+            jamMulai=null;
+        }
         jadwal.setJamMulai(jamMulai);
         
         jadwalDao.saveJadwal(jadwal);
