@@ -69,15 +69,15 @@
                                         <li>
                                           <a href="#fakelink">Strata 1</a>
                                           <ul>
-                                                <li><a href="<%= request.getContextPath()%>/admin/jadwal/tampil-s1">Lihat Data</a></li>
-                                                <li><a href="<%= request.getContextPath()%>/admin/jadwal/tambah-s1">Masukan Data</a></li>
+                                                <li><a href="<%= request.getContextPath()%>/admin/jadwal/tampil?tingkat=S1">Lihat Data</a></li>
+                                                <li><a href="<%= request.getContextPath()%>/admin/jadwal/tambah?tingkat=S1">Masukan Data</a></li>
                                           </ul>
                                         </li>
                                         <li>
                                           <a href="#fakelink">Diploma 3</a>
                                           <ul>
-                                                <li><a href="<%= request.getContextPath()%>/admin/jadwal/tampil-d3">Lihat Data</a></li>
-                                                <li><a href="<%= request.getContextPath()%>/admin/jadwal/tambah-d3">Masukan Data</a></li>
+                                                <li><a href="<%= request.getContextPath()%>/admin/jadwal/tampil?tingkat=D3">Lihat Data</a></li>
+                                                <li><a href="<%= request.getContextPath()%>/admin/jadwal/tambah?tingkat=D3">Masukan Data</a></li>
                                           </ul>
                                         </li>								
                                   </ul>

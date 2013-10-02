@@ -11,7 +11,7 @@ public interface MataKuliahDao {
     
     public List<MataKuliah> getMatkulBySemester(Integer semester, String kategoriTingkat);
     
-    public List<MataKuliah> getMatkulBySemesterBukanJadwal(String namaTable,Integer semester);
+    public List<MataKuliah> getMatkulBySemesterBukanJadwal(Integer semester,String kategoriTingkat);
     
     public void saveMAtkul(MataKuliah mataKuliah);
     

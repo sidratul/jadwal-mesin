@@ -27,144 +27,153 @@ public class JadwalAdminController {
     @Autowired DosenDao dosenDao;
     @Autowired MataKuliahDao mataKuliahDao;
     
-    @RequestMapping("/tampil-s1")
-    public void tampilJadwalS1(ModelMap modelMap){
-        List<Jadwal> jadwals = jadwalDao.getAllJadwal("JADWALS1");
+    @RequestMapping("/tampil")
+    public void tampilJadwal(@RequestParam("tingkat") String kategoriTingkat,
+    ModelMap modelMap){
+        List<Jadwal> jadwals = jadwalDao.getAllJadwal(kategoriTingkat);
         modelMap.addAttribute("listJadwal",jadwals);
     }
     
-    @RequestMapping("/tambah-s1")
-    public void inputMatakulihToJadwalS1(@RequestParam(value = "semester",required = false) Integer semester,
+    @RequestMapping("/tambah")
+    public void inputMatakulihToJadwal(@RequestParam(value = "semester",required = false) Integer semester,
+    @RequestParam("tingkat") String kategoriTingkat,
     ModelMap modelMap){
         if(semester==null){
             semester = 1;
         }
         
-        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemesterBukanJadwal("JADWALS1",semester);
+        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemesterBukanJadwal(semester, kategoriTingkat);
         modelMap.addAttribute("listMatkul", mataKuliahs);
     }
 
-    @RequestMapping("/proses-tambah-s1")
-    public String prosesTambahMatkulToJadwalS1(@RequestParam("idMatkul") Integer idMatkul,
+    @RequestMapping("/proses-tambah")
+    public String prosesTambahMatkulToJadwal(@RequestParam("idMatkul") Integer idMatkul,
+    @RequestParam("tingkat") String kategoriTingkat,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
-        jadwalDao.saveJadwalHanyaMatakuliah("JADWALS1",idMatkul);
+        jadwalDao.saveJadwalHanyaMatakuliah(idMatkul);
+        
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         redirectAttributes.addFlashAttribute("pesanTambah", "matakuliah telah ditambahkan ke jadwal s1");
-        return "redirect:tambah-s1";
+        
+        return "redirect:tambah?tingkat="+kategoriTingkat;
     }
     
-    @RequestMapping(value = "/edit-jadwal-s1" , method = RequestMethod.GET)
-    public void formEditJadwalS1(@RequestParam("id") Integer id,
+    @RequestMapping(value = "/edit-jadwal" , method = RequestMethod.GET)
+    public void formEditJadwal(@RequestParam("id") Integer id,
+    @RequestParam("tingkat") String kategoriTingkat,
     ModelMap modelMap){
-        Jadwal jadwal = jadwalDao.getJadwalById("JADWALS1",id);
+        Jadwal jadwal = jadwalDao.getJadwalById(id);
         List<Dosen> dosens = dosenDao.getAllDosen();
         
         modelMap.addAttribute("jadwal", jadwal);
         modelMap.addAttribute("listDosen", dosens);
     }
     
-    @RequestMapping(value = "/edit-jadwal-s1" , method = RequestMethod.POST)
-    public String prosesEditJadwalS1(@ModelAttribute Jadwal jadwal, 
+    @RequestMapping(value = "/edit-jadwal" , method = RequestMethod.POST)
+    public String prosesEditJadwal(@ModelAttribute Jadwal jadwal, 
     @RequestParam("jamMulaiString") String jam,
+    @RequestParam("tingkat") String kategoriTingkat,
     ModelMap modelMap, RedirectAttributes redirectAttributes) throws ParseException{
         Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
         jadwal.setJamMulai(jamMulai);
+        
+        jadwalDao.saveJadwal(jadwal);
         
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         if(jadwal.getId()!= null){
             redirectAttributes.addFlashAttribute("pesanTampil", "jadwal telah di update");
         }
         
-        
-        jadwalDao.saveJadwal("JADWALS1",jadwal);
-        return "redirect:tampil-s1";
+        return "redirect:tampil?tingkat="+kategoriTingkat;
     }
     
-    @RequestMapping("/hapus-s1")
+    @RequestMapping("/hapus")
     public String tutupJadwalMatkulS1(@RequestParam("id") Integer id,
+    @RequestParam("tingkat") String kategoriTingkat,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
-        jadwalDao.deleteJadwal("JADWALS1",id);
+        jadwalDao.deleteJadwal(id);
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah telah di tutup");
-        return "redirect:tampil-s1";
+        return "redirect:tampil?tingkat="+kategoriTingkat;
     }
 
-    @RequestMapping("/hapus-semua-s1")
-    public String hapusJadwalS1(ModelMap modelMap, RedirectAttributes redirectAttributes){
-        jadwalDao.deleteSemuaJadwal("JADWALD1");
+    @RequestMapping("/hapus-semua")
+    public String hapusJadwalS1(@RequestParam("tingkat") String kategoriTingkat,
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
+        jadwalDao.deleteSemuaJadwal();
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         redirectAttributes.addFlashAttribute("pesanTampil", "jadwal S1 telah dikosongkan");
-        return "redirect:tampil-s1";
+        return "redirect:tampil?tingkat="+kategoriTingkat;
     }
     
     //D3
     
-    @RequestMapping("/tampil-d3")
-    public void tampilJadwalD3(ModelMap modelMap){
-        List<Jadwal> jadwals = jadwalDao.getAllJadwal("JADWALD3");
-        modelMap.addAttribute("listJadwal",jadwals);
-    }
-    
-    @RequestMapping("/tambah-d3")
-    public void inputMatakulihToJadwalD3(@RequestParam(value = "semester",required = false) Integer semester,
-    ModelMap modelMap){
-        if(semester==null){
-            semester = 1;
-        }
-        
-        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemesterBukanJadwal("JADWALD3",semester);
-        modelMap.addAttribute("listMatkul", mataKuliahs);
-    }
-    
-    @RequestMapping("/proses-tambah-d3")
-    public String prosesTambahMatkulToJadwalD3(@RequestParam("idMatkul") Integer idMatkul,
-    ModelMap modelMap, RedirectAttributes redirectAttributes){
-        jadwalDao.saveJadwalHanyaMatakuliah("JADWALD3",idMatkul);
-        redirectAttributes.addFlashAttribute("jenisPesan", "success");
-        redirectAttributes.addFlashAttribute("pesanTambah", "matakuliah telah ditambahkan ke jadwal d3");
-        return "redirect:tambah-d3";
-    }
-    
-    @RequestMapping(value = "/edit-jadwal-d3" , method = RequestMethod.GET)
-    public void formEditJadwalD3(@RequestParam("id") Integer id,
-    ModelMap modelMap){
-        Jadwal jadwal = jadwalDao.getJadwalById("JADWALD3",id);
-        List<Dosen> dosens = dosenDao.getAllDosen();
-        
-        modelMap.addAttribute("jadwal", jadwal);
-        modelMap.addAttribute("listDosen", dosens);
-    }
-    
-    @RequestMapping(value = "/edit-jadwal-d3" , method = RequestMethod.POST)
-    public String prosesEditJadwalD3(@ModelAttribute Jadwal jadwal, 
-    @RequestParam("jamMulaiString") String jam,
-    ModelMap modelMap, RedirectAttributes redirectAttributes) throws ParseException{
-        Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
-        jadwal.setJamMulai(jamMulai);
-        
-        redirectAttributes.addFlashAttribute("jenisPesan", "success");
-        if(jadwal.getId()!= null){
-            redirectAttributes.addFlashAttribute("pesanTampil", "jadwal telah di update");
-        }
-        
-        jadwalDao.saveJadwal("JADWALD3",jadwal);
-        return "redirect:tampil-d3";
-    }
-    
-    @RequestMapping("/hapus-d3")
-    public String tutupJadwalMatkulD3(@RequestParam("id") Integer id,
-    ModelMap modelMap, RedirectAttributes redirectAttributes){
-        jadwalDao.deleteJadwal("JADWALD3",id);
-        redirectAttributes.addFlashAttribute("jenisPesan", "success");
-        redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah telah di tutup");
-        return "redirect:tampil-d3";
-    }
-    
-    @RequestMapping("/hapus-semua-d3")
-    public String hapusJadwalD3(ModelMap modelMap, RedirectAttributes redirectAttributes){
-        jadwalDao.deleteSemuaJadwal("JADWALD3");
-        redirectAttributes.addFlashAttribute("jenisPesan", "success");
-        redirectAttributes.addFlashAttribute("pesanTampil", "jadwal D3 telah dikosongkan");
-        return "redirect:tampil-d3";
-    }
+//    @RequestMapping("/tampil-d3")
+//    public void tampilJadwalD3(ModelMap modelMap){
+//        List<Jadwal> jadwals = jadwalDao.getAllJadwal("JADWALD3");
+//        modelMap.addAttribute("listJadwal",jadwals);
+//    }
+//    
+//    @RequestMapping("/tambah-d3")
+//    public void inputMatakulihToJadwalD3(@RequestParam(value = "semester",required = false) Integer semester,
+//    ModelMap modelMap){
+//        if(semester==null){
+//            semester = 1;
+//        }
+//        
+//        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemesterBukanJadwal("JADWALD3",semester);
+//        modelMap.addAttribute("listMatkul", mataKuliahs);
+//    }
+//    
+//    @RequestMapping("/proses-tambah-d3")
+//    public String prosesTambahMatkulToJadwalD3(@RequestParam("idMatkul") Integer idMatkul,
+//    ModelMap modelMap, RedirectAttributes redirectAttributes){
+//        jadwalDao.saveJadwalHanyaMatakuliah("JADWALD3",idMatkul);
+//        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+//        redirectAttributes.addFlashAttribute("pesanTambah", "matakuliah telah ditambahkan ke jadwal d3");
+//        return "redirect:tambah-d3";
+//    }
+//    
+//    @RequestMapping(value = "/edit-jadwal-d3" , method = RequestMethod.GET)
+//    public void formEditJadwalD3(@RequestParam("id") Integer id,
+//    ModelMap modelMap){
+//        Jadwal jadwal = jadwalDao.getJadwalById("JADWALD3",id);
+//        List<Dosen> dosens = dosenDao.getAllDosen();
+//        
+//        modelMap.addAttribute("jadwal", jadwal);
+//        modelMap.addAttribute("listDosen", dosens);
+//    }
+//    
+//    @RequestMapping(value = "/edit-jadwal-d3" , method = RequestMethod.POST)
+//    public String prosesEditJadwalD3(@ModelAttribute Jadwal jadwal, 
+//    @RequestParam("jamMulaiString") String jam,
+//    ModelMap modelMap, RedirectAttributes redirectAttributes) throws ParseException{
+//        Date jamMulai = new SimpleDateFormat("HH:mm").parse(jam);
+//        jadwal.setJamMulai(jamMulai);
+//        
+//        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+//        if(jadwal.getId()!= null){
+//            redirectAttributes.addFlashAttribute("pesanTampil", "jadwal telah di update");
+//        }
+//        
+//        jadwalDao.saveJadwal("JADWALD3",jadwal);
+//        return "redirect:tampil-d3";
+//    }
+//    
+//    @RequestMapping("/hapus-d3")
+//    public String tutupJadwalMatkulD3(@RequestParam("id") Integer id,
+//    ModelMap modelMap, RedirectAttributes redirectAttributes){
+//        jadwalDao.deleteJadwal("JADWALD3",id);
+//        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+//        redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah telah di tutup");
+//        return "redirect:tampil-d3";
+//    }
+//    
+//    @RequestMapping("/hapus-semua-d3")
+//    public String hapusJadwalD3(ModelMap modelMap, RedirectAttributes redirectAttributes){
+//        jadwalDao.deleteSemuaJadwal("JADWALD3");
+//        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+//        redirectAttributes.addFlashAttribute("pesanTampil", "jadwal D3 telah dikosongkan");
+//        return "redirect:tampil-d3";
+//    }
 }
