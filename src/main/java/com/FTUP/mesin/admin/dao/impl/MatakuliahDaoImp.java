@@ -14,14 +14,15 @@ import org.springframework.stereotype.Repository;
 @Repository("MatakuliahDao")
 public class MatakuliahDaoImp implements MataKuliahDao{
     
+    private static final String SQL_GETALL_GROUPBYSEMESTER = "SELECT * from MATAKULIAH where Kategori_Tingkat=? group by Semester";
     private static final String SQL_GETALL_MATKUL = "SELECT * FROM MATAKULIAH";
-    private static final String SQL_MATKUL_BYSEMESTER = "SELECT * FROM MATAKULIAH WHERE SEMESTER=?";
+    private static final String SQL_MATKUL_BYSEMESTER = "SELECT * FROM MATAKULIAH WHERE SEMESTER=? AND Kategori_Tingkat=?";
     private static final String SQL_MATKUL_BYID = "SELECT * FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_DELETE_MATKUL = "DELETE FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_INSERT_MATKUL = "INSERT INTO `MATAKULIAH`"
-            + "(`Kode_Matkul`,`Nama_Matkul`,`SKS`,`Semester`,`Kategori_Matkul`)VALUES(?,?,?,?,?)";
+            + "(`Kode_Matkul`,`Nama_Matkul`,`SKS`,`Semester`,`Kategori_Matkul`,Kategori_Tingkat)VALUES(?,?,?,?,?)";
     private static final String SQL_UPDATE_MATKUL = "UPDATE `MATAKULIAH` SET "
-            + "`Kode_Matkul` = ? ,`Nama_Matkul` = ?,`SKS` = ?, `Semester` = ?, `Kategori_Matkul`=? WHERE `ID` = ?";
+            + "`Kode_Matkul` = ? ,`Nama_Matkul` = ?,`SKS` = ?, `Semester` = ?, `Kategori_Matkul`=? , kategori_tingkat=? WHERE `ID` = ?";
     
     private JdbcTemplate jdbcTemplate;
     
@@ -36,11 +37,10 @@ public class MatakuliahDaoImp implements MataKuliahDao{
             mataKuliah.setSks(rs.getInt("SKS"));
             mataKuliah.setSemester(rs.getInt("Semester"));
             mataKuliah.setKategoriMatkul(rs.getString("Kategori_Matkul"));
-            mataKuliah.setKategoriMatkul(rs.getString("Kategori_Matkul"));
+            mataKuliah.setKategoriTingkat(rs.getString("Kategori_Tingkat"));
             
             return mataKuliah;
         }
-    
     }
     
     @Autowired
@@ -48,13 +48,19 @@ public class MatakuliahDaoImp implements MataKuliahDao{
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
     
+    
+    public List<MataKuliah> getMatkulGroupBySmester(String kategoriTingkat) {
+        List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_GETALL_GROUPBYSEMESTER, new MatakuliahParameterizedRowMapper(),kategoriTingkat);
+        return mataKuliahs;
+    }
+    
     public List<MataKuliah> getAllMatkul() {
         List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_GETALL_MATKUL, new MatakuliahParameterizedRowMapper());
         return mataKuliahs;
     }
     
-    public List<MataKuliah> getMatkulBySemester(Integer semester) {
-        List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_MATKUL_BYSEMESTER, new MatakuliahParameterizedRowMapper(),semester);
+    public List<MataKuliah> getMatkulBySemester(Integer semester, String kategoriTingkat) {
+        List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_MATKUL_BYSEMESTER, new MatakuliahParameterizedRowMapper(),semester,kategoriTingkat);
         return mataKuliahs;
     }
     
@@ -68,11 +74,11 @@ public class MatakuliahDaoImp implements MataKuliahDao{
     public void saveMAtkul(MataKuliah mataKuliah) {
         if(mataKuliah.getId() !=null){
             jdbcTemplate.update(SQL_UPDATE_MATKUL, new Object[]{
-                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategoriMatkul(),mataKuliah.getId()
+                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategoriMatkul(),mataKuliah.getKategoriTingkat(),mataKuliah.getId()
             });
         }else{
             jdbcTemplate.update(SQL_INSERT_MATKUL, new Object[]{
-                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategoriMatkul()
+                mataKuliah.getKodeMatkul(),mataKuliah.getNamaMatkul(),mataKuliah.getSks(),mataKuliah.getSemester(),mataKuliah.getKategoriMatkul(),mataKuliah.getKategoriTingkat()
             });
         }
     }

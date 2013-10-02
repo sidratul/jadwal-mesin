@@ -87,7 +87,8 @@
                                         Matakuliah
                                   </a>
                                   <ul>
-                                        <li><a href="<%= request.getContextPath()%>/admin/matakuliah/tampil">Lihat Data</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/admin/matakuliah/tampil?tingkat=S1">Lihat Data S1</a></li>
+                                        <li><a href="<%= request.getContextPath()%>/admin/matakuliah/tampil?tingkat=D3">Lihat Data D3</a></li>
                                         <li><a href="<%= request.getContextPath()%>/admin/matakuliah/input">Masukan Data</a></li>								
                                   </ul>
                                 </li>

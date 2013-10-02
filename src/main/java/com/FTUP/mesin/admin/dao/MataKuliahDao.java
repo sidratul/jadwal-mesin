@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.dao.DataIntegrityViolationException;
 
 public interface MataKuliahDao {
+    public List<MataKuliah> getMatkulGroupBySmester(String kategoriTingkat);
+    
     public List<MataKuliah> getAllMatkul();
     
-    public List<MataKuliah> getMatkulBySemester(Integer semester);
+    public List<MataKuliah> getMatkulBySemester(Integer semester, String kategoriTingkat);
     
     public List<MataKuliah> getMatkulBySemesterBukanJadwal(String namaTable,Integer semester);
     

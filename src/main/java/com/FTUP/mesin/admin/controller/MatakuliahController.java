@@ -25,7 +25,7 @@ public class MatakuliahController {
 //        List<MataKuliah> mataKuliahs = mataKuliahDao.getAllMatkul();
 //        modelMap.addAttribute("listMatkul", mataKuliahs);
 //    }
-    
+
     @RequestMapping("/tampil")
     public void tampilMatkulBySemester(@RequestParam(value = "semester",required = false) Integer semester,
     @RequestParam(value = "tingkat") String kategoriTingkat,
@@ -33,11 +33,17 @@ public class MatakuliahController {
         if(semester==null){
             semester = 1;
         }
-        
-        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemester(semester);
+
+        //untuk tab
+        List<MataKuliah> mkGroupBySemester = mataKuliahDao.getMatkulGroupBySmester(kategoriTingkat);
+        modelMap.addAttribute("listSemester", mkGroupBySemester);
+
+
+        //untuk data mahasiswa
+        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemester(semester,kategoriTingkat);
         modelMap.addAttribute("listMatkul", mataKuliahs);
     }
-    
+
     @RequestMapping(value = "/input",method = RequestMethod.GET)
     public void formInputMatkul(@RequestParam(value = "id",required = false) Integer id, 
     ModelMap modelMap){
@@ -47,22 +53,29 @@ public class MatakuliahController {
         }
         modelMap.addAttribute("matakuliah",mataKuliah);
     }
-    
+
     @RequestMapping(value = "/input",method = RequestMethod.POST)
     public String prosesInputMatkul(@ModelAttribute MataKuliah mataKuliah,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
+
+        mataKuliahDao.saveMAtkul(mataKuliah);
+        String reqPramDirect="?";
+
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         if(mataKuliah.getId() != null){
             redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah telah diupdate");
+            reqPramDirect+="tingkat="+mataKuliah.getKategoriTingkat()+"&";
         }else{
             redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah baru telah ditambahkan");
         }
-        mataKuliahDao.saveMAtkul(mataKuliah);
-        return "redirect:tampil";
+        
+        reqPramDirect+="semester="+mataKuliah.getSemester().toString();
+        return "redirect:tampil"+reqPramDirect;
     }
-    
+
     @RequestMapping("/hapus")
     public String hapusMatkul(@RequestParam("id") Integer id,
+    @RequestParam(value = "tingkat") String kategoriTingkat,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
         try{
             mataKuliahDao.deleteMatkul(id);
@@ -72,7 +85,7 @@ public class MatakuliahController {
             redirectAttributes.addFlashAttribute("jenisPesan","error");
             redirectAttributes.addFlashAttribute("pesanTampil","matakuliah terjadwal, tidak boleh dihapus !");
         }
-        
-        return "redirect:tampil";
+
+        return "redirect:tampil?tingkat="+kategoriTingkat;
     }
 }

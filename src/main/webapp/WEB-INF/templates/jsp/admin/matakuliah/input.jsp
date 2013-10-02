@@ -42,9 +42,21 @@
             <div class="-form-row">
                 <label>Kategori</label>
                 <span class="-form-field -col3">
-                    <sf:select path="kategori" placeholder="Kategori" required="required">
-                        <sf:option value="wajib">wajib</sf:option>
-                        <sf:option value="pilihan">pilihan</sf:option>
+                    <sf:select path="kategoriMatkul" placeholder="Kategori" required="required">
+                        <sf:option value="">Pilih Kategori</sf:option>
+                        <sf:option value="wajib">Wajib</sf:option>
+                        <sf:option value="pilihan">Pilihan</sf:option>
+                    </sf:select>
+                    <i class="-caret"></i>
+                </span>
+            </div>
+            <div class="-form-row">
+                <label>Tingkat</label>
+                <span class="-form-field -col3">
+                    <sf:select path="kategoriTingkat" placeholder="Kategori" required="required">
+                        <sf:option value="">Pilih Tingkatan</sf:option>
+                        <sf:option value="S1">Strata 1</sf:option>
+                        <sf:option value="D3">Diploma 3</sf:option>
                     </sf:select>
                     <i class="-caret"></i>
                 </span>
