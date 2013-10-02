@@ -53,7 +53,7 @@ public class JadwalAdminController {
         jadwalDao.saveJadwalHanyaMatakuliah(idMatkul);
         
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
-        redirectAttributes.addFlashAttribute("pesanTambah", "matakuliah telah ditambahkan ke jadwal s1");
+        redirectAttributes.addFlashAttribute("pesanTambah", "matakuliah telah ditambahkan ke jadwa"+kategoriTingkat);
         
         return "redirect:tambah?tingkat="+kategoriTingkat;
     }
@@ -102,7 +102,7 @@ public class JadwalAdminController {
     ModelMap modelMap, RedirectAttributes redirectAttributes){
         jadwalDao.deleteSemuaJadwal();
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
-        redirectAttributes.addFlashAttribute("pesanTampil", "jadwal S1 telah dikosongkan");
+        redirectAttributes.addFlashAttribute("pesanTampil", "jadwal "+kategoriTingkat+" telah dikosongkan");
         return "redirect:tampil?tingkat="+kategoriTingkat;
     }
     

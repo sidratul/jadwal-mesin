@@ -115,7 +115,7 @@
                                       <%= request.getUserPrincipal().getName() %>
                                   </a>
                                   <ul>
-                                        <li><a href="#">Profil</a></li>
+                                        <!--<li><a href="#">Profil</a></li>-->
                                         <li><a href="<c:url value="/j_spring_security_logout"/>">Keluar</a></li>								
                                   </ul>
                                 </li>
@@ -135,7 +135,7 @@
         <footer>
             <div class="container">
                 Copyright &copy; 2013<br>
-                Fakultas Teknik Jurusan Informatika
+                SID Corporation
             </div>
         </footer>
     </body>

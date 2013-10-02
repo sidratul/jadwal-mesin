@@ -57,7 +57,7 @@
                                 <td>${lm.semester}</td>
                                 <td>${lm.kategoriMatkul}</td>
                                 <td>
-                                    <a href="proses-tambah?idMatkul=${lm.id}">tambahkan</a>
+                                    <a href="proses-tambah?idMatkul=${lm.id}&tingkat=${lm.kategoriTingkat}">tambahkan</a>
                                 </td>
                             </tr>
                         </c:forEach>

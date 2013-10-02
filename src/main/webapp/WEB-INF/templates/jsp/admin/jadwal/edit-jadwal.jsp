@@ -17,12 +17,19 @@
     <body>
         <sf:form method="POST"  modelAttribute="jadwal" class="-form _horizontal_">
             <sf:hidden path="id" />
-            <sf:hidden path="mataKuliah.id"/>
-            Matakuliah : ${jadwal.mataKuliah.namaMatkul}<br>
+            <sf:hidden path="mataKuliah.id"/>            
+            <div class="-form-row">
+                <label>matakuliah</label>
+                <span class="-form-field -col3">
+                    <input type="text" placeholder="Ruang" readonly="readonly" value="${jadwal.mataKuliah.namaMatkul}"/>
+                    <i class="-caret"></i>
+                </span>
+            </div>
             <div class="-form-row">
                 <label>Dosen</label>
                 <span class="-form-field -col3">
-                    <sf:select path="dosen.id">
+                    <sf:select path="dosen.id" required="required">
+                        <sf:option value="">Pilih Dosen</sf:option>
                         <c:forEach items="${listDosen}" var="ld">
                             <sf:option value="${ld.id}">${ld.namaDosen}</sf:option>
                         </c:forEach>
@@ -47,7 +54,7 @@
                 <label>Hari</label>
                 <span class="-form-field -col3">
                     <sf:select path="hari">
-                        <sf:option value="1">minggu</sf:option>
+                        <sf:option value="">Pilih Hari</sf:option>                        
                         <sf:option value="2">senin</sf:option>
                         <sf:option value="3">selasa</sf:option>
                         <sf:option value="4">rabu</sf:option>
@@ -61,8 +68,8 @@
                 <div class="-form-row">
                 <label>Keterangan</label>
                 <span class="-form-field -col3">
-                    <sf:select path="keterangan">
-                        <sf:option value="0">-</sf:option>
+                    <sf:select path="keterangan">                        
+                        <sf:option value="0">Pilih Keterangan</sf:option>
                         <sf:option value="1">hadir</sf:option>
                         <sf:option value="2">izin</sf:option>
                         <sf:option value="3">absen</sf:option>

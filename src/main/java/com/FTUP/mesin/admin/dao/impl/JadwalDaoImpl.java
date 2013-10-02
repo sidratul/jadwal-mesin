@@ -30,7 +30,7 @@ public class JadwalDaoImpl implements JadwalDao{
             + "(`ID_Matakuliah`,`ID_Dosen`,`Jam`,`Hari`,`Ruang`,`Keterangan`)VALUES (?,?,?,?,?,?);";
     private static final String SQL_JADWAL_BYID="SELECT * FROM JADWAL WHERE ID=?";
     private static final String SQL_DELETE_JADWAL="DELETE FROM JADWAL WHERE ID=?";
-    private static final String SQL_DELETE_SEMUA_JADWAL="DELETE FROM ? ";
+    private static final String SQL_DELETE_SEMUA_JADWAL="DELETE FROM JADWAL ";
     
     
     @Autowired private MataKuliahDao mataKuliahDao;
