@@ -55,13 +55,14 @@ public class JadwalAdminController {
     @RequestMapping("/proses-tambah")
     public String prosesTambahMatkulToJadwal(@RequestParam("idMatkul") Integer idMatkul,
     @RequestParam("tingkat") String kategoriTingkat,
+    @RequestParam("semester") String semester,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
         jadwalDao.saveJadwalHanyaMatakuliah(idMatkul);
         
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         redirectAttributes.addFlashAttribute("pesanTambah", "matakuliah telah ditambahkan ke jadwa"+kategoriTingkat);
         
-        return "redirect:tambah?tingkat="+kategoriTingkat;
+        return "redirect:tambah?tingkat="+kategoriTingkat+"&semester="+semester;
     }
     
     @RequestMapping(value = "/edit-jadwal" , method = RequestMethod.GET)
@@ -111,7 +112,7 @@ public class JadwalAdminController {
     @RequestMapping("/hapus-semua")
     public String hapusJadwalS1(@RequestParam("tingkat") String kategoriTingkat,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
-        jadwalDao.deleteSemuaJadwal();
+        jadwalDao.deleteSemuaJadwal(kategoriTingkat);
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         redirectAttributes.addFlashAttribute("pesanTampil", "jadwal "+kategoriTingkat+" telah dikosongkan");
         return "redirect:tampil?tingkat="+kategoriTingkat;

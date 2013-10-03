@@ -44,7 +44,7 @@
                         <div class="-col12">
                             <c:choose>
                                 <c:when test="${empty listJadwalS1}">
-                                    <h3> Jadwal Kosong</h3>
+                                    <h3 class="kapital"> tidak ada jadwal s1 hari ini</h3>
                                 </c:when>
                                 <c:otherwise>
                                     <table class="-table _vertical_ _hovered_" style="background:white;color:#16A085">
@@ -104,7 +104,7 @@
                         <div class="-col12">
                             <c:choose>
                                 <c:when test="${empty listJadwalD3}">
-                                    <h3>tidak ada jadwal D3 hari ini</h3>
+                                    <h3 class="kapital">tidak ada jadwal D3 hari ini</h3>
                                 </c:when>
                                 <c:otherwise>
                                     <table class="-table _vertical_ _hovered_" style="background:white;color:#2980B9">

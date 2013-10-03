@@ -38,11 +38,6 @@
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.notify.js"></script>	
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/aplikasi.js"></script>
         <decorator:head></decorator:head>
-        <style>
-            body{
-                background: white;
-            }
-        </style>
     </head>
     <body>    
         <div class="container">

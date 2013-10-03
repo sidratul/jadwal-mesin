@@ -13,7 +13,7 @@
         <title>Input Matakuliah</title>
     </head>
     <body>
-        <sf:form action="input" method="POST" modelAttribute="matakuliah" class="-form _horizontal_">
+        <sf:form action="input" method="POST" modelAttribute="matakuliah" class="-form _horizontal_ kapital">
             <sf:hidden path="id"/>
             <div class="-form-row">
                 <label>Kode Matakuliah</label>

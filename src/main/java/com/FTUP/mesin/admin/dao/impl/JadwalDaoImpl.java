@@ -32,7 +32,9 @@ public class JadwalDaoImpl implements JadwalDao{
             + "(`ID_Matakuliah`,`ID_Dosen`,`Jam`,`Hari`,`Ruang`,`Keterangan`)VALUES (?,?,?,?,?,?);";
     private static final String SQL_JADWAL_BYID="SELECT * FROM JADWAL WHERE ID=?";
     private static final String SQL_DELETE_JADWAL="DELETE FROM JADWAL WHERE ID=?";
-    private static final String SQL_DELETE_SEMUA_JADWAL="DELETE FROM JADWAL ";
+    private static final String SQL_DELETE_SEMUA_JADWAL="DELETE j.* FROM "
+            + "JADWAL j LEFT JOIN MATAKULIAH m ON m.ID = j.ID_Matakuliah "
+            + "WHERE j.ID_Matakuliah is NOT NULL AND m.Kategori_Tingkat=?";
     
     
     @Autowired private MataKuliahDao mataKuliahDao;
@@ -126,7 +128,7 @@ public class JadwalDaoImpl implements JadwalDao{
         jdbcTemplate.update(SQL_DELETE_JADWAL, id);
     }
         
-    public void deleteSemuaJadwal(){
-        jdbcTemplate.update(SQL_DELETE_SEMUA_JADWAL);
+    public void deleteSemuaJadwal(String kategoriTingkat){
+        jdbcTemplate.update(SQL_DELETE_SEMUA_JADWAL,kategoriTingkat);
     }
 }

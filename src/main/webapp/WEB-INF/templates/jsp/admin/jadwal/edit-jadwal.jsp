@@ -29,7 +29,7 @@
                 <label>Dosen</label>
                 <span class="-form-field -col3">
                     <sf:select path="dosen.id">
-                        <sf:option value="">Pilih Dosen</sf:option>
+                        <sf:option value="" >Pilih Dosen</sf:option>
                         <c:forEach items="${listDosen}" var="ld">
                             <sf:option value="${ld.id}">${ld.namaDosen}</sf:option>
                         </c:forEach>

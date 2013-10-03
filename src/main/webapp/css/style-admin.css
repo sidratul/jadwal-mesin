@@ -1,3 +1,8 @@
+.container{
+    width: 1150px;
+    
+}
+
 header{
 	text-align: center;
 	text-transform: uppercase;
@@ -22,7 +27,12 @@ aside{
     text-align: center;
 }
 
+.kapital{
+    text-transform:capitalize;
+}
+
 body {
+    background: white;
     padding-top: 20px;
     padding-bottom: 60px;
 }

@@ -27,7 +27,7 @@
             <c:otherwise>
                 <table class="-table _striped_ _hovered_">
                     <thead>
-                        <tr>
+                        <tr class="kapital">
                             <th>#</th>
                             <th>NIDN</th>
                             <th>Nama</th>
@@ -44,10 +44,14 @@
                             <tr>
                                 <td>${i.count}</td>
                                 <td>${ld.nidn}</td>
-                                <td>${ld.namaDosen}</td>
+                                <td class="kapital">${ld.namaDosen}</td>
                                 <td>${ld.alamat}</td>
-                                <td>
-                                    ${ld.tempatLahir} <fmt:formatDate pattern="dd MMM yyyy" value="${ld.tglLahir}"/>
+                                <td class="kapital">
+                                    ${ld.tempatLahir}
+                                    <c:if test="${not empty ld.tempatLahir}">
+                                        ,
+                                    </c:if>
+                                    <fmt:formatDate pattern="dd MMM yyyy" value="${ld.tglLahir}"/>
                                 </td>
                                 <td>${ld.noTelpon}</td>
                                 <td>${ld.email}</td>

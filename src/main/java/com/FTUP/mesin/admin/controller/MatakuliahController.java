@@ -64,11 +64,11 @@ public class MatakuliahController {
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         if(mataKuliah.getId() != null){
             redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah telah diupdate");
-            reqPramDirect+="tingkat="+mataKuliah.getKategoriTingkat()+"&";
         }else{
             redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah baru telah ditambahkan");
         }
         
+        reqPramDirect+="tingkat="+mataKuliah.getKategoriTingkat()+"&";
         reqPramDirect+="semester="+mataKuliah.getSemester().toString();
         return "redirect:tampil"+reqPramDirect;
     }

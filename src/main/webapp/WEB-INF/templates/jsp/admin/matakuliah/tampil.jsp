@@ -17,23 +17,23 @@
             <script>
                 notifPesan("${pesanTampil}","${jenisPesan}");
             </script>
-	</c:if>
-        <c:choose>
+            </c:if>
+            <h3>JADWAL ${listMatkul[0].kategoriTingkat} &sdot; SEMESTER ${listMatkul[0].semester}</h3>
+            <ul class="-menu -tabs _active_ _TOP_ ">
+                <c:forEach items="${listSemester}" var="ls" varStatus="i">
+                    <li>
+                        <a href="tampil?tingkat=${ls.kategoriTingkat}&semester=${ls.semester}" class="btn btn-success">Semester ${ls.semester}</a>
+                    </li>
+                </c:forEach>
+            </ul>
+            <c:choose>
             <c:when test="${empty listMatkul}">
                 <h3>Data Matakuliah Kosong</h3>
             </c:when>
             <c:otherwise>
-                <h3>SEMESTER ${listMatkul[0].semester}</h3>
-                <ul class="-menu -tabs _active_ _TOP_ ">
-                    <c:forEach items="${listSemester}" var="ls" varStatus="i">
-                        <li>
-                            <a href="tampil?tingkat=${ls.kategoriTingkat}&semester=${ls.semester}" class="btn btn-success">Semester ${ls.semester}</a>
-                        </li>
-                    </c:forEach>
-                </ul>
                 <table class="-table _striped_ _hovered_">
                     <thead>
-                        <tr>
+                        <tr class="kapital">
                             <th>#</th>
                             <th>Kode Matakuliah</th>
                             <th>Nama Matakuliah</th>
@@ -48,12 +48,12 @@
                             <tr>
                                 <td>${i.count}</td>
                                 <td>${lm.kodeMatkul}</td>
-                                <td>${lm.namaMatkul}</td>
+                                <td class="kapital">${lm.namaMatkul}</td>
                                 <td>${lm.sks}</td>
                                 <td>${lm.semester}</td>
                                 <td>${lm.kategoriMatkul}</td>
                                 <td><a href="input?id=${lm.id}">edit</a></td>
-                                <td><a href="hapus?id=${lm.id}&tingkat="+${ld.kategoriTingkat}>hapus</a></td>
+                                <td><a href="hapus?id=${lm.id}&tingkat=${lm.kategoriTingkat}">hapus</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

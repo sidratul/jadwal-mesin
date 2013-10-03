@@ -16,6 +16,6 @@ public interface JadwalDao {
     
     public void deleteJadwal(Integer id);
     
-    public void deleteSemuaJadwal();
+    public void deleteSemuaJadwal(String kategoriTingkat);
     
 }

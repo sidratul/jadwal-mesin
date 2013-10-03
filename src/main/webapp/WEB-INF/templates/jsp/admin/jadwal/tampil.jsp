@@ -27,7 +27,7 @@
                 <h3>JADWAL ${listJadwal[0].mataKuliah.kategoriTingkat}</h3>
                 <table class="-table _striped_ _hovered_">
                     <thead>
-                        <tr>
+                        <tr class="kapital">
                             <th>#</th>
                             <th>jam</th>
                             <th>matakuliah</th>
@@ -48,12 +48,12 @@
                                     <fmt:formatDate pattern="HH:mm" value="${lj.jamMulai}"></fmt:formatDate> -
                                     <fmt:formatDate pattern="HH:mm" value="${lj.jamSelesai}"></fmt:formatDate>
                                 </td>
-                                <td>${lj.mataKuliah.namaMatkul}</td>
-                                <td>${lj.dosen.namaDosen}</td>
+                                <td class="kapital">${lj.mataKuliah.namaMatkul}</td>
+                                <td class="kapital">${lj.dosen.namaDosen}</td>
                                 <td>${lj.mataKuliah.sks}</td>
                                 <td>${lj.mataKuliah.semester}</td>
                                 <td>${lj.ruang}</td>
-                                <td>
+                                <td class="kapital">
                                     <c:choose>
                                         <c:when test="${lj.hari == 1}">Minggu</c:when>
                                         <c:when test="${lj.hari == 2}">Senin</c:when>
@@ -64,7 +64,7 @@
                                         <c:when test="${lj.hari == 7}">Sabtu</c:when>
                                     </c:choose> 
                                 </td>
-                                <td>
+                                <td class="kapital">
                                     <c:choose>
                                         <c:when test="${lj.keterangan == 1}">hadir</c:when>
                                         <c:when test="${lj.keterangan == 2}">izin</c:when>
