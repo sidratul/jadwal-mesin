@@ -7,24 +7,20 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/matakuliah")
 public class MatakuliahController {    
     @Autowired private MataKuliahDao mataKuliahDao;
-
-//    @RequestMapping("/tampil")
-//    public void tampilMatkul(ModelMap modelMap){
-//        List<MataKuliah> mataKuliahs = mataKuliahDao.getAllMatkul();
-//        modelMap.addAttribute("listMatkul", mataKuliahs);
-//    }
 
     @RequestMapping("/tampil")
     public void tampilMatkulBySemester(@RequestParam(value = "semester",required = false) Integer semester,
@@ -57,8 +53,16 @@ public class MatakuliahController {
     @RequestMapping(value = "/input",method = RequestMethod.POST)
     public String prosesInputMatkul(@ModelAttribute MataKuliah mataKuliah,
     ModelMap modelMap, RedirectAttributes redirectAttributes){
-
-        mataKuliahDao.saveMAtkul(mataKuliah);
+        
+        try{
+            mataKuliahDao.saveMAtkul(mataKuliah);
+        }catch(DuplicateKeyException dke){
+            modelMap.addAttribute("matakuliah", mataKuliah);
+            modelMap.addAttribute("jenisPesan", "error");
+            modelMap.addAttribute("pesanTampil", "kode matakuliah telah ada !");
+            return "/matakuliah/input";
+        }
+        
         String reqPramDirect="?";
 
         redirectAttributes.addFlashAttribute("jenisPesan", "success");

@@ -4,10 +4,10 @@
     Author     : sidratul
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,6 +15,11 @@
         <title>Input Dosen</title>
     </head>
     <body>
+        <c:if test="${not empty pesanTampil}">
+            <script>
+                notifPesan("${pesanTampil}","${jenisPesan}");
+            </script>
+        </c:if>
         <sf:form method="POST" action="input" modelAttribute="dosen" class="-form _horizontal_">
             <sf:hidden path="id"/>
             <div class="-form-row">

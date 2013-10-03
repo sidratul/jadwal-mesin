@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,6 +14,11 @@
         <title>Input Matakuliah</title>
     </head>
     <body>
+        <c:if test="${not empty pesanTampil}">
+            <script>
+                notifPesan("${pesanTampil}","${jenisPesan}");
+            </script>
+        </c:if>
         <sf:form action="input" method="POST" modelAttribute="matakuliah" class="-form _horizontal_ kapital">
             <sf:hidden path="id"/>
             <div class="-form-row">

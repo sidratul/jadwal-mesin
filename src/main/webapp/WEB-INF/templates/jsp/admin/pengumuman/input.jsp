@@ -17,7 +17,7 @@
         <sf:form action="input" method="POST" modelAttribute="pengumuman" class="-form _horizontal_">
             <sf:hidden path="id"/>
             <div class="-form-row">
-                <label>Kode Matakuliah</label>
+                <label>pengumuman</label>
                 <span class="-form-field -col3">
                     <sf:textarea path="textPengumuman" required="required"></sf:textarea>
                 </span>

@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -51,7 +52,14 @@ public class DosenController {
         }
         
         dosen.setTglLahir(tglLahir);
-        dosenDao.saveDosen(dosen);
+        try{
+            dosenDao.saveDosen(dosen);
+        }catch(DuplicateKeyException dke){
+            modelMap.addAttribute("dosen", dosen);
+            modelMap.addAttribute("jenisPesan", "error");
+            modelMap.addAttribute("pesanTampil", "NIDN telah ada !");
+            return "/dosen/input";
+        }
         
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         if(dosen.getId() !=null){
