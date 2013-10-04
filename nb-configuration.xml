@@ -11,6 +11,8 @@ Without this configuration present, some functionality in the IDE may be limited
             <config-file>src/main/resources/config-db-spring.xml</config-file>
             <config-file>src/main/webapp/WEB-INF/admin-servlet.xml</config-file>
             <config-file>src/main/resources/security-config.xml</config-file>
+            <config-file>src/main/resources/ireport-config.xml</config-file>
+            <config-file>src/main/webapp/WEB-INF/jasper-view.xml</config-file>
         </config-files>
         <config-file-groups/>
     </spring-data>
