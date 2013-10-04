@@ -1,5 +1,7 @@
 package com.FTUP.mesin.admin.model;
 
+import org.apache.commons.lang3.text.WordUtils;
+
 public class MataKuliah {
     private Integer id;
     private String kodeMatkul;
@@ -30,7 +32,7 @@ public class MataKuliah {
     }
 
     public void setNamaMatkul(String namaMatkul) {
-        this.namaMatkul = namaMatkul;
+        this.namaMatkul = WordUtils.capitalize(namaMatkul);
     }
 
     public Integer getSks() {

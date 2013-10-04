@@ -1,6 +1,7 @@
 package com.FTUP.mesin.admin.model;
 
 import java.util.Date;
+import org.apache.commons.lang3.text.WordUtils;
 
 public class Dosen {
     private Integer id;
@@ -18,7 +19,7 @@ public class Dosen {
     }
 
     public void setTempatLahir(String tempatLahir) {
-        this.tempatLahir = tempatLahir;
+        this.tempatLahir = WordUtils.capitalize(tempatLahir);
     }
 
     public Date getTglLahir() {
@@ -58,7 +59,7 @@ public class Dosen {
     }
 
     public void setNamaDosen(String namaDosen) {
-        this.namaDosen = namaDosen;
+        this.namaDosen = WordUtils.capitalize(namaDosen);
     }
 
     public String getAlamat() {
