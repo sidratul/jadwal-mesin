@@ -4,20 +4,18 @@ import com.FTUP.mesin.admin.dao.DosenDao;
 import com.FTUP.mesin.admin.model.Dosen;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-//import com.FTUP.mesin.admin.model.DosenParameterizedRowMapper;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.ParameterizedRowMapper;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 
 @Repository("dosenDao")
 public class DosenDaoImp implements DosenDao{
 
-    private static final String SQL_GETALL_DOSEN ="SELECT * FROM DOSEN";
+    private static final String SQL_GETALL_DOSEN ="SELECT * FROM DOSEN ORDER BY Nama_Dosen ASC";
     private static final String SQL_DOSEN_BYID ="SELECT * FROM DOSEN WHERE ID=?";
     private static final String SQL_DELETE_DOSEN_BYID ="DELETE FROM DOSEN WHERE ID=?";
     private static final String SQL_UPDATE_DOSEN ="UPDATE `DOSEN` SET "

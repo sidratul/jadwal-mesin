@@ -21,10 +21,10 @@ import org.springframework.stereotype.Service;
 public class JadwalDaoImpl implements JadwalDao{
     private static final String SQL_JADWAL_BYHARI="SELECT j.* FROM MATAKULIAH m RIGHT JOIN JADWAL j "
             + "ON m.ID = j.ID_Matakuliah "
-            + "WHERE j.ID_Matakuliah is NOT NULL AND m.Kategori_Tingkat=? AND Hari=?";
+            + "WHERE j.ID_Matakuliah is NOT NULL AND m.Kategori_Tingkat=? AND Hari=? ORDER BY JAM ASC";
     private static final String SQL_GETALL_JADWAL="SELECT j.* FROM MATAKULIAH m RIGHT JOIN JADWAL j "
             + "ON m.ID = j.ID_Matakuliah "
-            + "WHERE j.ID_Matakuliah is NOT NULL AND m.Kategori_Tingkat=?" ;
+            + "WHERE j.ID_Matakuliah is NOT NULL AND m.Kategori_Tingkat=? ORDER BY Hari ASC" ;
     private static final String SQL_INSERT_JADWAL_HANYAMATAKULIAH="INSERT INTO JADWAL (`ID_Matakuliah`)VALUES (?)";
     private static final String SQL_UPDATE_JADWAL="UPDATE JADWAL SET `ID_Matakuliah` = ?, `ID_Dosen` = ?,"
             + " `Jam` = ?,`Hari` = ?, `Ruang`=?,`Keterangan`=? WHERE `ID` = ?";
