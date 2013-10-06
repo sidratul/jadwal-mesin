@@ -16,9 +16,10 @@
     <body>
         <h3>&raquo; Daftar Dosen</h3>
         <c:if test="${not empty pesanTampil}">
-            <script>
-                notifPesan("${pesanTampil}","${jenisPesan}");
-            </script>
+            <div class="alert alert-${jenisPesan}">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <span class="kapital"> <strong>${jenisPesan} !</strong> ${pesanTampil}</span>
+            </div>
 	</c:if>
             
         <c:choose>

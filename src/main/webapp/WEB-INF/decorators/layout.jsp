@@ -19,7 +19,6 @@
         
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/jquery.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/aplikasi.js"></script>
         <decorator:head></decorator:head>
         <style>
             body{

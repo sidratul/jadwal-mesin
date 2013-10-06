@@ -14,9 +14,10 @@
     </head>
     <body>
         <c:if test="${not empty pesanTampil}">
-            <script>
-                notifPesan("${pesanTampil}","${jenisPesan}");
-            </script>
+            <div class="alert alert-${jenisPesan}">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <span class="kapital"> <strong>${jenisPesan} !</strong> ${pesanTampil}</span>
+            </div>
             </c:if>
             <h3>&raquo; JADWAL ${listMatkul[0].kategoriTingkat} - <span style="color: #1ABC9C">SEMESTER ${listMatkul[0].semester}</span></h3>
             <div class="btn-toolbar">

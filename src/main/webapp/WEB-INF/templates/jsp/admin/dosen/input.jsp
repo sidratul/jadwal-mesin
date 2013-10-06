@@ -17,9 +17,10 @@
     <body>
         <div class="form_input">
             <c:if test="${not empty pesanTampil}">
-                <script>
-                    notifPesan("${pesanTampil}","${jenisPesan}");
-                </script>
+                <div class="alert alert-${jenisPesan}">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <span class="kapital"> <strong>${jenisPesan} !</strong> ${pesanTampil}</span>
+                </div>
             </c:if>
             <h3>Input Dosen</h3>
             <sf:form method="POST" action="input" modelAttribute="dosen" class="">

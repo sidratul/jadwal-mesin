@@ -13,10 +13,12 @@
         <title>tampil pengumuman</title>
     </head>
     <body>
+        <h3>&raquo; Pengumuman</h3>                
         <c:if test="${not empty pesanTampil}">
-            <script>
-                notifPesan("${pesanTampil}","${jenisPesan}");
-            </script>
+            <div class="alert alert-${jenisPesan}">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <span class="kapital"> <strong>${jenisPesan} !</strong> ${pesanTampil}</span>
+              </div>
 	</c:if>
         
         <c:choose>
@@ -24,7 +26,6 @@
                 <h3>Data Pengumuman Kosong</h3>
             </c:when>
             <c:otherwise>
-                <h3>&raquo; Pengumuman</h3>                
                 <table class="table table-striped table-hover tabel_jadwal">
                     <thead>
                         <tr class="tab-head">

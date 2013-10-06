@@ -4,6 +4,10 @@ body {
     padding-bottom: 60px;
 }
 
+.kapital{
+    text-transform: capitalize;
+}
+
 .container{
     width: 1150px;   
 }
