@@ -18,22 +18,22 @@
                 notifPesan("${pesanTampil}","${jenisPesan}");
             </script>
             </c:if>
-            <h3>JADWAL ${listMatkul[0].kategoriTingkat} &sdot; SEMESTER ${listMatkul[0].semester}</h3>
-            <ul class="-menu -tabs _active_ _TOP_ ">
+            <h3>&raquo; JADWAL ${listMatkul[0].kategoriTingkat} - <span style="color: #1ABC9C">SEMESTER ${listMatkul[0].semester}</span></h3>
+            <div class="btn-toolbar">
+                <div class="btn-group">
                 <c:forEach items="${listSemester}" var="ls" varStatus="i">
-                    <li>
-                        <a href="tampil?tingkat=${ls.kategoriTingkat}&semester=${ls.semester}" class="btn btn-success">Semester ${ls.semester}</a>
-                    </li>
+                  <a class="btn btn-primary" href="tampil?tingkat=${ls.kategoriTingkat}&semester=${ls.semester}" class="btn btn-success">Semester ${ls.semester}</a>
                 </c:forEach>
-            </ul>
+                </div>
+            </div>
             <c:choose>
             <c:when test="${empty listMatkul}">
                 <h3>Data Matakuliah Kosong</h3>
             </c:when>
             <c:otherwise>
-                <table class="-table _striped_ _hovered_">
+                <table class="table table-striped table-hover tabel_jadwal">
                     <thead>
-                        <tr class="kapital">
+                        <tr class="tab-head">
                             <th>#</th>
                             <th>Kode Matakuliah</th>
                             <th>Nama Matakuliah</th>
@@ -52,8 +52,10 @@
                                 <td>${lm.sks}</td>
                                 <td>${lm.semester}</td>
                                 <td>${lm.kategoriMatkul}</td>
-                                <td><a href="input?id=${lm.id}">edit</a></td>
-                                <td><a href="hapus?id=${lm.id}&tingkat=${lm.kategoriTingkat}">hapus</a></td>
+                                <td><a href="input?id=${lm.id}">
+                                    <img src="<%= request.getContextPath() %>/img/edit.png" width="20" title="Edit" alt="Edit" /></a></td>
+                                <td><a href="hapus?id=${lm.id}&tingkat=${lm.kategoriTingkat}">
+                                    <img src="<%= request.getContextPath() %>/img/delete.png" width="20" title="Delete" alt="Delete" /></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

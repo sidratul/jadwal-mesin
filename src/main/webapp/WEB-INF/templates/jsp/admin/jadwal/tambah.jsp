@@ -18,48 +18,53 @@
                 notifPesan("${pesanTambah}","${jenisPesan}");
             </script>
 	</c:if>
-        <h3>TAMBAH JADWAL ${listMatkul[0].kategoriTingkat} &sdot; SEMESTER ${listMatkul[0].semester}</h3>
-        <ul class="-menu -tabs _active_ _TOP_ ">
-            <c:forEach items="${listSemester}" var="ls" varStatus="i">
-                <li>
-                    <a href="tambah?tingkat=${ls.kategoriTingkat}&semester=${ls.semester}" class="btn btn-success">Semester ${ls.semester}</a>
-                </li>
-            </c:forEach>
-        </ul>
-        <c:choose>
-            <c:when test="${empty listMatkul}">
-                <h3>Data matakuliah Kosong</h3>
-            </c:when>
-            <c:otherwise>
-                <table class="-table _striped_ _hovered_">
-                    <thead>
-                        <tr class="kapital">
-                            <th>#</th>
-                            <th>Kode Matakuliah</th>
-                            <th>Nama Matakuliah</th>
-                            <th>SKS</th>
-                            <th>Semester</th>
-                            <th>Kategori</th>
-                            <th>jadwal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${listMatkul}" var="lm" varStatus="i">
-                            <tr>
-                                <td>${i.count}</td>
-                                <td>${lm.kodeMatkul}</td>
-                                <td class="kapital">${lm.namaMatkul}</td>
-                                <td>${lm.sks}</td>
-                                <td>${lm.semester}</td>
-                                <td>${lm.kategoriMatkul}</td>
-                                <td>
-                                    <a href="proses-tambah?idMatkul=${lm.id}&tingkat=${lm.kategoriTingkat}&semester=${lm.semester}">tambahkan</a>
-                                </td>
-                            </tr>
+            <h3>&raquo; TAMBAH JADWAL ${listMatkul[0].kategoriTingkat} - <span style="color: #1ABC9C">SEMESTER ${listMatkul[0].semester}</span></h3>
+            <div class="box-jadwal">
+                <div>
+                    <div class="btn-toolbar">
+                        <div class="btn-group">
+                        <c:forEach items="${listSemester}" var="ls" varStatus="i">
+                          <a class="btn btn-primary" href="tambah?tingkat=${ls.kategoriTingkat}&semester=${ls.semester}">Semester ${ls.semester}</a>
                         </c:forEach>
-                    </tbody>
-                </table>
-            </c:otherwise>
-        </c:choose>
+                        </div>
+                    </div>          
+                </div>
+                <c:choose>
+                    <c:when test="${empty listMatkul}">
+                        <h3>Data matakuliah Kosong</h3>
+                    </c:when>
+                    <c:otherwise>
+                        <table class="table table-striped table-hover tabel_jadwal">
+                            <thead>
+                                <tr class="tab-head">
+                                    <th>#</th>
+                                    <th>Kode Matakuliah</th>
+                                    <th>Nama Matakuliah</th>
+                                    <th>SKS</th>
+                                    <th>Semester</th>
+                                    <th>Kategori</th>
+                                    <th><center>jadwal</center></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <c:forEach items="${listMatkul}" var="lm" varStatus="i">
+                                    <tr>
+                                        <td>${i.count}</td>
+                                        <td>${lm.kodeMatkul}</td>
+                                        <td class="kapital">${lm.namaMatkul}</td>
+                                        <td>${lm.sks}</td>
+                                        <td>${lm.semester}</td>
+                                        <td>${lm.kategoriMatkul}</td>
+                                        <td><center>
+                                            <a href="proses-tambah?idMatkul=${lm.id}&tingkat=${lm.kategoriTingkat}&semester=${lm.semester}">
+                                            <img src="<%= request.getContextPath() %>/img/add.png" width="20" title="Tambahkan" alt="Tambahkan" /></a></center>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </tbody>
+                        </table>
+                    </c:otherwise>
+                </c:choose>
+        </div>
     </body>
 </html>

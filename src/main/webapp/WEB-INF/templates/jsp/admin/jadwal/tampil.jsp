@@ -24,10 +24,10 @@
                 <h3>Data Jadwal Kosong</h3>
             </c:when>
             <c:otherwise>
-                <h3>JADWAL ${listJadwal[0].mataKuliah.kategoriTingkat}</h3>
-                <table class="-table _striped_ _hovered_">
+                <h3>&raquo; JADWAL ${listJadwal[0].mataKuliah.kategoriTingkat}</h3>
+                <table class="table table-striped table-hover tabel_jadwal">
                     <thead>
-                        <tr class="kapital">
+                        <tr class="tab-head">
                             <th>#</th>
                             <th>jam</th>
                             <th>matakuliah</th>
@@ -74,8 +74,10 @@
                                         <c:otherwise>-</c:otherwise>
                                     </c:choose>
                                 </td>
-                                <td><a href="edit-jadwal?id=${lj.id}&tingkat=${lj.mataKuliah.kategoriTingkat}">edit</a></td>
-                                <td><a href="hapus?id=${lj.id}&tingkat=${lj.mataKuliah.kategoriTingkat}">tutup</a></td>
+                                <td><a href="edit-jadwal?id=${lj.id}&tingkat=${lj.mataKuliah.kategoriTingkat}">
+                                    <img src="<%= request.getContextPath() %>/img/edit.png" width="20" title="Edit" alt="Edit" /></a></td>
+                                <td><a href="hapus?id=${lj.id}&tingkat=${lj.mataKuliah.kategoriTingkat}">
+                                    <img src="<%= request.getContextPath() %>/img/delete.png" width="20" title="Delete" alt="Delete" /></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

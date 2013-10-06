@@ -15,76 +15,75 @@
         <title>Edit Jadwal Matakuliah</title>
     </head>
     <body>
-        <sf:form method="POST"  modelAttribute="jadwal" class="-form _horizontal_">
-            <sf:hidden path="id" />
-            <sf:hidden path="mataKuliah.id"/>            
-            <div class="-form-row">
-                <label>matakuliah</label>
-                <span class="-form-field -col3">
-                    <input type="text" placeholder="Ruang" readonly="readonly" value="${jadwal.mataKuliah.namaMatkul}"/>
-                    <i class="-caret"></i>
-                </span>
-            </div>
-            <div class="-form-row">
-                <label>Dosen</label>
-                <span class="-form-field -col3">
-                    <sf:select path="dosen.id">
-                        <sf:option value="" >Pilih Dosen</sf:option>
-                        <c:forEach items="${listDosen}" var="ld">
-                            <sf:option value="${ld.id}">${ld.namaDosen}</sf:option>
-                        </c:forEach>
-                    </sf:select>
-                    <i class="-caret"></i>
-                </span>
-            </div>
-            <div class="-form-row">
-                <label>Jam</label>
-                <span class="-form-field -col3">
-                    <fmt:formatDate pattern="HH:mm:ss" value="${jadwal.jamMulai}" var="valueJam"></fmt:formatDate>
-                    <input type="time" name="jamMulaiString" step="00" value="${valueJam}"/>
-                </span>
-            </div>
-            <div class="-form-row">
-                <label>Ruang</label>
-                <span class="-form-field -col3">
-                    <sf:input path="ruang" placeholder="Ruang"/>
-                </span>
-            </div>
-            <div class="-form-row">
-                <label>Hari</label>
-                <span class="-form-field -col3">
-                    <sf:select path="hari">
-                        <sf:option value="">Pilih Hari</sf:option>                        
-                        <sf:option value="2">senin</sf:option>
-                        <sf:option value="3">selasa</sf:option>
-                        <sf:option value="4">rabu</sf:option>
-                        <sf:option value="5">kamis</sf:option>
-                        <sf:option value="6">jumat</sf:option>
-                        <sf:option value="7">sabtu</sf:option>
-                    </sf:select>
-                    <i class="-caret"></i>
-                </span>
-            </div>
-                <div class="-form-row">
-                <label>Keterangan</label>
-                <span class="-form-field -col3">
-                    <sf:select path="keterangan">                        
-                        <sf:option value="0">Pilih Keterangan</sf:option>
-                        <sf:option value="1">hadir</sf:option>
-                        <sf:option value="2">izin</sf:option>
-                        <sf:option value="3">absen</sf:option>
-                        <sf:option value="4">tugas</sf:option>
-                        <sf:option value="5">sakit</sf:option>
-                    </sf:select>
-                    <i class="-caret"></i>
-                </span>
-            </div>
-            <div class="-form-row">                
-                 <div class="-form-group">
-                    <input type="submit" value="Simpan" class="-btn"/>
-                    <input type="reset" value="Batal" class="-btn -error-"/>
+        <div class="edit_jadwal">
+            <h3>Edit Jadwal</h3>
+            <sf:form method="POST"  modelAttribute="jadwal" class="">
+                <sf:hidden path="id" />
+                <sf:hidden path="mataKuliah.id"/>            
+                <div class="">
+                    <label>matakuliah</label>
+                    <span class="">
+                        <input type="text" placeholder="Ruang" readonly="readonly" class="span4" value="${jadwal.mataKuliah.namaMatkul}"/>
+                    </span>
                 </div>
-            </div>            
-        </sf:form>
+                <div class="">
+                    <label>Dosen</label>
+                    <span class="">
+                        <sf:select path="dosen.id" class="span4">
+                            <sf:option value="" >Pilih Dosen</sf:option>
+                            <c:forEach items="${listDosen}" var="ld">
+                                <sf:option value="${ld.id}">${ld.namaDosen}</sf:option>
+                            </c:forEach>
+                        </sf:select>
+                    </span>
+                </div>
+                <div class="">
+                    <label>Jam</label>
+                    <span class="">
+                        <fmt:formatDate pattern="HH:mm:ss" value="${jadwal.jamMulai}" var="valueJam"></fmt:formatDate>
+                        <input type="time" name="jamMulaiString" step="00" value="${valueJam}"/>
+                    </span>
+                </div>
+                <div class="">
+                    <label>Ruang</label>
+                    <span class="">
+                        <sf:input path="ruang" placeholder="Ruang" class="span4"/>
+                    </span>
+                </div>
+                <div class="">
+                    <label>Hari</label>
+                    <span class="">
+                        <sf:select path="hari" class="span4">
+                            <sf:option value="">Pilih Hari</sf:option>                        
+                            <sf:option value="2">senin</sf:option>
+                            <sf:option value="3">selasa</sf:option>
+                            <sf:option value="4">rabu</sf:option>
+                            <sf:option value="5">kamis</sf:option>
+                            <sf:option value="6">jumat</sf:option>
+                            <sf:option value="7">sabtu</sf:option>
+                        </sf:select>
+                        <i class="-caret"></i>
+                    </span>
+                </div>
+                    <div class="">
+                    <label>Keterangan</label>
+                    <span class="">
+                        <sf:select path="keterangan" class="span4">                        
+                            <sf:option value="0">Pilih Keterangan</sf:option>
+                            <sf:option value="1">hadir</sf:option>
+                            <sf:option value="2">izin</sf:option>
+                            <sf:option value="3">absen</sf:option>
+                            <sf:option value="4">tugas</sf:option>
+                            <sf:option value="5">sakit</sf:option>
+                        </sf:select>
+                        <i class="-caret"></i>
+                    </span>
+                </div>
+                <div class="">                
+                    <input type="submit" value="Simpan" class="btn btn-info span2"/>
+                    <input type="reset" value="Batal" class="btn btn-info span2"/>
+                </div>            
+            </sf:form>
+        </div>
     </body>
 </html>

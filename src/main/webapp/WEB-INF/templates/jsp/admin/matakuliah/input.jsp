@@ -19,60 +19,63 @@
                 notifPesan("${pesanTampil}","${jenisPesan}");
             </script>
         </c:if>
-        <sf:form action="input" method="POST" modelAttribute="matakuliah" class="-form _horizontal_ kapital">
-            <sf:hidden path="id"/>
-            <div class="-form-row">
-                <label>Kode Matakuliah</label>
-                <span class="-form-field -col3">
-                    <sf:input path="kodeMatkul" placeholder="Kode Matakuliah" required="required"/>
-                </span>
-            </div>
-            <div class="-form-row">
-                <label>Nama Matakuliah</label>
-                <span class="-form-field -col3">
-                    <sf:input path="namaMatkul" placeholder="Nama Matakuliah" required="required"/>
-                </span>
-            </div>
-            <div class="-form-row">
-                <label>SKS</label>
-                <span class="-form-field -col3">
-                    <sf:input type="number" max="5" min="1" path="sks" placeholder="SKS" required="required"/><br>
-                </span>
-            </div>
-            <div class="-form-row">
-                <label>Semester</label>
-                <span class="-form-field -col3" required="required">
-                    <sf:input type="number" max="8" min="1" path="semester" placeholder="Semester"/><br>
-                </span>
-            </div>
-            <div class="-form-row">
-                <label>Kategori</label>
-                <span class="-form-field -col3">
-                    <sf:select path="kategoriMatkul" placeholder="Kategori" required="required">
-                        <sf:option value="">Pilih Kategori</sf:option>
-                        <sf:option value="wajib">Wajib</sf:option>
-                        <sf:option value="pilihan">Pilihan</sf:option>
-                    </sf:select>
-                    <i class="-caret"></i>
-                </span>
-            </div>
-            <div class="-form-row">
-                <label>Tingkat</label>
-                <span class="-form-field -col3">
-                    <sf:select path="kategoriTingkat" placeholder="Kategori" required="required">
-                        <sf:option value="">Pilih Tingkatan</sf:option>
-                        <sf:option value="S1">Strata 1</sf:option>
-                        <sf:option value="D3">Diploma 3</sf:option>
-                    </sf:select>
-                    <i class="-caret"></i>
-                </span>
-            </div>
-            <div class="-form-row">                
-                 <div class="-form-group">
-                    <input type="submit" value="tambah" class="-btn"/>
-                    <input type="reset" value="batal" class="-btn -error-"/>
+        <div class="form_input">
+            <h3>Matakuliah</h3>
+            <sf:form action="input" method="POST" modelAttribute="matakuliah" class="-form _horizontal_ kapital">
+                <sf:hidden path="id"/>
+                <div class="-form-row">
+                    <label>Kode Matakuliah</label>
+                    <span class="-form-field -col3">
+                        <sf:input path="kodeMatkul" placeholder="Kode Matakuliah" class="span4" required="required"/>
+                    </span>
                 </div>
-            </div>
-        </sf:form>
+                <div class="-form-row">
+                    <label>Nama Matakuliah</label>
+                    <span class="-form-field -col3">
+                        <sf:input path="namaMatkul" placeholder="Nama Matakuliah" class="span4" required="required"/>
+                    </span>
+                </div>
+                <div class="-form-row">
+                    <label>SKS</label>
+                    <span class="-form-field -col3">
+                        <sf:input type="number" max="5" min="1" path="sks" placeholder="SKS" required="required" class="span4"/><br>
+                    </span>
+                </div>
+                <div class="-form-row">
+                    <label>Semester</label>
+                    <span class="-form-field -col3" required="required">
+                        <sf:input type="number" max="8" min="1" path="semester" placeholder="Semester" class="span4"/><br>
+                    </span>
+                </div>
+                <div class="-form-row">
+                    <label>Kategori</label>
+                    <span class="-form-field -col3">
+                        <sf:select path="kategoriMatkul" placeholder="Kategori" required="required" class="span4">
+                            <sf:option value="">Pilih Kategori</sf:option>
+                            <sf:option value="wajib">Wajib</sf:option>
+                            <sf:option value="pilihan">Pilihan</sf:option>
+                        </sf:select>
+                        <i class="-caret"></i>
+                    </span>
+                </div>
+                <div class="-form-row">
+                    <label>Tingkat</label>
+                    <span class="-form-field -col3">
+                        <sf:select path="kategoriTingkat" placeholder="Kategori" required="required" class="span4">
+                            <sf:option value="">Pilih Tingkatan</sf:option>
+                            <sf:option value="S1">Strata 1</sf:option>
+                            <sf:option value="D3">Diploma 3</sf:option>
+                        </sf:select>
+                        <i class="-caret"></i>
+                    </span>
+                </div>
+                <div class="-form-row">                
+                     <div class="-form-group">
+                        <input type="submit" value="Simpan" class="btn btn-info span2"/>
+                        <input type="reset" value="Batal" class="btn btn-info span2"/>
+                    </div>
+                </div>
+            </sf:form>
+        </div>
     </body>
 </html>

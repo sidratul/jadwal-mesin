@@ -14,6 +14,7 @@
         <title>Tampil Dosen</title>
     </head>
     <body>
+        <h3>&raquo; Daftar Dosen</h3>
         <c:if test="${not empty pesanTampil}">
             <script>
                 notifPesan("${pesanTampil}","${jenisPesan}");
@@ -25,9 +26,9 @@
                 <h3>Data Dosen Kosong</h3>
             </c:when>
             <c:otherwise>
-                <table class="-table _striped_ _hovered_">
+                <table class="table table-striped table-hover tabel_jadwal">
                     <thead>
-                        <tr class="kapital">
+                        <tr class="tab-head">
                             <th>#</th>
                             <th>NIDN</th>
                             <th>Nama</th>
@@ -56,8 +57,10 @@
                                 <td>${ld.noTelpon}</td>
                                 <td>${ld.email}</td>
                                 <td>${ld.jabatan}</td>
-                                <td><a href="input?id=${ld.id}">edit</a></td>
-                                <td><a href="hapus?id=${ld.id}">hapus</a></td>
+                                <td><a href="input?id=${ld.id}">
+                                    <img src="<%= request.getContextPath() %>/img/edit.png" width="20" title="Edit" alt="Edit" /></a></td>
+                                <td><a href="hapus?id=${ld.id}">
+                                    <img src="<%= request.getContextPath() %>/img/delete.png" width="20" title="Delete" alt="Delete" /></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
