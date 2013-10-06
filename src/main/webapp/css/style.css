@@ -30,13 +30,25 @@
 .judul{
   text-align: center;
   background: white;
-  margin: 0px auto 20px auto;
+  font-size: 30px;
+  margin: 0px 20px 20px auto;
   width: 600px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   border-top: 4px solid #2980B9;
   box-shadow: 0px 1px 5px 0px  black;
   cursor: pointer;
+  border-radius: 0 0 20px 20px;
 }
+
+.border-samping{
+    box-shadow: 0px 0px 5px 0px  black;
+}
+
+.copy-right{
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0px 1px 5px 0px  black;
+}
+
 .sono{
   margin-left: 0px;
 }

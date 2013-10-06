@@ -24,13 +24,13 @@
         </script>
          <style>
             body{
-                background: url(<%= request.getContextPath() %>/img/Background/bg13.jpg)no-repeat fixed;
+                background: url(<%= request.getContextPath() %>/img/Background/bg7.jpg)no-repeat fixed;
                 background-size: 100%
             }
         </style>
     </head>
     <body>
-        <div class="judul">
+        <div class="judul pull-right">
             <h1><img src="<%= request.getContextPath() %>/img/logo-up.png" width="50" /> JURUSAN TEKNIK MESIN FTUP</h1>
         </div>
         <div class="container-fluid">
@@ -47,7 +47,7 @@
                     </c:when>
                     <c:otherwise>
                         <div class="row sono"> 	
-                           <div class="row sono">
+                           <div class="row sono rad-atas-kecil">
                                 <div class="boxS1">
                                     <h3>&raquo; Starata 1</h3>
                                     <div class="tab">
@@ -163,8 +163,8 @@
           
             <!--pengumuman-->
             <div class="span3">
-                <div>
-                    <table class="tab_info">
+                <div class="border-samping">
+                    <table class="tab_info ">
                         <tr>
                             <td style="background:#4d6299;width: 50"><img src="<%= request.getContextPath() %>/img/jam.png" /></td>
                             <td class="jarak"><time id="jam"></time></td>
@@ -180,7 +180,7 @@
                     </table>
                 </div>
             
-             <div class="pallete-item" style="margin-bottom: 10px;">
+             <div class="pallete-item border-samping" style="margin-bottom: 10px;">
                 <dl class="palette palette-peter-river">
                     <span class="icon-bookmark"></span> Pengumuman <a href="<%= request.getContextPath() %>/admin/" style="float: right;color: white;text-decoration: none">Admin</a>
                 </dl>
@@ -194,7 +194,7 @@
             </div>
                           
             <div>
-                <dl class="palette palette-green-sea">
+                <dl class="palette palette-green-sea copy-right">
                     <center>Copyright &copy; 2013 SID Corporation</center>
                 </dl>
             </div>              
