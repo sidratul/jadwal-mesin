@@ -62,7 +62,7 @@
                             <sf:option value="6">jumat</sf:option>
                             <sf:option value="7">sabtu</sf:option>
                         </sf:select>
-                        <i class="-caret"></i>
+                        
                     </span>
                 </div>
                     <div class="">
@@ -76,7 +76,6 @@
                             <sf:option value="4">tugas</sf:option>
                             <sf:option value="5">sakit</sf:option>
                         </sf:select>
-                        <i class="-caret"></i>
                     </span>
                 </div>
                 <div class="">                
