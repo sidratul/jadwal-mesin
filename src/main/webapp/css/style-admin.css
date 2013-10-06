@@ -1,68 +1,52 @@
-.container{
-    width: 1150px;
-    
-}
-
-header{
-	text-align: center;
-	text-transform: uppercase;
-	margin-top: 20px;
-}
-
-.-row{
-	background-color: #fffccc;
-	width: 1300px;
-	margin: 0 auto;
-}
-
-article{
-	background-color: rgba(100,50,30,.4);
-}
-
-aside{
-	background-color: rgba(10,60,130,.2);
-}
-
-.tengah{
-    text-align: center;
-}
-
-.kapital{
-    text-transform:capitalize;
-}
-
 body {
     background: white;
     padding-top: 20px;
     padding-bottom: 60px;
 }
 
-.front{
-    position: relative;
-    z-index:10;
+.container{
+    width: 1150px;   
+}
+.ft{
+    background: #2C3E50;
+    padding:10px 10px 10px 10px;
+    color:white;
 }
 
-.-tabs li {
-    
+.tabel_jadwal{
+    text-transform: capitalize;
+    color: black;
+}
+.tabel_jadwal .tab-head{
+    background: #2C3E50;
+    color: white;
 }
 
-.s1{
-	background:#21a459;
-	color:white;
-	padding:20px;
+.edit_jadwal{
+    text-transform: capitalize;
+    width: 300px;
+    margin: 0px auto;
 }
-.d3{
-	background:#2980B9;
-	color:white;
-	padding:20px;
-}
-
-footer{
-    clear: both;
-    background: none;
-    margin-top: 20px;
+.edit_jadwal h3{
+    background: white;
+    padding: 10px;
     text-align: center;
+    border-top: 4px solid #2980B9;
+    margin-top: 0px;
 }
-.white{
-    color: white
+.box-jadwal{
+    margin: 0px auto;
+}
+
+.form_input{
+    text-transform: capitalize;
+    width: 300px;
+    margin: 0px auto;
+}
+.form_input h3{
+    background: white;
+    padding: 10px;
+    text-align: center;
+    border-top: 4px solid #2980B9;
+    margin-top: 0px;
 }

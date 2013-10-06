@@ -1,30 +1,89 @@
-body{
-	margin:0px auto;
-	background:#eaedf2;
+ body {
+     padding-top: 0px;
+     background: #ccc;
 }
 
-.up{
-	width:50px;
-}
-.logo{
-	color:#2C3E50;
-}
-.logo a{
-	text-decoration:none;
-	color:#2C3E50;
-}
-.s1{
-	background:#16A085;
-	color:white;
-	padding:20px;
-}
-.d3{
-	background:#2980B9;
-	color:white;
-	padding:20px;
+.bg{
+    background: RGBA(0,0,0,0.7);
 }
 
-.kapital{
-    text-transform:capitalize;
+.info{
+    border-top: 4px solid #2980B9;
+    box-shadow: 0px 1px 5px 0px  black;
 }
 
+.tab_info{
+    background: white;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.tab_info img{width: 50px;}
+.tab_info td{
+    padding: 5px;
+    border-top: 1px solid #dddddd;
+}
+.tab_info .jarak{
+    padding-left: 10px;
+}
+
+.judul{
+  text-align: center;
+  background: white;
+  margin: 0px auto 20px auto;
+  width: 600px;
+  padding-bottom: 5px;
+  border-top: 4px solid #2980B9;
+  box-shadow: 0px 1px 5px 0px  black;
+  cursor: pointer;
+}
+.sono{
+  margin-left: 0px;
+}
+.boxS1 , .boxD3{                
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  background: white;
+}
+.boxS1 h3, .boxD3 h3{
+  color: white;
+  margin: 0px auto;
+  padding: 2px;
+  background: #34495E;
+}            
+.boxS1{border: 1px solid #34495E;}
+
+.boxD3{border: 1px solid #34495E;}
+
+.tab{
+  background: white;
+  padding: 0px;
+}
+
+.tab_jadwal{
+    width: 100%;
+    font-size: 20px;
+    font-family: calibri
+}
+.tab_jadwal th, .tab_jadwal td{
+    padding: 5px;
+}
+.tab_jadwal td{border-top: 1px solid #dddddd;}
+
+.note{
+  text-transform: capitalize;
+  font-size: 20px;
+  color: black;
+}
+
+.box{
+    background: white;
+    color: pink
+}
+.note-nihil{
+    padding: 10px;
+    background: white;
+    margin-bottom: 20px;
+    border-top: 4px solid #2980B9;
+    box-shadow: 0px 1px 5px 0px  black;
+}
