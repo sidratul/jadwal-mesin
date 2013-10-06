@@ -24,10 +24,10 @@
                 <h3>Data Pengumuman Kosong</h3>
             </c:when>
             <c:otherwise>
-                <h3>Pengumuman</h3>                
-                <table class="-table _striped_ _hovered_">
+                <h3>&raquo; Pengumuman</h3>                
+                <table class="table table-striped table-hover tabel_jadwal">
                     <thead>
-                        <tr>
+                        <tr class="tab-head">
                             <th>#</th>
                             <th>Pengumuman</th>
                             <th colspan="2">&nbsp;</th>
@@ -38,8 +38,10 @@
                             <tr>
                                 <td>${i.count}</td>
                                 <td>${lp.textPengumuman}</td>
-                                <td><a href="input?id=${lp.id}">edit</a></td>
-                                <td><a href="hapus?id=${lp.id}">hapus</a></td>
+                                <td><a href="input?id=${lp.id}" style="margin-right: 20px;">
+                                    <img src="<%= request.getContextPath() %>/img/edit.png" width="20" title="Edit" alt="Edit" /></a> 
+                                    <a href="hapus?id=${lp.id}">
+                                    <img src="<%= request.getContextPath() %>/img/delete.png" width="20" title="Delete" alt="Delete" /></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

@@ -13,21 +13,23 @@
         <title>input pengumuman</title>
     </head>
     <body>
-        <h3>Input Pengumuman</h3>
-        <sf:form action="input" method="POST" modelAttribute="pengumuman" class="-form _horizontal_">
-            <sf:hidden path="id"/>
-            <div class="-form-row">
-                <label>pengumuman</label>
-                <span class="-form-field -col3">
-                    <sf:textarea path="textPengumuman" required="required"></sf:textarea>
-                </span>
-            </div>
-            <div class="-form-row">                
-                 <div class="-form-group">
-                    <input type="submit" value="tambah" class="-btn"/>
-                    <input type="reset" value="batal" class="-btn -error-"/>
+        <div class="form_input">
+            <h3>Input Pengumuman</h3>
+            <sf:form action="input" method="POST" modelAttribute="pengumuman" class="-form _horizontal_">
+                <sf:hidden path="id"/>
+                <div class="-form-row">
+                    <label>pengumuman</label>
+                    <span class="-form-field -col3">
+                        <sf:textarea path="textPengumuman" required="required" class="span2"></sf:textarea>
+                    </span>
                 </div>
-            </div>
-        </sf:form>
+                <div class="-form-row">                
+                     <div class="-form-group">
+                        <input type="submit" value="Tambah" class="btn btn-info span2"/>
+                        <input type="reset" value="Batal" class="btn btn-info span2"/>
+                    </div>
+                </div>
+            </sf:form>
+        </div>
     </body>
 </html>

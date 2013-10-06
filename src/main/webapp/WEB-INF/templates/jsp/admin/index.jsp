@@ -12,6 +12,6 @@
         <title>admin</title>
     </head>
     <body>
-        <h1>WELCOME ${username}</h1>
+        <h1 align="center">Welcome back, <span style="text-transform: capitalize">${username}</span></h1>
     </body>
 </html>

@@ -12,37 +12,28 @@
 <html lang="id">
     <head>
 	<title>Jadwal Mesin</title>
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit.css">
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit-components.css">
-	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/maxmertkit-animation.css">
 	<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/flat-ui.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/style-admin.css">
         
-
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/html5shiv.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/jquery.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/easing.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/imagesLoaded.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/libs/modernizr.js"></script>
-
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.affix.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.scrollspy.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.popup.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.tabs.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.modal.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.carousel.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.button.js"></script>
-	<script type="text/javascript" src="<%= request.getContextPath() %>/js/plugins/maxmertkit.notify.js"></script>	
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/jquery.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/aplikasi.js"></script>
         <decorator:head></decorator:head>
+        <style>
+            body{
+                background: #ccc;
+            }
+        </style>
     </head>
     <body>    
         <div class="container">
-            <h1>Jurusan Teknik Mesin FTUP</h1>            
-	
+            <header>
+            <table style="margin-bottom: 10px">
+                <tr><td width="60"><img src="<%= request.getContextPath() %>/img/logo-up.png" width="50" /></td>
+                <td><h1>Jurusan Teknik Mesin FTUP</h1></td></tr>
+            </table>
+            </header>
         <!--menu-->
         <nav>
             <div class="navbar navbar-inverse">
@@ -125,13 +116,9 @@
             <div style="background: #eaedf2;padding:10px 10px 30px 10px">
             <decorator:body ></decorator:body>
             </div>
-        </div>
-       
-        <footer>
-            <div class="container">
-                Copyright &copy; 2013<br>
-                SID Corporation
+            <div class="ft">
+                Copyright &copy; 2013 SID Corporation
             </div>
-        </footer>
+        </div>
     </body>
 </html>
