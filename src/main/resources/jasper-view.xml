@@ -9,12 +9,12 @@
             http://www.springframework.org/schema/util/spring-util-3.2.xsd
 ">
     
-    <bean id="pdfReport"  class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
+    <bean id="jadwalpdfReport"  class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
         <property name="url" value="/WEB-INF/templates/jrxml/jadwal-report.jrxml" />
         <property name="reportDataKey" value="datasource" />
     </bean>
     
-<!--    <bean id="DosenPdfReport"  class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
+    <bean id="dosenPdfReport"  class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
         <property name="url" value="/WEB-INF/templates/jrxml/dosen-report.jrxml" />
         <property name="reportDataKey" value="datasource" />
     </bean>
@@ -22,5 +22,5 @@
     <bean id="matkulPdfReport"  class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
         <property name="url" value="/WEB-INF/templates/jrxml/matkul-report.jrxml" />
         <property name="reportDataKey" value="datasource" />
-    </bean>-->
+    </bean>
 </beans>
