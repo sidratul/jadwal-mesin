@@ -5,9 +5,3 @@ function notifPesan(pesan, jenisPesan){
         type: 4000
     });
 }
-
-$("select").selectpicker({
-        style: 'btn-hg btn-primary',
-        menuStyle: 'dropdown-inverse'
-    }
-);

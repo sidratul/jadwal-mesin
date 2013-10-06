@@ -10,6 +10,7 @@
 <html lang="id">
     <head>
         <title>Teknik Mesin</title>
+        <link rel="shortcut icon" href="<%= request.getContextPath() %>/img/logo.ico"/>
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/flat-ui.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/style.css">
