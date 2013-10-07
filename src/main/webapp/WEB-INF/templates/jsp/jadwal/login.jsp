@@ -15,6 +15,9 @@
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/flat-ui.css">
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/style.css">
+        
+        <script type="text/javascript" src="<%= request.getContextPath() %>/js/jquery.js"></script>
+	<script type="text/javascript" src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
         <style type="text/css">
             body {
               padding-top: 150px;
@@ -49,17 +52,15 @@
         </style>
     </head>
     <body>
-        <c:if test="${not empty error}">
-            <script>
-                $.notify('${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}', {
-                    header: 'Login Gagal!!!',
-                    theme: 'error',
-                    type: 'stick'
-                });
-            </script>
-	</c:if>
+        
         <form class="form-signin" action="<c:url value='/j_spring_security_check'/>" method='POST'>
             <h2 class="form-signin-heading">Please Login</h2>
+            <c:if test="${not empty error}">            
+                <div class="alert alert-error">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <span class="kapital"> <strong>Login gagal !</strong> ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}</span>
+                </div>
+            </c:if>
             <input type="text" class="input-block-level" placeholder="User Name" name="j_username" />
             <input type="password" class="input-block-level" placeholder="Password"name="j_password" />
             <input type="submit" value="Login"  class="btn btn-large btn btn-info">

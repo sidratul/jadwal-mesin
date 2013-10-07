@@ -9,7 +9,7 @@
             http://www.springframework.org/schema/util/spring-util-3.2.xsd
 ">
     
-    <bean id="jadwalpdfReport"  class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
+    <bean id="jadwalPdfReport"  class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView">
         <property name="url" value="/WEB-INF/templates/jrxml/jadwal-report.jrxml" />
         <property name="reportDataKey" value="datasource" />
     </bean>
