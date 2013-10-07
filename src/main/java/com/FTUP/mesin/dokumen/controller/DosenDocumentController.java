@@ -20,7 +20,6 @@ public class DosenDocumentController {
     
     @RequestMapping("/pdf")
     public ModelAndView dosenPdf(ModelAndView mav){
-        System.out.println("lala");
         List<Dosen> dosens = dosenDao.getAllDosen();
         
         JRDataSource jRDataSource = new JRBeanCollectionDataSource(dosens);
@@ -28,7 +27,7 @@ public class DosenDocumentController {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("datasource", jRDataSource);
         
-        mav.addObject("dosenPdfReport",map);
+        mav = new ModelAndView("dosenPdfReport", map);
         
         return mav;
     }

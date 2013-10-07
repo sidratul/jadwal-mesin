@@ -8,7 +8,7 @@ import org.springframework.dao.DuplicateKeyException;
 public interface MataKuliahDao {
     public List<MataKuliah> getMatkulGroupBySmester(String kategoriTingkat);
     
-    public List<MataKuliah> getAllMatkul();
+    public List<MataKuliah> getAllMatkul(String kategoriTingkat);
     
     public List<MataKuliah> getMatkulBySemester(Integer semester, String kategoriTingkat);
     

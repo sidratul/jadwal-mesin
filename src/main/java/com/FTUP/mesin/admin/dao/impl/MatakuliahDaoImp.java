@@ -19,7 +19,7 @@ public class MatakuliahDaoImp implements MataKuliahDao{
             + "WHERE j.ID_Matakuliah is NULL AND SEMESTER=? AND Kategori_Tingkat=? ORDER BY m.Nama_Matkul ASC";
     
     private static final String SQL_GETALL_GROUPBYSEMESTER = "SELECT * from MATAKULIAH where Kategori_Tingkat=? group by Semester";
-    private static final String SQL_GETALL_MATKUL = "SELECT * FROM MATAKULIAH ORDER BY Nama_Matkul ASC";
+    private static final String SQL_GETALL_MATKUL = "SELECT * FROM MATAKULIAH WHERE kategori_tingkat=? ORDER BY Semester ASC";
     private static final String SQL_MATKUL_BYSEMESTER = "SELECT * FROM MATAKULIAH WHERE SEMESTER=? AND Kategori_Tingkat=? ORDER BY Nama_Matkul ASC";
     private static final String SQL_MATKUL_BYID = "SELECT * FROM MATAKULIAH WHERE ID=?";
     private static final String SQL_DELETE_MATKUL = "DELETE FROM MATAKULIAH WHERE ID=?";
@@ -58,8 +58,8 @@ public class MatakuliahDaoImp implements MataKuliahDao{
         return mataKuliahs;
     }
     
-    public List<MataKuliah> getAllMatkul() {
-        List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_GETALL_MATKUL, new MatakuliahParameterizedRowMapper());
+    public List<MataKuliah> getAllMatkul(String kategoriTingkat) {
+        List<MataKuliah> mataKuliahs = jdbcTemplate.query(SQL_GETALL_MATKUL, new MatakuliahParameterizedRowMapper(),kategoriTingkat );
         return mataKuliahs;
     }
     

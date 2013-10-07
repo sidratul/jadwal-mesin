@@ -24,7 +24,7 @@
         </script>
          <style>
             body{
-                background: url(<%= request.getContextPath() %>/img/Background/bg7.jpg)no-repeat fixed;
+                background: url(<%= request.getContextPath() %>/img/Background/bg2.jpg)no-repeat fixed;
                 background-size: 100%
             }
         </style>
@@ -57,11 +57,11 @@
                                                     <th style="width:2">No</th>
                                                     <th style="width:120">Jam</th>
                                                     <th style="width:200">Mata Kuliah</th>
-                                                    <th style="width:280">Dosen</th>
+                                                    <th style="width:300">Dosen</th>
                                                     <th>SKS</th>
-                                                    <th>Semester</th>
+                                                    <th>SMT</th>
                                                     <th style="width:80">Ruang</th>
-                                                    <th>Keterangan</th>
+                                                    <th>Ket</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -119,11 +119,11 @@
                                                 <th style="width:2">No</th>
                                                 <th style="width:120;">Jam</th>
                                                 <th style="width:200">Mata Kuliah</th>
-                                                <th style="width:280">Dosen</th>
+                                                <th style="width:300">Dosen</th>
                                                 <th>SKS</th>
-                                                <th>Semester</th>
+                                                <th>SMT</th>
                                                 <th style="width:80">Ruang</th>
-                                                <th>Keterangan</th>
+                                                <th>Ket</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -181,10 +181,10 @@
                 </div>
             
              <div class="pallete-item border-samping" style="margin-bottom: 10px;">
-                <dl class="palette palette-peter-river">
-                    <span class="icon-bookmark"></span> Pengumuman <a href="<%= request.getContextPath() %>/admin/" style="float: right;color: white;text-decoration: none">Admin</a>
+                 <dl class="palette palette-sun-flower"  style="color: black;">
+                    <span class="icon-bookmark"></span> Pengumuman <a href="<%= request.getContextPath() %>/admin/" style="float: right;color: black;text-decoration: none">Admin</a>
                 </dl>
-                 <dl class="palette palette-belize-hole" style="color: white">
+                 <dl class="palette palette-clouds" style="color: black">
                     <ol>
                         <c:forEach items="${listPengumuman}" var="lp">
                             <li>${lp.textPengumuman}</li>
@@ -194,7 +194,7 @@
             </div>
                           
             <div>
-                <dl class="palette palette-green-sea copy-right">
+                <dl class="palette palette-midnight-blue copy-right"">
                     <center>Copyright &copy; 2013 SID Corporation</center>
                 </dl>
             </div>              
