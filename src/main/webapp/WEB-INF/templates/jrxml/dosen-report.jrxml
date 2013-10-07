@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dosen-report" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc2e36b0-392d-4527-a34b-4654aa05c39a">
 	<property name="ireport.zoom" value="1.0980750000000015"/>
-	<property name="ireport.x" value="241"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<field name="nidn" class="java.lang.String"/>
 	<field name="namaDosen" class="java.lang.String"/>
@@ -11,7 +11,7 @@
 	<field name="tempatLahir" class="java.lang.String"/>
 	<field name="tglLahir" class="java.util.Date"/>
 	<field name="jabatan" class="java.lang.String"/>
-	<variable name="nomer" class="java.lang.Integer" calculation="Count">
+	<variable name="nomer" class="java.lang.Integer" incrementType="Column" calculation="Count">
 		<variableExpression><![CDATA[$V{COLUMN_COUNT}]]></variableExpression>
 		<initialValueExpression><![CDATA[]]></initialValueExpression>
 	</variable>
@@ -51,7 +51,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[NIDN]]></text>
 			</staticText>
@@ -64,7 +64,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Nama Dosen]]></text>
 			</staticText>
@@ -77,7 +77,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Alamat]]></text>
 			</staticText>
@@ -90,7 +90,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No Telpon]]></text>
 			</staticText>
@@ -103,7 +103,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Email]]></text>
 			</staticText>
@@ -116,7 +116,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tempat Lahir]]></text>
 			</staticText>
@@ -129,7 +129,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Tanggal Lahir]]></text>
 			</staticText>
@@ -142,7 +142,7 @@
 					<rightPen lineWidth="0.5"/>
 				</box>
 				<textElement textAlignment="Center">
-					<font fontName="Times New Roman" size="12"/>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[No]]></text>
 			</staticText>

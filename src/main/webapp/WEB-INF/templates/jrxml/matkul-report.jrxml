@@ -8,6 +8,7 @@
 	<field name="sks" class="java.lang.Integer"/>
 	<field name="semester" class="java.lang.Integer"/>
 	<field name="kategoriMatkul" class="java.lang.String"/>
+	<field name="kategoriTingkat" class="java.lang.String"/>
 	<variable name="no" class="java.lang.Integer" resetType="Group" resetGroup="gropBySemester" calculation="Count">
 		<variableExpression><![CDATA[$V{COLUMN_COUNT}]]></variableExpression>
 	</variable>
@@ -118,17 +119,17 @@
 	</background>
 	<title>
 		<band height="60" splitType="Stretch">
-			<staticText>
-				<reportElement uuid="75c9ded2-5915-4175-9539-72597e1c6c6f" x="95" y="15" width="397" height="30"/>
+			<image>
+				<reportElement uuid="9378befb-4f4a-4910-90aa-f5d518811b54" x="40" y="6" width="50" height="48"/>
+				<imageExpression><![CDATA["/home/sidratul/Documents/UP/project/jadwal-mesin/src/main/webapp/img/logo-up.jpg"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="4823766b-f312-4482-ac22-38bfd3cde1f8" x="90" y="19" width="431" height="22"/>
 				<textElement>
 					<font fontName="Times New Roman" size="18"/>
 				</textElement>
-				<text><![CDATA[MATAKULIAH JURUSAN TEKNIK MESIN FTUP]]></text>
-			</staticText>
-			<image>
-				<reportElement uuid="9378befb-4f4a-4910-90aa-f5d518811b54" x="45" y="6" width="50" height="48"/>
-				<imageExpression><![CDATA["/home/sidratul/Documents/UP/project/jadwal-mesin/src/main/webapp/img/logo-up.jpg"]]></imageExpression>
-			</image>
+				<textFieldExpression><![CDATA["MATAKULIAH "+ $F{kategoriTingkat}+" JURUSAN TEKNIK MESIN FTUP"]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
@@ -147,7 +148,7 @@
 					<bottomPen lineWidth="0.25"/>
 					<rightPen lineWidth="0.25"/>
 				</box>
-				<textElement textAlignment="Justified">
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{kodeMatkul}]]></textFieldExpression>
@@ -173,7 +174,7 @@
 					<bottomPen lineWidth="0.25"/>
 					<rightPen lineWidth="0.25"/>
 				</box>
-				<textElement textAlignment="Justified">
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{sks}]]></textFieldExpression>
@@ -186,7 +187,7 @@
 					<bottomPen lineWidth="0.25"/>
 					<rightPen lineWidth="0.25"/>
 				</box>
-				<textElement>
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{kategoriMatkul}]]></textFieldExpression>
@@ -199,7 +200,7 @@
 					<bottomPen lineWidth="0.25"/>
 					<rightPen lineWidth="0.25"/>
 				</box>
-				<textElement textAlignment="Justified"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$V{no}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -210,7 +211,7 @@
 					<bottomPen lineWidth="0.25"/>
 					<rightPen lineWidth="0.25"/>
 				</box>
-				<textElement textAlignment="Justified">
+				<textElement textAlignment="Center">
 					<font fontName="Times New Roman" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{semester}]]></textFieldExpression>

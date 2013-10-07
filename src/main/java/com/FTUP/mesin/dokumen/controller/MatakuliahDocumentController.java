@@ -25,7 +25,7 @@ public class MatakuliahDocumentController {
     
     
     @RequestMapping("/pdf")
-    public ModelAndView matkulPdf(@RequestParam("tingakt") String kategoriTingkat,
+    public ModelAndView matkulPdf(@RequestParam("tingkat") String kategoriTingkat,
     ModelAndView mav){
         
         List<MataKuliah> mataKuliahs = mataKuliahDao.getAllMatkul(kategoriTingkat);
