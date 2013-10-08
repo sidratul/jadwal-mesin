@@ -66,6 +66,7 @@
                         </c:forEach>
                     </tbody>
                 </table>
+                <a class="btn btn-info" href="<%= request.getContextPath() %>/dokumen/dosen/pdf">Download</a>
             </c:otherwise>
         </c:choose>
     </body>

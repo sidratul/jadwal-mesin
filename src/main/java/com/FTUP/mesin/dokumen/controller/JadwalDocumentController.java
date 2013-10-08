@@ -10,6 +10,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -20,8 +21,9 @@ public class JadwalDocumentController {
     @Autowired private JadwalDao jadwalDao;
     
     @RequestMapping("/pdf")
-    public ModelAndView jadwalPdf(ModelAndView mav){
-        List<Jadwal> jadwals = jadwalDao.getAllJadwal("S1");
+    public ModelAndView jadwalPdf(@RequestParam("tingkat") String kategoriTIngkat,
+    ModelAndView mav){
+        List<Jadwal> jadwals = jadwalDao.getAllJadwal(kategoriTIngkat);
         
         JRDataSource jRDataSource =  new JRBeanCollectionDataSource(jadwals);
         

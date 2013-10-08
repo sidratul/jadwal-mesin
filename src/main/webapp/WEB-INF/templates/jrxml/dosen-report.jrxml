@@ -11,7 +11,7 @@
 	<field name="tempatLahir" class="java.lang.String"/>
 	<field name="tglLahir" class="java.util.Date"/>
 	<field name="jabatan" class="java.lang.String"/>
-	<variable name="nomer" class="java.lang.Integer" incrementType="Column" calculation="Count">
+	<variable name="nomer" class="java.lang.Integer" calculation="Count">
 		<variableExpression><![CDATA[$V{COLUMN_COUNT}]]></variableExpression>
 		<initialValueExpression><![CDATA[]]></initialValueExpression>
 	</variable>

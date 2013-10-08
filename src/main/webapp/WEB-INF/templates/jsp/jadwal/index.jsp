@@ -49,7 +49,7 @@
                         <div class="row sono"> 	
                            <div class="row sono rad-atas-kecil">
                                 <div class="boxS1">
-                                    <h3>&raquo; Starata 1</h3>
+                                    <h3>&raquo; Starata 1<a class="pull-right" style="text-decoration: none" href="<%= request.getContextPath() %>/dokumen/jadwal/pdf?tingkat=S1">Download</a></h3>
                                     <div class="tab">
                                         <table class="tab_jadwal table-striped table-bordered table-hover">
                                         <thead>
@@ -111,13 +111,13 @@
                     <div class="row sono"> 	
                        <div class="row sono">
                             <div class="boxD3">
-                                <h3>&raquo; Diploma 3</h3>
+                                <h3>&raquo; Diploma 3 <a class="pull-right" style="text-decoration: none" href="<%= request.getContextPath() %>/dokumen/jadwal/pdf?tingkat=D3">Download</a></h3>
                                 <div class="tab">
                                     <table class="tab_jadwal table-striped table-bordered table-hover">
                                         <thead>
                                             <tr style="color: black">
                                                 <th style="width:2">No</th>
-                                                <th style="width:120;">Jam</th>
+                                                <th style="width:120">Jam</th>
                                                 <th style="width:200">Mata Kuliah</th>
                                                 <th style="width:300">Dosen</th>
                                                 <th>SKS</th>

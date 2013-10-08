@@ -25,6 +25,7 @@
                 <c:forEach items="${listSemester}" var="ls" varStatus="i">
                   <a class="btn btn-primary" href="tampil?tingkat=${ls.kategoriTingkat}&semester=${ls.semester}" class="btn btn-success">Semester ${ls.semester}</a>
                 </c:forEach>
+                  <a class="btn btn-primary" href="<%= request.getContextPath() %>/dokumen/matakuliah/pdf?tingkat=${listMatkul[0].kategoriTingkat}" class="btn btn-success">Download</a>
                 </div>
             </div>
             <c:choose>

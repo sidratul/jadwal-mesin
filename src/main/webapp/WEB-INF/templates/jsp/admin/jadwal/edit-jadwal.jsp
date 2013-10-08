@@ -70,11 +70,12 @@
                     <span class="">
                         <sf:select path="keterangan" class="span4">                        
                             <sf:option value="0">Pilih Keterangan</sf:option>
-                            <sf:option value="1">hadir</sf:option>
-                            <sf:option value="2">izin</sf:option>
-                            <sf:option value="3">absen</sf:option>
-                            <sf:option value="4">tugas</sf:option>
-                            <sf:option value="5">sakit</sf:option>
+                            <sf:option value="1">Hadir</sf:option>
+                            <sf:option value="2">Izin</sf:option>
+                            <sf:option value="3">Absen</sf:option>
+                            <sf:option value="4">Tugas</sf:option>
+                            <sf:option value="5">Sakit</sf:option>
+                            <sf:option value="6">UTS</sf:option>
                         </sf:select>
                     </span>
                 </div>

@@ -83,7 +83,8 @@
                         </c:forEach>
                     </tbody>
                 </table>
-                <a href="hapus-semua?tingkat=${listJadwal[0].mataKuliah.kategoriTingkat}">Hapus semua</a>
+                <a class="btn btn-danger" href="hapus-semua?tingkat=${listJadwal[0].mataKuliah.kategoriTingkat}">Hapus semua</a>
+                <a class="btn btn-info" href="<%= request.getContextPath() %>/dokumen/jadwal/pdf?tingkat=${listJadwal[0].mataKuliah.kategoriTingkat}">Download</a>
             </c:otherwise>
         </c:choose>
     </body>
