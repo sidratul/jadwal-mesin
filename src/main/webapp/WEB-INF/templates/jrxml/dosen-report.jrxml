@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="1.0980750000000015"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="context" class="java.lang.String"/>
 	<field name="nidn" class="java.lang.String"/>
 	<field name="namaDosen" class="java.lang.String"/>
 	<field name="alamat" class="java.lang.String"/>
@@ -31,7 +32,7 @@
 					</staticText>
 					<image>
 						<reportElement uuid="9bc691d3-71c5-46be-a683-1455571adfa0" x="214" y="17" width="50" height="48"/>
-						<imageExpression><![CDATA["/home/sidratul/Documents/UP/project/jadwal-mesin/src/main/webapp/img/logo-up.jpg"]]></imageExpression>
+						<imageExpression><![CDATA[$P{context}+"img/logo-up.jpg"]]></imageExpression>
 					</image>
 				</elementGroup>
 			</elementGroup>

@@ -9,6 +9,7 @@ import com.FTUP.mesin.admin.model.MataKuliah;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class MatakuliahDocumentController {
     
     @RequestMapping("/pdf")
     public ModelAndView matkulPdf(@RequestParam("tingkat") String kategoriTingkat,
-    ModelAndView mav){
+    ModelAndView mav,HttpServletRequest request){
         
         List<MataKuliah> mataKuliahs = mataKuliahDao.getAllMatkul(kategoriTingkat);
         
@@ -34,6 +35,7 @@ public class MatakuliahDocumentController {
         
         Map<String,Object> map = new HashMap<String, Object>();
         map.put("datasource", jRDataSource);
+        map.put("context",request.getSession().getServletContext().getRealPath("/").toString());
         
         mav = new ModelAndView("matkulPdfReport", map);
         

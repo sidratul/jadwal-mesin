@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1163908-dd4c-4691-ab9c-10924263177d">
-	<property name="ireport.zoom" value="1.3310000000000064"/>
+	<property name="ireport.zoom" value="0.9090909090909133"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="context" class="java.lang.String"/>
 	<field name="jamMulai" class="java.util.Date"/>
 	<field name="jamSelesai" class="java.util.Date"/>
 	<field name="hari" class="java.lang.Integer"/>
@@ -125,8 +126,7 @@
             )
         )
     )
-)
-]]></textFieldExpression>
+)]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupHeader>
@@ -151,7 +151,7 @@
 					<bottomPen lineWidth="0.25"/>
 					<rightPen lineWidth="0.25"/>
 				</box>
-				<imageExpression><![CDATA["/home/sidratul/Documents/UP/project/jadwal-mesin/src/main/webapp/img/logo-up.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{context}+"img/logo-up.jpg"]]></imageExpression>
 			</image>
 			<image>
 				<reportElement uuid="ce588f66-5a75-4833-a116-7dd437422e1f" x="648" y="2" width="90" height="61"/>
@@ -161,7 +161,7 @@
 					<bottomPen lineWidth="0.25"/>
 					<rightPen lineWidth="0.25"/>
 				</box>
-				<imageExpression><![CDATA["/home/sidratul/Documents/UP/project/jadwal-mesin/src/main/webapp/img/Up-kebanggaan-kita.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{context}+"img/Up-kebanggaan-kita.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement uuid="f2278d34-96b3-439a-8745-f8f1cfdb4f74" x="132" y="2" width="516" height="27"/>
