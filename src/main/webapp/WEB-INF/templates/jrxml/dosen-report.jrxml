@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dosen-report" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="BlankPage" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bc2e36b0-392d-4527-a34b-4654aa05c39a">
 	<property name="ireport.zoom" value="1.0980750000000015"/>
-	<property name="ireport.x" value="0"/>
+	<property name="ireport.x" value="99"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="context" class="java.lang.String"/>
 	<field name="nidn" class="java.lang.String"/>
@@ -164,7 +164,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nidn}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="0464c8f2-ca1a-467b-ad8b-22e094d13fe4" x="122" y="0" width="142" height="20"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="0.5"/>
@@ -177,7 +177,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{namaDosen}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="7e9ad37e-3426-4b9d-b9db-86686e217d17" x="264" y="0" width="157" height="20"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="0.5"/>
@@ -190,7 +190,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="c6330b07-3fa3-49ea-9257-bca5bbaf02a1" x="599" y="0" width="100" height="20"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="0.5"/>
@@ -203,7 +203,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{noTelpon}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="3b7a0c49-ab3d-4dc4-b7bc-86578ad60b9c" x="699" y="0" width="103" height="20"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="0.5"/>
@@ -216,7 +216,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement uuid="21074bfe-516f-41bf-858c-0016c3b09e51" x="421" y="0" width="78" height="20"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="0.5"/>
@@ -229,7 +229,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{tempatLahir}]]></textFieldExpression>
 			</textField>
-			<textField pattern="MMMMM dd, yyyy">
+			<textField pattern="dd MMMMM yyyy" isBlankWhenNull="true">
 				<reportElement uuid="5b93d3fc-beda-48ce-8f4b-65ca2ca77cca" x="499" y="0" width="100" height="20"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="0.5"/>

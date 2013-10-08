@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="matkul-report" pageWidth="595" pageHeight="842" whenNoDataType="BlankPage" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bb89eda5-c132-4869-a82b-2a8e02f5337c">
-	<property name="ireport.zoom" value="1.6105100000000039"/>
+	<property name="ireport.zoom" value="1.2100000000000029"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="context" class="java.lang.String"/>
 	<field name="kodeMatkul" class="java.lang.String"/>
 	<field name="namaMatkul" class="java.lang.String"/>
 	<field name="sks" class="java.lang.Integer"/>
@@ -121,7 +122,7 @@
 		<band height="60" splitType="Stretch">
 			<image>
 				<reportElement uuid="9378befb-4f4a-4910-90aa-f5d518811b54" x="40" y="6" width="50" height="48"/>
-				<imageExpression><![CDATA["/home/sidratul/Documents/UP/project/jadwal-mesin/src/main/webapp/img/logo-up.jpg"]]></imageExpression>
+				<imageExpression><![CDATA[$P{context}+"img/logo-up.jpg"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement uuid="4823766b-f312-4482-ac22-38bfd3cde1f8" x="90" y="19" width="431" height="22"/>

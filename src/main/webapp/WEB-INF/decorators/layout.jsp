@@ -27,7 +27,7 @@
         </style>
     </head>
     <body>    
-        <div class="container">
+        <div class="container-fluid">
             <header>
             <table style="margin-bottom: 10px">
                 <tr><td width="60"><img src="<%= request.getContextPath() %>/img/logo-up.png" width="50" /></td>
@@ -112,7 +112,7 @@
                 </div>
             </nav>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div style="background: #eaedf2;padding:10px 10px 30px 10px">
             <decorator:body ></decorator:body>
             </div>

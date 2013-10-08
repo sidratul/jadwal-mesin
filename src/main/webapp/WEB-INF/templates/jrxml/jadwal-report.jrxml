@@ -198,7 +198,7 @@
 		<band height="6" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="38" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField isBlankWhenNull="true">
 				<reportElement uuid="99819588-bb3c-44da-b546-168fcb8f70e4" x="378" y="0" width="270" height="20"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
