@@ -33,4 +33,18 @@ public class JadwalController {
         modelMap.addAttribute("listJadwalD3",jadwalsD3);
         modelMap.addAttribute("listPengumuman",pengumumans);
     }
+    
+    @RequestMapping("index-coba-coba")
+    public void indexCoba(ModelMap modelMap){
+        Calendar calendar = Calendar.getInstance();
+        Integer hari = calendar.get(Calendar.DAY_OF_WEEK);
+        List<Jadwal> jadwalsS1 = jadwalDao.getJadwalByHari("S1",hari);
+        List<Jadwal> jadwalsD3 = jadwalDao.getJadwalByHari("D3",hari);
+        
+        List<Pengumuman> pengumumans = pengumumanDao.getAllPengumuman();
+        
+        modelMap.addAttribute("listJadwalS1",jadwalsS1);
+        modelMap.addAttribute("listJadwalD3",jadwalsD3);
+        modelMap.addAttribute("listPengumuman",pengumumans);
+    }
 }
