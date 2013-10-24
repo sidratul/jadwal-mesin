@@ -72,6 +72,7 @@
                                         <c:when test="${lj.keterangan == 3}">absen</c:when>
                                         <c:when test="${lj.keterangan == 4}">tugas</c:when>
                                         <c:when test="${lj.keterangan == 5}">sakit</c:when>
+                                        <c:when test="${lj.keterangan == 6}">UTS</c:when>
                                         <c:otherwise>-</c:otherwise>
                                     </c:choose>
                                 </td>

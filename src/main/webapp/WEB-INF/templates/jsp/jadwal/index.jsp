@@ -31,8 +31,9 @@
         </style>
     </head>
     <body>
-        <div class="judul pull-right">
-            <h1><img src="<%= request.getContextPath() %>/img/logo-up.png" width="50" /> JURUSAN TEKNIK MESIN FTUP</h1>
+        <div class="judul">
+                <img src="<%= request.getContextPath() %>/img/logo-up.png" width="40" />
+                JURUSAN TEKNIK MESIN FTUP
         </div>
         <div class="container-fluid">
         <div class="row-fluid">
@@ -52,12 +53,12 @@
                                 <div class="boxS1">
                                     <h3>&raquo; Starata 1<a class="pull-right" style="text-decoration: none" href="<%= request.getContextPath() %>/dokumen/jadwal/pdf?tingkat=S1">Download</a></h3>
                                     <div class="tab">
-                                        <table class="tab_jadwal table-striped table-bordered table-hover">
-                                        <thead>
+                                        <table class="tab_jadwal table-striped table-bordered palette-silver">
+                                        <thead >
                                             <tr style="color: black">
                                                     <th style="width:2">No</th>
-                                                    <th style="width:120">Jam</th>
-                                                    <th style="width:200">Mata Kuliah</th>
+                                                    <th style="width:110">Jam</th>
+                                                    <th style="width:210">Mata Kuliah</th>
                                                     <th style="width:300">Dosen</th>
                                                     <th>SKS</th>
                                                     <th>SMT</th>
@@ -78,13 +79,14 @@
                                                         <td style="text-align: center">${lj.mataKuliah.sks}</td>
                                                         <td style="text-align: center">${lj.mataKuliah.semester}</td>
                                                         <td style="text-align: center">${lj.ruang}</td>                                
-                                                        <td>
+                                                        <td align="center">
                                                             <c:choose>
                                                                 <c:when test="${lj.keterangan == 1}">hadir</c:when>
                                                                 <c:when test="${lj.keterangan == 2}">izin</c:when>
                                                                 <c:when test="${lj.keterangan == 3}">absen</c:when>
                                                                 <c:when test="${lj.keterangan == 4}">tugas</c:when>
                                                                 <c:when test="${lj.keterangan == 5}">sakit</c:when>
+                                                                <c:when test="${lj.keterangan == 6}">UTS</c:when>
                                                                 <c:otherwise>-</c:otherwise>
                                                             </c:choose>
                                                         </td>
@@ -114,12 +116,12 @@
                             <div class="boxD3">
                                 <h3>&raquo; Diploma 3 <a class="pull-right" style="text-decoration: none" href="<%= request.getContextPath() %>/dokumen/jadwal/pdf?tingkat=D3">Download</a></h3>
                                 <div class="tab">
-                                    <table class="tab_jadwal table-striped table-bordered table-hover">
+                                    <table class="tab_jadwal table-striped table-bordered palette-silver">
                                         <thead>
                                             <tr style="color: black">
                                                 <th style="width:2">No</th>
-                                                <th style="width:120">Jam</th>
-                                                <th style="width:200">Mata Kuliah</th>
+                                                <th style="width:110">Jam</th>
+                                                <th style="width:210">Mata Kuliah</th>
                                                 <th style="width:300">Dosen</th>
                                                 <th>SKS</th>
                                                 <th>SMT</th>
@@ -140,13 +142,14 @@
                                                     <td style="text-align: center">${lj.mataKuliah.sks}</td>
                                                     <td style="text-align: center">${lj.mataKuliah.semester}</td>
                                                     <td style="text-align: center">${lj.ruang}</td>                                
-                                                    <td>
+                                                    <td align="center">
                                                         <c:choose>
                                                             <c:when test="${lj.keterangan == 1}">hadir</c:when>
                                                             <c:when test="${lj.keterangan == 2}">izin</c:when>
                                                             <c:when test="${lj.keterangan == 3}">absen</c:when>
                                                             <c:when test="${lj.keterangan == 4}">tugas</c:when>
                                                             <c:when test="${lj.keterangan == 5}">sakit</c:when>
+                                                            <c:when test="${lj.keterangan == 6}">UTS</c:when>
                                                             <c:otherwise>-</c:otherwise>
                                                         </c:choose>
                                                     </td>
@@ -183,7 +186,7 @@
             
              <div class="pallete-item border-samping" style="margin-bottom: 10px;">
                  <dl class="palette palette-sun-flower"  style="color: black;">
-                    <span class="icon-bookmark"></span> Pengumuman <a href="<%= request.getContextPath() %>/admin/" style="float: right;color: black;text-decoration: none">Admin</a>
+                     <span class="icon-bookmark"></span> <blink>Pengumuman</blink> <a href="<%= request.getContextPath() %>/admin/" style="float: right;color: black;text-decoration: none">Admin</a>
                 </dl>
                  <dl class="palette palette-clouds" style="color: black">
                     <ol>

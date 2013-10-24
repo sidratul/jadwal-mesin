@@ -27,17 +27,16 @@
     padding-left: 10px;
 }
 
-.judul{
-  text-align: center;
+.judul{  
   background: white;
-  font-size: 30px;
+  /*position: fixed;*/
+  font-size: 20px;
   margin: 0px 20px 20px auto;
-  width: 600px;
+  width: 100%;
   padding-bottom: 0px;
   border-top: 4px solid #2980B9;
   box-shadow: 0px 1px 5px 0px  black;
   cursor: pointer;
-  border-radius: 0 0 20px 20px;
 }
 
 .border-samping{
@@ -78,7 +77,7 @@
     font-family: calibri
 }
 .tab_jadwal th, .tab_jadwal td{
-    padding: 5px;
+    padding: 4px;
 }
 .tab_jadwal td{border-top: 1px solid #dddddd;}
 
