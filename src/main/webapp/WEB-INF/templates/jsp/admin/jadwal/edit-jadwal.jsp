@@ -60,7 +60,6 @@
                             <sf:option value="4">rabu</sf:option>
                             <sf:option value="5">kamis</sf:option>
                             <sf:option value="6">jumat</sf:option>
-                            <sf:option value="7">sabtu</sf:option>
                         </sf:select>
                         
                     </span>
@@ -73,6 +72,7 @@
                             <sf:option value="1">Hadir</sf:option>
                             <sf:option value="2">Izin</sf:option>
                             <sf:option value="3">Absen</sf:option>
+                            <sf:option value="7">pengganti</sf:option>
                             <sf:option value="4">Tugas</sf:option>
                             <sf:option value="5">Sakit</sf:option>
                             <sf:option value="6">UTS</sf:option>

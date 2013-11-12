@@ -20,12 +20,33 @@
                 <span class="kapital"> <strong>${jenisPesan} !</strong> ${pesanTampil}</span>
             </div>
 	</c:if>
+        <h3>
+            Jadwal <c:out value="${param['tingkat']}"></c:out> - Hari <c:set var="hari" value="${param['hari']}"/>
+            <c:choose>
+                <c:when test="${empty hari or hari == 2}">Senin</c:when>
+                <c:when test="${hari == 3}">Selasa</c:when>
+                <c:when test="${hari == 4}">Rabu</c:when>
+                <c:when test="${hari == 5}">Kamis</c:when>
+                <c:when test="${hari == 6}">Jumat</c:when>
+            </c:choose>
+                
+        </h3>
+        <div class="btn-toolbar">
+                <div class="btn-group">
+                  <a class="btn btn-primary" href="tampil?tingkat=<c:out value="${param['tingkat']}"></c:out>&hari=2" class="btn btn-success">Senin</a>
+                  <a class="btn btn-primary" href="tampil?tingkat=<c:out value="${param['tingkat']}"></c:out>&hari=3" class="btn btn-success">Selasa</a>
+                  <a class="btn btn-primary" href="tampil?tingkat=<c:out value="${param['tingkat']}"></c:out>&hari=4" class="btn btn-success">Rabu</a>
+                  <a class="btn btn-primary" href="tampil?tingkat=<c:out value="${param['tingkat']}"></c:out>&hari=5" class="btn btn-success">Kamis</a>
+                  <a class="btn btn-primary" href="tampil?tingkat=<c:out value="${param['tingkat']}"></c:out>&hari=6" class="btn btn-success">Jumat</a>
+                  <a class="btn btn-success" href="<%= request.getContextPath() %>/dokumen/jadwal/pdf?tingkat=<c:out value="${param['tingkat']}"></c:out>" class="btn btn-success">Download</a>
+                  <a class="btn btn-danger" href="hapus-semua?tingkat=<c:out value="${param['tingkat']}"></c:out>" class="btn btn-success">Hapus Semua</a>
+                </div>
+            </div>
         <c:choose>
             <c:when test="${empty listJadwal}">
                 <h3>Data Jadwal Kosong</h3>
             </c:when>
             <c:otherwise>
-                <h3>&raquo; JADWAL ${listJadwal[0].mataKuliah.kategoriTingkat}</h3>
                 <table class="table table-striped table-hover tabel_jadwal">
                     <thead>
                         <tr class="tab-head">
@@ -67,12 +88,13 @@
                                 </td>
                                 <td class="kapital">
                                     <c:choose>
-                                        <c:when test="${lj.keterangan == 1}">hadir</c:when>
-                                        <c:when test="${lj.keterangan == 2}">izin</c:when>
-                                        <c:when test="${lj.keterangan == 3}">absen</c:when>
-                                        <c:when test="${lj.keterangan == 4}">tugas</c:when>
-                                        <c:when test="${lj.keterangan == 5}">sakit</c:when>
+                                        <c:when test="${lj.keterangan == 1}">Hadir</c:when>
+                                        <c:when test="${lj.keterangan == 2}">Izin</c:when>
+                                        <c:when test="${lj.keterangan == 3}">Absen</c:when>
+                                        <c:when test="${lj.keterangan == 4}">Tugas</c:when>
+                                        <c:when test="${lj.keterangan == 5}">Sakit</c:when>
                                         <c:when test="${lj.keterangan == 6}">UTS</c:when>
+                                        <c:when test="${lj.keterangan == 6}">Pengganti</c:when>
                                         <c:otherwise>-</c:otherwise>
                                     </c:choose>
                                 </td>
@@ -83,9 +105,7 @@
                             </tr>
                         </c:forEach>
                     </tbody>
-                </table>
-                <a class="btn btn-danger" href="hapus-semua?tingkat=${listJadwal[0].mataKuliah.kategoriTingkat}">Hapus semua</a>
-                <a class="btn btn-info" href="<%= request.getContextPath() %>/dokumen/jadwal/pdf?tingkat=${listJadwal[0].mataKuliah.kategoriTingkat}">Download</a>
+                </table>s
             </c:otherwise>
         </c:choose>
     </body>

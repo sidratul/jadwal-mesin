@@ -31,8 +31,14 @@ public class JadwalAdminController {
     
     @RequestMapping("/tampil")
     public void tampilJadwal(@RequestParam("tingkat") String kategoriTingkat,
+    @RequestParam(value = "hari", required = false) Integer hari,
     ModelMap modelMap){
-        List<Jadwal> jadwals = jadwalDao.getAllJadwal(kategoriTingkat);
+        if(hari==null){
+            hari=2;
+        }
+        
+        //List<Jadwal> jadwals = jadwalDao.getAllJadwal(kategoriTingkat);
+        List<Jadwal> jadwals = jadwalDao.getJadwalByHari(kategoriTingkat, hari);
         modelMap.addAttribute("listJadwal",jadwals);
     }
     
