@@ -23,7 +23,7 @@ public class DosenDaoImp implements DosenDao{
             + "Tempat_Lahir=?, Tgl_Lahir=?, Jabatan=? WHERE `ID` = ?";
     private static final String SQL_INSERT_DOSEN ="INSERT INTO `DOSEN`"
             + "(`NIDN`,`Nama_Dosen`,`Alamat`,`No_Telpon`,`Email`,Tempat_Lahir, Tgl_Lahir, Jabatan)VALUES(?,?,?,?,?,?,?,?)";
-    private JdbcTemplate jdbcTemplate;    
+    private JdbcTemplate jdbcTemplate;
 
     private static final class DosenParameterizedRowMapper implements 
             ParameterizedRowMapper<Dosen>{
@@ -50,8 +50,8 @@ public class DosenDaoImp implements DosenDao{
     }
     
     public List<Dosen> getAllDosen() {
-        List<Dosen> dosens = jdbcTemplate.query(SQL_GETALL_DOSEN, new DosenParameterizedRowMapper());
-        return dosens;
+        return jdbcTemplate.query(SQL_GETALL_DOSEN, new DosenParameterizedRowMapper());
+        
     }
     
     public void saveDosen(Dosen dosen) {

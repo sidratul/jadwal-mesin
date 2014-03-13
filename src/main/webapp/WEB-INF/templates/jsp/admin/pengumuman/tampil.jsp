@@ -42,7 +42,7 @@
                                 <td><a href="input?id=${lp.id}" style="margin-right: 20px;">
                                     <img src="<%= request.getContextPath() %>/img/edit.png" width="20" title="Edit" alt="Edit" /></a> 
                                     <a href="hapus?id=${lp.id}">
-                                    <img src="<%= request.getContextPath() %>/img/delete.png" width="20" title="Delete" alt="Delete" /></a></td>
+                                    <img src="<%= request.getContextPath() %>/img/delete.png" width="20" title="Delete" alt="Delete" onclick='return tampil_confirm("apakah anda yakin untuk menghapus pengumuman")'/></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

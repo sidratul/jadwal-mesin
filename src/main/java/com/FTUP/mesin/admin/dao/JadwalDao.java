@@ -10,6 +10,8 @@ public interface JadwalDao {
     
     public void saveJadwal(Jadwal jadwal);
     
+    public void saveKeteranganById(Integer id, Integer keterangan);
+    
     public void saveJadwalHanyaMatakuliah(Integer idMatkul);
     
     public Jadwal getJadwalById(Integer id);
@@ -17,5 +19,7 @@ public interface JadwalDao {
     public void deleteJadwal(Integer id);
     
     public void deleteSemuaJadwal(String kategoriTingkat);
+    
+    public void deleteKeterangan(Integer hari,String kategoriTingkat);
     
 }

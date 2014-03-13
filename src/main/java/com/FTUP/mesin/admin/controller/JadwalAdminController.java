@@ -54,7 +54,7 @@ public class JadwalAdminController {
         List<MataKuliah> mkGroupBySemester = mataKuliahDao.getMatkulGroupBySmester(kategoriTingkat);
         modelMap.addAttribute("listSemester", mkGroupBySemester);
         
-        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemesterBukanJadwal(semester, kategoriTingkat);
+        List<MataKuliah> mataKuliahs = mataKuliahDao.getMatkulBySemester(semester, kategoriTingkat);
         modelMap.addAttribute("listMatkul", mataKuliahs);
     }
 
@@ -113,6 +113,21 @@ public class JadwalAdminController {
         redirectAttributes.addFlashAttribute("jenisPesan", "success");
         redirectAttributes.addFlashAttribute("pesanTampil", "matakuliah telah di tutup");
         return "redirect:tampil?tingkat="+kategoriTingkat;
+    }
+    
+    @RequestMapping("/hapus-keterangan")
+    public String HapusKeterangan(@RequestParam("hari") Integer hari,
+    @RequestParam("tingkat") String kategoriTingkat,
+    ModelMap modelMap, RedirectAttributes redirectAttributes){
+        if(hari==null){
+            hari=2;
+        }
+        
+        jadwalDao.deleteKeterangan(hari, kategoriTingkat);
+                
+        redirectAttributes.addFlashAttribute("jenisPesan", "success");
+        redirectAttributes.addFlashAttribute("pesanTampil", "keterangan telah dihapus");
+        return "redirect:tampil?tingkat="+kategoriTingkat+"&hari="+hari;
     }
 
     @RequestMapping("/hapus-semua")

@@ -8,10 +8,22 @@ public class Jadwal {
     private Dosen dosen;
     private Date jamMulai;
     private Date jamSelesai;
+    
     private Integer hari;
     private String ruang;
     private String keterangan;
+    
+    private String kelas;
 
+    public String getKelas() {
+        return kelas;
+    }
+
+    public void setKelas(String kelas) {
+        this.kelas = kelas;
+    }
+    
+    
     public Integer getId() {
         return id;
     }

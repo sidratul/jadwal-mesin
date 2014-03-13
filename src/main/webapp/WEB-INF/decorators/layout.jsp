@@ -18,6 +18,7 @@
         <link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/flat-ui.css">
         
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/jquery.js"></script>
+        <script type="text/javascript" src="<%= request.getContextPath() %>/js/aplikasi.js"></script>
 	<script type="text/javascript" src="<%= request.getContextPath() %>/js/bootstrap.js"></script>
         <decorator:head></decorator:head>
         <style>
@@ -120,5 +121,6 @@
                 Copyright &copy; 2013 SID Corporation
             </div>
         </div>
+        
     </body>
 </html>

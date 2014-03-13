@@ -58,10 +58,12 @@
                                             <tr style="color: black">
                                                     <th style="width:2">No</th>
                                                     <th style="width:110">Jam</th>
-                                                    <th style="width:210">Mata Kuliah</th>
-                                                    <th style="width:300">Dosen</th>
-                                                    <th>SKS</th>
-                                                    <th>SMT</th>
+                                                    
+                                                    <th  >Mata Kuliah</th>
+                                                    <th style="width:30">KLS</th>
+                                                    <th >Dosen</th>
+                                                    <th style="width:30">SKS</th>
+                                                    <th style="width:30">SMT</th>        
                                                     <th style="width:80">Ruang</th>
                                                     <th>Ket</th>
                                                 </tr>
@@ -75,18 +77,22 @@
                                                             <fmt:formatDate pattern="HH:mm" value="${lj.jamSelesai}"></fmt:formatDate>
                                                         </td>
                                                         <td>${lj.mataKuliah.namaMatkul}</td>
+                                                        <td style="text-align: center">${lj.kelas}</td>
                                                         <td>${lj.dosen.namaDosen}</td>
                                                         <td style="text-align: center">${lj.mataKuliah.sks}</td>
                                                         <td style="text-align: center">${lj.mataKuliah.semester}</td>
+                                                        
                                                         <td style="text-align: center">${lj.ruang}</td>                                
                                                         <td align="center">
                                                             <c:choose>
-                                                                <c:when test="${lj.keterangan == 1}">hadir</c:when>
-                                                                <c:when test="${lj.keterangan == 2}">izin</c:when>
-                                                                <c:when test="${lj.keterangan == 3}">absen</c:when>
-                                                                <c:when test="${lj.keterangan == 4}">tugas</c:when>
-                                                                <c:when test="${lj.keterangan == 5}">sakit</c:when>
+                                                                <c:when test="${lj.keterangan == 1}">Hadir</c:when>
+                                                                <c:when test="${lj.keterangan == 2}">Izin</c:when>
+                                                                <c:when test="${lj.keterangan == 3}">Absen</c:when>
+                                                                <c:when test="${lj.keterangan == 4}">Tugas</c:when>
+                                                                <c:when test="${lj.keterangan == 5}">Sakit</c:when>
                                                                 <c:when test="${lj.keterangan == 6}">UTS</c:when>
+                                                                <c:when test="${lj.keterangan == 7}">Diganti</c:when>
+                                                                <c:when test="${lj.keterangan == 8}">Pengumuman</c:when>
                                                                 <c:otherwise>-</c:otherwise>
                                                             </c:choose>
                                                         </td>
@@ -120,13 +126,14 @@
                                         <thead>
                                             <tr style="color: black">
                                                 <th style="width:2">No</th>
-                                                <th style="width:110">Jam</th>
-                                                <th style="width:210">Mata Kuliah</th>
-                                                <th style="width:300">Dosen</th>
-                                                <th>SKS</th>
-                                                <th>SMT</th>
-                                                <th style="width:80">Ruang</th>
-                                                <th>Ket</th>
+                                                    <th style="width:110">Jam</th>
+                                                    <th  >Mata Kuliah</th>
+                                                    <th style="width:30">KLS</th>
+                                                    <th >Dosen</th>
+                                                    <th style="width:30">SKS</th>
+                                                    <th style="width:30">SMT</th>        
+                                                    <th style="width:80">Ruang</th>
+                                                    <th>Ket</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -138,9 +145,11 @@
                                                         <fmt:formatDate pattern="HH:mm" value="${lj.jamSelesai}"></fmt:formatDate>
                                                     </td>
                                                     <td>${lj.mataKuliah.namaMatkul}</td>
+                                                    <td style="text-align: center">${lj.kelas}</td>
                                                     <td>${lj.dosen.namaDosen}</td>
                                                     <td style="text-align: center">${lj.mataKuliah.sks}</td>
                                                     <td style="text-align: center">${lj.mataKuliah.semester}</td>
+                                                    
                                                     <td style="text-align: center">${lj.ruang}</td>                                
                                                     <td align="center">
                                                         <c:choose>
@@ -150,6 +159,8 @@
                                                             <c:when test="${lj.keterangan == 4}">tugas</c:when>
                                                             <c:when test="${lj.keterangan == 5}">sakit</c:when>
                                                             <c:when test="${lj.keterangan == 6}">UTS</c:when>
+                                                            <c:when test="${lj.keterangan == 7}">Diganti</c:when>
+                                                            <c:when test="${lj.keterangan == 8}">Pengumuman</c:when>
                                                             <c:otherwise>-</c:otherwise>
                                                         </c:choose>
                                                     </td>
@@ -185,7 +196,7 @@
                 </div>
             
              <div class="pallete-item border-samping" style="margin-bottom: 10px;">
-                 <dl class="palette palette-sun-flower"  style="color: black;">
+                 <dl id="pengumuman" class="palette palette-sun-flower"  style="color: black;">
                      <span class="icon-bookmark"></span> <blink>Pengumuman</blink> <a href="<%= request.getContextPath() %>/admin/" style="float: right;color: black;text-decoration: none">Admin</a>
                 </dl>
                  <dl class="palette palette-clouds" style="color: black">
@@ -198,7 +209,7 @@
             </div>
                           
             <div>
-                <dl class="palette palette-midnight-blue copy-right"">
+                <dl class="palette palette-midnight-blue copy-right">
                     <center>Copyright &copy; 2013 SID Corporation</center>
                 </dl>
             </div>              
@@ -206,5 +217,37 @@
           </div>
         </div>
       </div>
+        <script type="text/javascript" src="<%= request.getContextPath() %>/js/jquery.js"></script>
+        <script>
+            
+            var aa= setInterval(function(){gantiBackground()},700);
+            var ang=1;
+            
+            var ar= new Array(
+                    "palette palette-sun-flower",
+                    
+                    "palette palette-wisteria",
+                    "palette palette-asbestos",
+                    "palette palette-orange",
+                    "palette palette-alizarin",
+                    "palette palette-pomegranate",
+                    "palette palette-belize-hole",
+                    "palette palette-nephritis",
+                    "palette palette-silver",
+                    "palette palette-peter-river",
+                    "palette palette-amethyst")
+            
+            function gantiBackground(){
+                $("#pengumuman").attr("class","");
+                
+                
+                //var ang = Math.floor(Math.random()*ar.length);
+                $("#pengumuman").attr("class",ar[ang]);
+                ang=ang+1;
+                if(ang==ar.length){
+                    ang=0;
+                }
+            }
+        </script>
     </body>
 </html>

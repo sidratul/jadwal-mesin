@@ -16,9 +16,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+
 public class JadwalController {
-    @Autowired JadwalDao jadwalDao;
-    @Autowired PengumumanDao pengumumanDao;
+    @Autowired private JadwalDao jadwalDao;
+    @Autowired private PengumumanDao pengumumanDao;
     
     @RequestMapping("index")
     public void index(ModelMap modelMap){

@@ -25,7 +25,7 @@
                 <c:forEach items="${listSemester}" var="ls" varStatus="i">
                   <a class="btn btn-primary" href="tampil?tingkat=${ls.kategoriTingkat}&semester=${ls.semester}" class="btn btn-success">Semester ${ls.semester}</a>
                 </c:forEach>
-                  <a class="btn btn-primary" href="<%= request.getContextPath() %>/dokumen/matakuliah/pdf?tingkat=${listMatkul[0].kategoriTingkat}" class="btn btn-success">Download</a>
+                  <a class="btn btn-success" href="<%= request.getContextPath() %>/dokumen/matakuliah/pdf?tingkat=${listMatkul[0].kategoriTingkat}" class="btn btn-success">Download</a>
                 </div>
             </div>
             <c:choose>
@@ -57,7 +57,7 @@
                                 <td><a href="input?id=${lm.id}">
                                     <img src="<%= request.getContextPath() %>/img/edit.png" width="20" title="Edit" alt="Edit" /></a></td>
                                 <td><a href="hapus?id=${lm.id}&tingkat=${lm.kategoriTingkat}">
-                                    <img src="<%= request.getContextPath() %>/img/delete.png" width="20" title="Delete" alt="Delete" /></a></td>
+                                    <img src="<%= request.getContextPath() %>/img/delete.png" width="20" title="Delete" alt="Delete"  onclick='return tampil_confirm("apakah anda yakin untuk menghapus matakuliah ${lm.namaMatkul}?")'/></a></td>
                             </tr>
                         </c:forEach>
                     </tbody>

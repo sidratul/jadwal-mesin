@@ -27,19 +27,23 @@ public class JadwalDaoImpl implements JadwalDao{
             + "WHERE j.ID_Matakuliah is NOT NULL AND m.Kategori_Tingkat=? ORDER BY Hari ASC" ;
     private static final String SQL_INSERT_JADWAL_HANYAMATAKULIAH="INSERT INTO JADWAL (`ID_Matakuliah`)VALUES (?)";
     private static final String SQL_UPDATE_JADWAL="UPDATE JADWAL SET `ID_Matakuliah` = ?, `ID_Dosen` = ?,"
-            + " `Jam` = ?,`Hari` = ?, `Ruang`=?,`Keterangan`=? WHERE `ID` = ?";
+            + " `Jam` = ?,`Hari` = ?, `Ruang`=?,`Keterangan`=?, Kelas=? WHERE `ID` = ?";
+    private static final String SQL_UPDATE_KETERANGAN="UPDATE JADWAL SET `Keterangan`=? WHERE `ID` = ?";
     private static final String SQL_INSERT_JADWAL="INSERT INTO JADWAL "
-            + "(`ID_Matakuliah`,`ID_Dosen`,`Jam`,`Hari`,`Ruang`,`Keterangan`)VALUES (?,?,?,?,?,?);";
+            + "(`ID_Matakuliah`,`ID_Dosen`,`Jam`,`Hari`,`Ruang`,`Keterangan`,Kelas)VALUES (?,?,?,?,?,?,?)";
     private static final String SQL_JADWAL_BYID="SELECT * FROM JADWAL WHERE ID=?";
     private static final String SQL_DELETE_JADWAL="DELETE FROM JADWAL WHERE ID=?";
     private static final String SQL_DELETE_SEMUA_JADWAL="DELETE j.* FROM "
             + "JADWAL j LEFT JOIN MATAKULIAH m ON m.ID = j.ID_Matakuliah "
             + "WHERE j.ID_Matakuliah is NOT NULL AND m.Kategori_Tingkat=?";
     
+    private static final String SQL_DELETE_KETERANGAN="update JADWAL j, MATAKULIAH m set j.Keterangan='0' "
+            + "where j.ID_Matakuliah=m.id and m.Kategori_TINGKAT=? and Hari=?";
+    
     
     @Autowired private MataKuliahDao mataKuliahDao;
     @Autowired private DosenDao dosenDao;
-    
+  
     private JdbcTemplate jdbcTemplate;
 
     private class JadwalParameterizedRowMapper implements ParameterizedRowMapper<Jadwal>{   
@@ -54,6 +58,7 @@ public class JadwalDaoImpl implements JadwalDao{
             jadwal.setHari(rs.getInt("Hari"));
             jadwal.setRuang(rs.getString("Ruang"));
             jadwal.setKeterangan(rs.getString("Keterangan"));
+            jadwal.setKelas(rs.getString("Kelas"));
             
             Date waktuSelesai;
             
@@ -95,6 +100,7 @@ public class JadwalDaoImpl implements JadwalDao{
                 jadwal.getHari(),
                 jadwal.getRuang(),
                 jadwal.getKeterangan(),
+                jadwal.getKelas(),
                 jadwal.getId()
             });
         }else{
@@ -106,9 +112,14 @@ public class JadwalDaoImpl implements JadwalDao{
                 jam,
                 jadwal.getHari(),
                 jadwal.getRuang(),
-                jadwal.getKeterangan()
+                jadwal.getKeterangan(),
+                jadwal.getKelas()
             });
         }
+    }
+    
+    public void saveKeteranganById(Integer id, Integer keterangan){
+        jdbcTemplate.update(SQL_UPDATE_KETERANGAN,keterangan,id);
     }
     
     public void saveJadwalHanyaMatakuliah(Integer idMatkul){
@@ -130,5 +141,9 @@ public class JadwalDaoImpl implements JadwalDao{
         
     public void deleteSemuaJadwal(String kategoriTingkat){
         jdbcTemplate.update(SQL_DELETE_SEMUA_JADWAL,kategoriTingkat);
+    }
+    
+    public void deleteKeterangan(Integer hari,String kategoriTingkat){
+        jdbcTemplate.update(SQL_DELETE_KETERANGAN,kategoriTingkat,hari);
     }
 }

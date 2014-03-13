@@ -27,7 +27,7 @@
                 <h3>Data Dosen Kosong</h3>
             </c:when>
             <c:otherwise>
-                <table class="table table-striped table-hover tabel_jadwal">
+                <table class="table table-striped table-hover tabel_jadwal" id="dataTables">
                     <thead>
                         <tr class="tab-head">
                             <th>#</th>
@@ -38,7 +38,8 @@
                             <th>No Telpon</th>
                             <th>Email</th>
                             <th>Jabatan</th>
-                            <th colspan="2">&nbsp;</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,7 +67,7 @@
                         </c:forEach>
                     </tbody>
                 </table>
-                <a class="btn btn-info" href="<%= request.getContextPath() %>/dokumen/dosen/pdf">Download</a>
+                <a class="btn btn-info" href="<%= request.getContextPath() %>/dokumen/dosen/pdf" onclick='return tampil_confirm("apakah anda yakin untuk menghapus dosen ini")'>Download</a>
             </c:otherwise>
         </c:choose>
     </body>
