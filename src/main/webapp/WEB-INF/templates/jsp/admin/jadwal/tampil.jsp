@@ -59,7 +59,7 @@
                             <th>Kelas</th>
                             <th>ruang</th>
                             <th>hari</th>
-                            <th>keterangan<a href="hapus-keterangan?hari=${param['hari']}&tingkat=${param['tingkat']}"><i class="icon-remove icon-white" title="Hapus Pengumuman"></i></a></th>
+                            <th>keterangan<a href="hapus-keterangan?hari=${param['hari']}&tingkat=${param['tingkat']}" onclick='return tampil_confirm("apakah anda yakin untuk menghapus semua keterangan hari ini?")'><i class="icon-remove icon-white" title="Hapus Pengumuman"></i></a></th>
                             <th colspan="2">&nbsp;</th>
                         </tr>
                     </thead>
@@ -134,12 +134,16 @@
             }
             
             function batalUbah(id, val,obj){
-                simpanPerubahan(id,val,obj)
+                simpanPerubahan(id,val,obj);
             }
             
             function ubahKeterangan(id,obj){
                 var val= obj.value;
-                simpanPerubahan(id,val,obj)
+                
+                $.get("<%= request.getContextPath() %>/ajax/jadwal/edit-keterangan?id="+id+"&&keterangan="+val,function(data,status){
+                    simpanPerubahan(id,val,obj);
+                });
+                
             }
             
             function simpanPerubahan(id,val,obj){
@@ -150,22 +154,21 @@
                 }else if(val==2){
                     isi="Izin";
                 }else if(val==3){
-                    isi="Absen"
+                    isi="Absen";
                 }else if(val==4){
-                    isi="Tugas"
+                    isi="Tugas";
                 }else if(val==5){
                     isi="Sakit";
-                }else if(val=6){
-                    isi="UTS"
+                }else if(val==6){
+                    isi="UTS";
                 }else if(val==7){
-                    isi="Diganti"
+                    isi="Diganti";
                 }else if(val==8){
-                    isi="Pengumuman"
+                    isi="Pengumuman";
                 }else{
                     isi="-";
                 }
                 $(a).html(isi);
-                
                 $(a).attr("ondblclick","jadiSelect("+id+","+val+",this)");
             }
             

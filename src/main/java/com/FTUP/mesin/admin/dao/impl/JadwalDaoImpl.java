@@ -118,7 +118,7 @@ public class JadwalDaoImpl implements JadwalDao{
         }
     }
     
-    public void saveKeteranganById(Integer id, Integer keterangan){
+    public void saveKeteranganById(Integer id, String keterangan){
         jdbcTemplate.update(SQL_UPDATE_KETERANGAN,keterangan,id);
     }
     

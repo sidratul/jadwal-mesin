@@ -13,9 +13,9 @@ public class jadwalAjaxController {
     @Autowired private JadwalDao jadwalDao;
     
     
-    @RequestMapping("/tampil")
+    @RequestMapping("/edit-keterangan")
     public @ResponseBody void simpanKeteranganById(@RequestParam("id") Integer id,
-    @RequestParam("keterangan") Integer keterangan){
+    @RequestParam("keterangan") String keterangan){
         jadwalDao.saveKeteranganById(id, keterangan);
         return;
     }

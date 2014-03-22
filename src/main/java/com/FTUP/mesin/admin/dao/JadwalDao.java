@@ -10,7 +10,7 @@ public interface JadwalDao {
     
     public void saveJadwal(Jadwal jadwal);
     
-    public void saveKeteranganById(Integer id, Integer keterangan);
+    public void saveKeteranganById(Integer id, String keterangan);
     
     public void saveJadwalHanyaMatakuliah(Integer idMatkul);
     
